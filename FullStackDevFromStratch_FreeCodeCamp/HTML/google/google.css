@@ -1,0 +1,200 @@
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #202124;
+  background: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Top header (Gmail / Images / Apps / Sign in) ===== */
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  font-size: 13px;
+}
+
+.topbar a {
+  color: #202124;
+  text-decoration: none;
+}
+
+.topbar a:hover {
+  text-decoration: underline;
+}
+
+.apps-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.apps-btn:hover {
+  background: #f1f3f4;
+}
+
+.signin-btn {
+  border: none;
+  background: #1a73e8;
+  color: #fff;
+  padding: 9px 14px;
+  border-radius: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signin-btn:hover {
+  background: #1669d6;
+}
+
+/* ===== Center area ===== */
+.center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+/* Fake Google logo text (if you're not using an image) */
+.logo {
+  font-size: 90px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin: 10px 0 22px;
+  user-select: none;
+}
+
+/* ===== Search bar ===== */
+.search-wrap {
+  width: min(600px, 92vw);
+}
+
+.searchbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  padding: 10px 14px;
+  background: #fff;
+}
+
+.searchbar:hover {
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  border-color: transparent;
+}
+
+.searchbar:focus-within {
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  border-color: transparent;
+}
+
+.search-icon,
+.mic-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.55;
+  flex: 0 0 auto;
+}
+
+.searchbar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* ===== Buttons under search ===== */
+.actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.actions button {
+  border: 1px solid transparent;
+  background: #f8f9fa;
+  color: #3c4043;
+  padding: 9px 14px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  border-color: #dadce0;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Little language line ===== */
+.lang {
+  margin-top: 18px;
+  font-size: 13px;
+  color: #4d5156;
+}
+
+.lang a {
+  color: #1a0dab;
+  text-decoration: none;
+  margin-left: 6px;
+}
+
+.lang a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #f2f2f2;
+  color: #70757a;
+  font-size: 14px;
+}
+
+.footer-top {
+  padding: 12px 18px;
+  border-bottom: 1px solid #dadce0;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+}
+
+.footer-links a {
+  color: #70757a;
+  text-decoration: none;
+  font-size: 14px;
+  margin-right: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-left,
+.footer-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}

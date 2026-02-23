@@ -1,0 +1,56 @@
+.card {
+  color: #3d3c3c;
+  background-color: rgb(214, 213, 213);
+  width: 300px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+
+  border: 8px solid rgb(92, 73, 73);
+  border-radius: 20px;
+
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.follow-btn {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+
+  background-color: rgb(255, 240, 240);
+
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 10px;
+
+  border: 2px solid rgb(231, 225, 225);
+  border-radius: 25px;
+
+  width: 150px;
+  display: block;
+}
+
+/*
+The CSS box model is how the browser measures and spaces every element on a page. Think of each element as a box made of 4 layers:
+
+1) Content
+
+The actual text/image inside the element.
+
+2) Padding
+
+Space inside the box, between content and border.
+
+3) Border
+
+The line around the padding + content.
+
+4) Margin
+
+Space outside the box, separating it from other elements.
+*/

@@ -1,0 +1,10 @@
+body {
+  background-color: rgb(254, 253, 253);
+  color: rgba(22, 19, 3, 0.787);
+  font-family: Arial, Verdana, sans-serif;
+}
+
+.div1 {
+  font-weight: bold;
+  font-size: 1em;
+}

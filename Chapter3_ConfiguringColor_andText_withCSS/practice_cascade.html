@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Cascade Rules</title>
+        <link rel="stylesheet" href="cascade.css">
+    </head>
+    <style>
+        header {
+            text-decoration: underline;
+            background-color: rgb(90, 90, 91);
+            color: rgb(208, 206, 206);
+        }
+
+        body div {
+            background-color: rgb(228, 228, 228);
+
+        }
+    </style>
+
+    <body>
+        <header>
+            <h1>CSS Cascade — Simple Explanation</h1>
+        </header>
+        <main>
+            <div class="div1">
+                <h2>How the Cascade Works (Priority Order)</h2>
+                <ul>
+                    <li> Inline styles (highest priority)
+                        Styles written directly inside an HTML tag override others.</li>
+                    <li>Internal CSS</li>
+                    <li>External CSS (linked stylesheet)</li>
+                    <li>Browser default styles (lowest priority)</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Specificity Rule</h3>
+                <p> If two rules conflict, the one with higher specificity wins. <br>
+                    Priority from highest to lowest.<br></p>
+                <ul>
+                    <li>• ID selector → #header </li>
+                    <li>• Class selector → .menu</li>
+                    <li>• Element selector → p</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Short Exam Definition</h3>
+                <p style="color: black;
+                          font-size: 1.2em;
+                          font-weight: bold;">The CSS cascade is the set of rules that determines which style is
+                    applied
+                    to
+                    an element when
+                    multiple styles conflict, based on priority, specificity, and source order.</p>
+            </div>
+        </main>
+
+    </body>
+
+</html>

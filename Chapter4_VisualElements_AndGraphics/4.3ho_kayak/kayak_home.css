@@ -1,0 +1,21 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(220, 249, 220);
+}
+
+#bar {
+  background-color: green;
+  border: 2px solid rgb(1, 70, 1);
+  padding: 10px;
+}
+
+div a {
+  font-family: DejaVu Sans Mono, monospace;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+
+img {
+  border: none;
+}

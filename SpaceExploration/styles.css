@@ -1,0 +1,128 @@
+/* =========================
+   GLOBAL STYLES
+   ========================= */
+
+body {
+  font-family: "Orbitron", sans-serif; /* futuristic font */
+  color: #0fa1c2;
+  margin: 0;
+}
+
+/* =========================
+   HERO SECTION BACKGROUND
+   ========================= */
+
+#hero-section {
+  background-image: url("Space Waves GIF by ZinZen.gif");
+  /* 🔹 rename your GIF to avoid spaces */
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 100vh; /* full screen height */
+
+  position: relative; /* required for overlay */
+}
+
+/* =========================
+   DARK OVERLAY (NEW)
+   Improves text readability
+   ========================= */
+
+#hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* =========================
+   CONTENT WRAPPER (NEW)
+   Keeps content above overlay
+   ========================= */
+
+.hero-content {
+  padding: 80px 20px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* =========================
+   LOGO STYLE
+   ========================= */
+
+#spaceX {
+  width: 150px; /* slightly larger */
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/* =========================
+   TITLE STYLE (IMPROVED)
+   ========================= */
+
+#title {
+  text-shadow: 0 0 10px rgba(129, 241, 2, 0.7);
+  letter-spacing: 4px; /* futuristic spacing */
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+/* underline highlight */
+.underline {
+  border-bottom: 4px solid rgb(24, 248, 222);
+}
+
+/* =========================
+   BUTTON STYLE
+   ========================= */
+
+.apply-btn {
+  font-family: inherit;
+  padding: 10px 30px;
+
+  background-color: rgb(55, 54, 49);
+  color: #0fa1c2;
+  font-weight: bold;
+
+  border: none;
+  border-radius: 25px;
+
+  transition: all 0.2s ease; /* smooth animation */
+}
+
+/* ✅ NEW hover animation */
+.apply-btn:hover {
+  background-color: #0fa1c2;
+  color: #000;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* =========================
+   FOOTER NOTE
+   ========================= */
+
+.terms {
+  text-align: center;
+  background-color: rgb(20, 27, 11);
+  margin: 0;
+  padding: 20px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN (NEW)
+   ========================= */
+
+@media (max-width: 600px) {
+  #title {
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+
+  #spaceX {
+    width: 120px;
+  }
+}

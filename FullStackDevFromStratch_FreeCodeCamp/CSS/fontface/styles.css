@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Corleone";
+  src: url("Corleone.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "CorleoneDue";
+  src: url("CorleoneDue.ttf") format("truetype");
+}
+
+body {
+  font-family: "Corleone", "CorleoneDue", serif;
+}

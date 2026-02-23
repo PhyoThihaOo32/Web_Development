@@ -1,0 +1,15 @@
+body {
+  margin: 0px;
+}
+
+h1 {
+  background-color: rgba(176, 25, 25, 0.83);
+  color: rgb(254, 235, 235);
+  text-align: center;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgb(48, 47, 47);
+  /*           ^    >  blur color */
+  padding: 50px;
+  margin: 0px;
+}

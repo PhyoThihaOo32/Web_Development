@@ -1,59 +1,63 @@
-body {
-  font-family: "Roboto", sans-serif;
-  background: linear-gradient(white, rgb(160, 148, 148));
-  margin: 0px;
+/* ================= GLOBAL ================= */
 
+body {
   font-family: "Inconsolata", monospace;
+  background: linear-gradient(white, rgb(160, 148, 148));
+  margin: 0;
   letter-spacing: 1px;
 }
 
+/* ================= HEADER ================= */
+
 .ht-header {
   background-image: url("hometown-logo.webp");
-  background-size: cover; /* fills screen proportionally */
-  background-position: center; /* keeps center focus */
-  background-repeat: no-repeat; /* no tiling */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-  min-height: 100vh; /* full screen height */
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 20px 20px;
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+
+  padding: 40px 20px;
+  text-align: center;
 }
 
 .title {
   color: rgb(188, 166, 52);
-  background: rgba(0, 0, 0, 0.486);
-
-  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 12px 24px;
   border-radius: 10px;
   border: 1px solid rgb(189, 167, 41);
+  font-size: 42px;
 }
 
 #mdy-poem {
   color: rgb(188, 166, 52);
   background: rgba(0, 0, 0, 0.5);
-
   border-radius: 10px;
   border: 1px solid rgb(189, 167, 41);
-
   padding: 20px;
   margin: 30px 20px;
+  max-width: 800px;
+  line-height: 1.6;
 }
+
+/* ================= ACTIVITIES TITLE ================= */
 
 .activities-title {
   background: rgb(234, 201, 14);
   padding: 20px;
-
-  margin: 0px;
+  margin: 0;
   text-align: center;
   color: rgb(60, 59, 50);
+  font-size: 28px;
 }
+
+/* ================= MAIN CONTAINER ================= */
 
 .td-main {
   display: flex;
@@ -61,125 +65,141 @@ body {
   align-items: center;
 }
 
+/* ================= ACTIVITIES SECTIONS ================= */
+
 #activity1,
 #activity2,
 #activity3 {
+  width: 100%;
+  min-height: 80vh;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
   text-align: center;
 }
 
 #activity1 {
   background-image: url("UBein.webp");
-  background-size: cover; /* fills screen proportionally */
-  width: 100%;
-  min-height: 100vh; /* full screen height */
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 #activity2 {
   background-image: url("Shwenandaw Monastery.jpg");
-  background-size: cover; /* fills screen proportionally */
-  width: 100%;
-  min-height: 100vh; /* full screen height */
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 #activity3 {
   background-image: url("Mahamuni-Paya.jpg");
-  background-size: cover; /* fills screen proportionally */
-  width: 100%;
-  min-height: 100vh; /* full screen height */
+}
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/* ================= TEXT STYLES ================= */
+
+.act-description,
+.act-description2,
+.act-description3 {
+  font-size: 32px;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+  border-radius: 8px;
 }
 
 .act-description {
-  font-size: 30px;
-  letter-spacing: 3px;
   color: rgb(188, 166, 52);
   background: rgba(0, 0, 0, 0.5);
 }
 
+.act-description2 {
+  color: rgb(115, 195, 59);
+  background: rgba(117, 58, 58, 0.5);
+}
+
+.act-description3 {
+  color: rgb(148, 168, 82);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.act-parapragh,
+.act-parapragh2,
+.act-parapragh3 {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  max-width: 600px;
+}
+
 .act-parapragh {
-  font-size: 15px;
   color: rgb(203, 224, 80);
   background: rgba(120, 57, 57, 0.5);
 }
 
-.act-description2 {
-  font-size: 30px;
-  letter-spacing: 3px;
-  color: rgb(115, 195, 59);
-  background: rgba(117, 58, 58, 0.5);
-}
-
 .act-parapragh2 {
-  font-size: 18px;
   color: rgb(115, 195, 59);
   background: rgba(117, 58, 58, 0.5);
-}
-.act-description3 {
-  font-size: 30px;
-  letter-spacing: 3px;
-  color: rgb(148, 168, 82);
-  background: rgba(0, 0, 0, 0.79);
 }
 
 .act-parapragh3 {
-  font-size: 15px;
   color: rgb(189, 228, 161);
-  background: rgba(0, 0, 0, 0.79);
+  background: rgba(0, 0, 0, 0.7);
 }
 
-.tourguide {
-  background: linear-gradient(rgba(225, 153, 44, 0.872), rgb(151, 135, 65));
-  text-align: center;
+/* ================= TOUR GUIDE ================= */
 
-  padding: 10px;
+.tourguide {
+  background: linear-gradient(rgba(225, 153, 44, 0.9), rgb(151, 135, 65));
+  padding: 30px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .tourguide-header {
-  margin: 0px;
-  font-size: 30px;
+  margin: 0;
+  font-size: 28px;
 }
 
 #tourguide-image {
   width: 200px;
   height: 200px;
   border: 2px solid rgba(208, 185, 54, 0.833);
-  border-radius: 1000px;
-
-  margin: 20px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 #guide-name {
   border: 1px solid rgb(163, 152, 88);
-  padding: 20px;
+  padding: 12px 24px;
   border-radius: 200px;
+  display: inline-block;
 }
+
+/* ================= BEST PHOTO ================= */
 
 .bestphoto {
   background-image: url("1_photo-tours-burma.jpg");
-  background-size: cover; /* makes image fill nicely */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   width: 100%;
-  height: 700px;
+  min-height: 50vh;
 }
+
+/* ================= FOOTER ================= */
 
 footer {
   width: 100%;
   text-align: center;
   padding: 20px;
   color: rgb(189, 228, 161);
-  background: rgba(0, 0, 0, 0.6); /* transparent overlay */
+  background: rgba(0, 0, 0, 0.6);
 }
 
 footer a {
@@ -190,4 +210,42 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+
+  #mdy-poem {
+    font-size: 14px;
+  }
+
+  .act-description,
+  .act-description2,
+  .act-description3 {
+    font-size: 22px;
+  }
+
+  .act-parapragh,
+  .act-parapragh2,
+  .act-parapragh3 {
+    font-size: 14px;
+  }
+
+  #tourguide-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .tourguide {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bestphoto {
+    min-height: 40vh;
+  }
 }

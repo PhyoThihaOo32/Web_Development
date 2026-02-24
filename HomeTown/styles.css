@@ -1,0 +1,193 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(white, rgb(160, 148, 148));
+  margin: 0px;
+
+  font-family: "Inconsolata", monospace;
+  letter-spacing: 1px;
+}
+
+.ht-header {
+  background-image: url("hometown-logo.webp");
+  background-size: cover; /* fills screen proportionally */
+  background-position: center; /* keeps center focus */
+  background-repeat: no-repeat; /* no tiling */
+
+  min-height: 100vh; /* full screen height */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: rgb(188, 166, 52);
+  background: rgba(0, 0, 0, 0.486);
+
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid rgb(189, 167, 41);
+}
+
+#mdy-poem {
+  color: rgb(188, 166, 52);
+  background: rgba(0, 0, 0, 0.5);
+
+  border-radius: 10px;
+  border: 1px solid rgb(189, 167, 41);
+
+  padding: 20px;
+  margin: 30px 20px;
+}
+
+.activities-title {
+  background: rgb(234, 201, 14);
+  padding: 20px;
+
+  margin: 0px;
+  text-align: center;
+  color: rgb(60, 59, 50);
+}
+
+.td-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#activity1,
+#activity2,
+#activity3 {
+  text-align: center;
+}
+
+#activity1 {
+  background-image: url("UBein.webp");
+  background-size: cover; /* fills screen proportionally */
+  width: 100%;
+  min-height: 100vh; /* full screen height */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#activity2 {
+  background-image: url("Shwenandaw Monastery.jpg");
+  background-size: cover; /* fills screen proportionally */
+  width: 100%;
+  min-height: 100vh; /* full screen height */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#activity3 {
+  background-image: url("Mahamuni-Paya.jpg");
+  background-size: cover; /* fills screen proportionally */
+  width: 100%;
+  min-height: 100vh; /* full screen height */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.act-description {
+  font-size: 30px;
+  letter-spacing: 3px;
+  color: rgb(188, 166, 52);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.act-parapragh {
+  font-size: 15px;
+  color: rgb(203, 224, 80);
+  background: rgba(120, 57, 57, 0.5);
+}
+
+.act-description2 {
+  font-size: 30px;
+  letter-spacing: 3px;
+  color: rgb(115, 195, 59);
+  background: rgba(117, 58, 58, 0.5);
+}
+
+.act-parapragh2 {
+  font-size: 18px;
+  color: rgb(115, 195, 59);
+  background: rgba(117, 58, 58, 0.5);
+}
+.act-description3 {
+  font-size: 30px;
+  letter-spacing: 3px;
+  color: rgb(148, 168, 82);
+  background: rgba(0, 0, 0, 0.79);
+}
+
+.act-parapragh3 {
+  font-size: 15px;
+  color: rgb(189, 228, 161);
+  background: rgba(0, 0, 0, 0.79);
+}
+
+.tourguide {
+  background: linear-gradient(rgba(225, 153, 44, 0.872), rgb(151, 135, 65));
+  text-align: center;
+
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.tourguide-header {
+  margin: 0px;
+  font-size: 30px;
+}
+
+#tourguide-image {
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgba(208, 185, 54, 0.833);
+  border-radius: 1000px;
+
+  margin: 20px;
+}
+
+#guide-name {
+  border: 1px solid rgb(163, 152, 88);
+  padding: 20px;
+  border-radius: 200px;
+}
+
+.bestphoto {
+  background-image: url("1_photo-tours-burma.jpg");
+  background-size: cover; /* makes image fill nicely */
+  width: 100%;
+  height: 700px;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  color: rgb(189, 228, 161);
+  background: rgba(0, 0, 0, 0.6); /* transparent overlay */
+}
+
+footer a {
+  color: rgba(214, 234, 86, 0.957);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

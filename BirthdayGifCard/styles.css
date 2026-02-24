@@ -1,0 +1,116 @@
+body {
+  font-family: "Happy Monkey", system-ui;
+  text-align: center;
+
+  background: linear-gradient(rgb(81, 175, 207), rgb(249, 109, 132));
+  color: rgba(255, 238, 237, 0.767);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  text-shadow: 1px 2px 1px rgb(111, 79, 79);
+}
+
+#bd-photo {
+  width: 200px;
+  height: 200px;
+
+  border-radius: 200px;
+  border: 4px rgb(57, 159, 237) solid;
+}
+
+#bday-age {
+  background-color: rgb(68, 166, 240);
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin: 20px 0px 2px 0px;
+}
+
+#bday-date {
+  background-color: rgb(68, 174, 240);
+  padding: 10px;
+  border-radius: 15px;
+  margin: 7px 0px 5px 0px;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.giftbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bday-text {
+  background: linear-gradient(rgb(143, 143, 237), rgb(86, 86, 222));
+  padding: 10px 50px;
+  margin: 20px 0px 10px 0px;
+
+  border: 4px solid rgb(221, 129, 207);
+  border-radius: 20px;
+}
+
+.bday-prompt {
+  background: linear-gradient(rgb(143, 143, 237), rgb(86, 86, 222));
+  padding: 10px 50px;
+  margin: 20px 0px 10px 0px;
+
+  border: 4px solid rgb(221, 129, 207);
+  border-radius: 20px;
+}
+
+#giftboxcover1,
+#giftboxcover2,
+#giftboxcover3,
+#giftboxcover4,
+#giftboxcover5 {
+  background-image: url("gold-ribbon-on-pink-background-gift-box-cover-vector-4659249.avif");
+  background-size: 450px 500px;
+
+  width: 400px;
+  height: 400px;
+  margin: 20px 0px 20px 0px;
+
+  border: 5px solid white;
+  border-radius: 50px;
+}
+
+#giftboxcover1:hover {
+  background-image: url("Happy Cheer GIF by Minions.gif");
+  background-size: contain;
+}
+
+#giftboxcover2:hover {
+  background-image: url("i love him despicable me GIF.gif");
+  background-size: contain;
+}
+
+#giftboxcover3:hover {
+  background-image: url("cnn trump GIF.gif");
+  background-size: 400px 400px;
+}
+
+#giftboxcover4:hover {
+  background-image: url("sylvester stallone rambo GIF.gif");
+  background-size: cover;
+}
+
+#giftboxcover5:hover {
+  background-image: url("Cute Girl GIF.gif");
+  background-size: 400px 400px;
+}
+
+.linktoScrimba {
+  font-size: 15px;
+  background: linear-gradient(pink, rgb(58, 117, 142));
+
+  padding: 10px;
+  margin: 0;
+}

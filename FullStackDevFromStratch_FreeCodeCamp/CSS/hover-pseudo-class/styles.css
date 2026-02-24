@@ -1,0 +1,22 @@
+a {
+  display: block;
+
+  text-decoration: none;
+  background: rgb(176, 43, 43);
+
+  margin: 3px;
+  padding: 10px;
+
+  font-family: sans-serif;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+a:hover {
+  background-color: rgb(193, 73, 73);
+  font-size: 25px;
+
+  background-image: url("food.jpg");
+  background-size: contain;
+}

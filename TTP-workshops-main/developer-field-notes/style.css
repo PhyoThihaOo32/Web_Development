@@ -1,0 +1,13 @@
+body {
+  background: rgb(204, 201, 201);
+}
+
+h1 {
+  text-decoration: underline;
+  color: rgb(9, 24, 9);
+}
+
+footer {
+  border: 1px solid;
+  color: rgb(74, 68, 36);
+}

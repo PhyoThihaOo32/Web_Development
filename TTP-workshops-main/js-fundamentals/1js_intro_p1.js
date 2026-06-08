@@ -33,6 +33,8 @@ console.log(score); // undefined
 
 // Three ways to declare — prefer const, use let when you need to reassign, avoid var
 const personName = "Alex"; // block-scoped, cannot reassign
+// personName = "fido dido";
+// console.log(personName); // error
 let age = 25; // block-scoped, can reassign
 // var city = 'New York';  // function-scoped — avoid this
 
@@ -139,7 +141,7 @@ function first() {
 
 function second(fn) {
   console.log("i am second");
-  fn("working!");
+  fn("working!"); // console.log("working!")
 }
 
 function third() {
@@ -189,6 +191,7 @@ const calculator = {
     this.value = 0;
   },
 };
+
 calculator.add(5);
 calculator.add(3);
 console.log(calculator.value); // 8

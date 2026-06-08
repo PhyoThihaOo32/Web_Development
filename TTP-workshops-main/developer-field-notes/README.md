@@ -6,7 +6,8 @@ Developer Field Notes is a simple HTML webpage that explains basic Git and GitHu
 
 ## Deployed GitHub Pages Site
 
-[View the live site here]https://github.com/PhyoThihaOo32/Web_Development/tree/main/TTP-workshops-main/developer-field-notes
+[View the live site here]
+https://github.com/PhyoThihaOo32/Web_Development/tree/main/TTP-workshops-main/developer-field-notes
 
 ## Features
 

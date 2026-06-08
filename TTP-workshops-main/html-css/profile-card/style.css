@@ -1,0 +1,263 @@
+/* 
+  Profile Card — Style Sheet
+  ==========================
+  Complete PART A (all 7 HTML steps) before opening this file.
+  Work through each section in order — each one builds on the last.
+
+  TIP: Add a temporary border to any element to see its box:
+    border: 2px solid red;
+  Remove it once you understand what's happening.
+
+  TIP: Open DevTools (right-click → Inspect) to experiment with
+  values live in the browser before writing them here.
+*/
+
+/* ─── 1. RESET & BASE ──────────────────────────────────────────────────────
+   Browsers add default margins and padding to many elements.
+   This reset clears them so you start with a clean slate.
+   No changes needed here.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+@media (max-width: 400px) {
+  .card {
+    width: 90%;
+  }
+}
+
+/* ─── 2. PAGE (full-screen container) ──────────────────────────────────────
+   .page fills the whole screen and centers the card inside it.
+
+   TODO — add these properties and choose your values:
+     height: 100vh;               ← 100vh = 100% of the viewport height
+     display: flex;               ← turn on flexbox
+     justify-content: center;     ← center children horizontally
+     align-items: center;         ← center children vertically
+     background-color: ???;       ← pick a background color (try #f0f4f8 or any color)
+
+   ✓ After adding these: the card should appear centered on a colored background.
+*/
+.page {
+  /* TODO */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(218, 220, 208);
+}
+
+/* ─── 3. CARD ──────────────────────────────────────────────────────────────
+   The white box that holds everything.
+
+   TODO — add these properties and choose your values:
+     background-color: white;     ← or any light color
+     padding: ???;                ← space inside the card (try 2rem)
+     max-width: ???;              ← try 360px — keeps it from stretching too wide
+     border-radius: ???;          ← rounded corners (try 16px)
+     box-shadow: ???;             ← lifts the card off the page
+                                     try: 0 4px 20px rgba(0, 0, 0, 0.1)
+     display: flex;
+     flex-direction: column;      ← stack children top to bottom
+     align-items: center;         ← center children horizontally inside the card
+     gap: ???;                    ← space between each child element (try 1rem)
+
+   ✓ After adding these: you should see a white rounded card centered on the page.
+*/
+.card {
+  /* TODO */
+  background-color: white;
+  padding: 3rem;
+  max-width: 350px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border: 2px solid rgb(222, 225, 204);
+}
+
+/* ─── 4. AVATAR ────────────────────────────────────────────────────────────
+   Turn the initials div into a colored circle.
+
+   TODO:
+     width: ???;                  ← try 80px
+     height: ???;                 ← same as width (must match to make a circle)
+     border-radius: 50%;          ← 50% turns a square into a perfect circle
+     background-color: ???;       ← pick an accent color for the "photo" area
+     color: ???;                  ← pick a color for the initials text
+     display: flex;
+     align-items: center;         ← center the initials vertically
+     justify-content: center;     ← center the initials horizontally
+     font-size: ???;              ← make the initials clearly readable (try 1.5rem)
+     font-weight: bold;
+
+   ✓ After adding these: the initials should appear inside a colored circle.
+*/
+.avatar {
+  /* TODO */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgb(217, 218, 156);
+  color: rgb(57, 56, 47);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ─── 5. NAME ──────────────────────────────────────────────────────────────
+   The person's full name. Should be the most prominent text on the card.
+
+   TODO:
+   - font-size: something larger than default — try 1.4rem
+   - font-weight: bold (or 700)
+   - color: a dark color (try #1a1a2e or #222)
+*/
+.name {
+  /* TODO */
+  font-size: 2rem;
+  font-weight: bold;
+  color: darkcyan;
+}
+
+/* ─── 6. ROLE ──────────────────────────────────────────────────────────────
+   The job title. Should be visually quieter than the name.
+
+   TODO:
+   - font-size: slightly smaller than .name (try 0.9rem)
+   - color: a muted gray (try #666 or #888)
+*/
+.role {
+  /* TODO */
+  font-size: 1.2rem;
+  color: rgb(87, 106, 117);
+}
+
+/* ─── 7. BIO ───────────────────────────────────────────────────────────────
+   A short paragraph. Readable but not dominant.
+
+   TODO:
+   - font-size: comfortable body text (try 0.9rem)
+   - color: a dark gray (try #444 or #555)
+   - text-align: center
+   - max-width: 260px   ← optional: keeps long lines from getting too wide
+*/
+.bio {
+  /* TODO */
+  font-size: 16px;
+  color: rgb(99, 74, 99);
+  font-style: bold;
+  text-align: center;
+  max-width: 260px;
+}
+
+/* ─── 8. ACTIONS (button container) ───────────────────────────────────────
+   The div holding both buttons. They should sit side by side.
+
+   TODO:
+   - display: flex;          ← puts the buttons in a row
+   - gap: ???;               ← space between the two buttons (try 0.75rem)
+*/
+.actions {
+  /* TODO */
+  display: flex;
+  gap: 0.5rem;
+  margin: 10px;
+}
+
+/* ─── 9. BUTTONS (shared styles) ──────────────────────────────────────────
+   Styles that apply to BOTH buttons.
+
+   TODO:
+   - padding: ???;           ← try 0.6rem 1.4rem (top/bottom, left/right)
+   - border-radius: ???;     ← try 8px for slightly rounded corners
+   - border: none;           ← remove the default browser border
+   - font-size: 0.9rem;
+   - font-weight: 600;
+   - cursor: pointer;        ← changes the mouse to a hand on hover
+*/
+.btn {
+  /* TODO */
+  padding: 5px;
+  border-radius: 70px;
+  border-color: goldenrod;
+  font-size: 15px;
+  font-weight: 300px;
+  cursor: pointer;
+}
+
+/* ─── 10. PRIMARY BUTTON ───────────────────────────────────────────────────
+   The "Follow" button — the main action. Should stand out.
+
+   TODO:
+   - background-color: ???  ← pick a strong accent color (your choice!)
+   - color: white
+*/
+.btn-primary {
+  /* TODO */
+  background-color: rgb(103, 116, 228);
+  color: rgb(51, 6, 11);
+}
+
+/* Hover state — what happens when the mouse moves over the button?
+   TODO: change the background color slightly on hover
+   HINT: .btn-primary:hover { background-color: ???; }
+   Try a slightly darker version of your primary color.
+*/
+.btn-primary:hover {
+  /* TODO */
+  background-color: rgb(196, 196, 30);
+  transition: background-color 0.2s ease;
+}
+
+/* ─── 11. SECONDARY BUTTON ─────────────────────────────────────────────────
+   The "Message" button — a less prominent action.
+   Try an outlined style: transparent background with a colored border and text.
+
+   TODO:
+   - background-color: transparent
+   - border: 2px solid ???    ← use the same color as your primary button
+   - color: ???               ← match the border color
+*/
+.btn-secondary {
+  /* TODO */
+  background-color: transparent;
+  border: 2px solid;
+  color: rgb(241, 192, 200);
+}
+
+/* Hover state — subtle fill on hover */
+.btn-secondary:hover {
+  /* TODO: try a very light version of your accent color as the background */
+  background-color: rgb(81, 76, 77);
+  transition: background-color 0.2s ease;
+}
+
+/* ─── EXTENSION (if you finish early) ─────────────────────────────────────
+   Try adding one or more of these:
+
+   1. A thin divider line between the bio and buttons
+      Hint: add an <hr> element in the HTML above the buttons div
+
+   2. A smooth color transition when hovering over buttons
+      Hint: add to .btn → transition: background-color 0.2s ease;
+
+   3. A "stats" row above the buttons showing follower counts
+      Hint: add a new div in the HTML, then use flexbox + gap to lay it out
+
+   4. Make the card look good on narrow screens:
+      @media (max-width: 400px) { .card { width: 90%; } }
+ */

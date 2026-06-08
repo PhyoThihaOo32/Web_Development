@@ -1,0 +1,691 @@
+/**
+ * CSS Foundations Demo
+ *
+ * Link this file to html-intro.html (or any HTML file) to see it in action:
+ *   <link rel="stylesheet" href="css-intro.css" />
+ *
+ * Topics:
+ *  1.  How CSS Works — rules, cascade, specificity
+ *  2.  Selectors
+ *  3.  The Box Model  ← most important concept in CSS
+ *  4.  Units
+ *  5.  Colors
+ *  6.  Typography
+ *  7.  Display
+ *  8.  Flexbox        ← most important layout tool you'll use
+ *  9.  Positioning
+ *  10. Pseudo-classes
+ *  11. CSS Variables (Custom Properties)
+ *  12. Media Queries (Responsive Design)
+ */
+
+/** ==================
+ * HOW CSS WORKS
+ * ================== */
+
+/*
+  CSS = Cascading Style Sheets
+
+  A CSS rule has two parts:
+    selector    { property: value; }
+    ─────────     ───────  ─────
+    WHAT to style  WHAT to change  NEW VALUE
+
+  The "Cascading" part:
+    When multiple rules target the same element, the browser decides which wins.
+    Three factors, in order of priority:
+      1. Specificity  — more specific selectors beat less specific ones
+                        id > class > element
+      2. Order        — if specificity is equal, the rule written LAST wins
+      3. Inheritance  — some properties (color, font) flow down to child elements;
+                        layout properties (margin, padding, border) do not
+
+  The browser also applies its own default styles (user agent stylesheet).
+  That's why <h1> is big and <a> is blue before you write any CSS.
+  A CSS reset clears these defaults so you start with a clean slate.
+*/
+
+/* A minimal reset — clear margins, padding, and switch to border-box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* explained in the Box Model section below */
+  margin: 0;
+  padding: 0;
+}
+
+/** ==================
+ * SELECTORS
+ * ================== */
+
+/*
+  Selectors decide WHICH elements your styles apply to.
+
+  ─── Type selector ─────────────────────────────────────────────
+  Targets every element of that tag.
+  Low specificity — gets overridden easily.
+*/
+p {
+  color: #333;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  /* comma = "AND ALSO" — apply to all three */
+  font-weight: 700;
+}
+
+/*
+  ─── Class selector ────────────────────────────────────────────
+  Targets any element with that class attribute.
+  Prefix with a dot. Medium specificity.
+  PREFERRED for styling — reusable, doesn't over-target.
+*/
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.card.featured {
+  /* element must have BOTH classes — no space between them */
+  border: 2px solid gold;
+}
+
+/*
+  ─── ID selector ───────────────────────────────────────────────
+  Targets the ONE element with that id.
+  Prefix with #. High specificity — hard to override.
+  Avoid for styling. Use IDs for JS (getElementById) and anchor links (#section).
+*/
+#unique-box {
+  background: #fffbeb;
+}
+
+/*
+  ─── Descendant selector ───────────────────────────────────────
+  Targets elements nested ANYWHERE inside another element.
+  Space between selectors.
+*/
+nav a {
+  /* any <a> inside a <nav>, at any depth */
+  text-decoration: none;
+  color: inherit;
+}
+
+/*
+  ─── Child selector (>) ────────────────────────────────────────
+  Targets only DIRECT children — not grandchildren.
+*/
+ul > li {
+  /* only <li> that are direct children of <ul> */
+  list-style: disc;
+}
+
+/*
+  ─── Specificity cheat sheet ───────────────────────────────────
+    Element / pseudo-element   0, 0, 1   (lowest)
+    Class / attribute          0, 1, 0
+    ID                         1, 0, 0   (highest of these three)
+    Inline style               beats all of the above
+    !important                 nuclear option — avoid it
+
+  Example: .card p wins over p, because class (0,1,0) > type (0,0,1)
+*/
+
+/** ==================
+ * THE BOX MODEL
+ * ==================
+ *
+ * THE most important concept in CSS layout.
+ * Every element is a rectangular box with four layers:
+ *
+ *   ┌────────────────────────────────────────┐
+ *   │                 MARGIN                 │  ← space OUTSIDE the element
+ *   │   ┌──────────────────────────────┐     │
+ *   │   │            BORDER            │     │
+ *   │   │   ┌──────────────────────┐   │     │
+ *   │   │   │       PADDING        │   │     │  ← space INSIDE the border
+ *   │   │   │   ┌──────────────┐   │   │     │
+ *   │   │   │   │   CONTENT    │   │   │     │  ← where text/images live
+ *   │   │   │   └──────────────┘   │   │     │
+ *   │   │   └──────────────────────┘   │     │
+ *   │   └──────────────────────────────┘     │
+ *   └────────────────────────────────────────┘
+ *
+ *   margin   — transparent space pushing other elements away. Not clickable.
+ *   border   — the visible line around the element
+ *   padding  — space between the content and the border. Takes the background color.
+ *   content  — the actual text/image area
+ */
+
+/*
+  box-sizing: border-box  ← always use this (set in the reset above)
+
+  Default (content-box):  width/height apply to CONTENT ONLY
+                          actual element size = content + padding + border
+                          width: 200px + padding: 20px + border: 2px = 244px total
+
+  border-box:             width/height include padding AND border
+                          total size = exactly what you set
+                          width: 200px means the whole box is 200px — much easier to work with
+*/
+
+.demo-box-model {
+  width: 300px; /* total box width (with border-box) */
+  padding: 20px; /* same on all sides */
+  padding: 10px 20px; /* shorthand: top/bottom  left/right */
+  padding: 5px 10px 15px 20px; /* top  right  bottom  left (clockwise) */
+  border: 2px solid #999;
+  margin: 0 auto; /* auto left/right margin = centered horizontally */
+  margin-bottom: 2rem; /* individual sides can be set independently */
+}
+
+/*
+  Margin collapse:
+    Vertical margins between two block elements collapse into one.
+    If top element has margin-bottom: 30px and next has margin-top: 20px,
+    the gap between them is 30px (the larger one), NOT 50px.
+    Horizontal margins never collapse.
+*/
+
+/** ========
+ * UNITS
+ * ======== */
+
+/*
+  CSS has many units. These are the ones you'll actually use:
+
+  px   — pixels. Absolute, fixed size. Good for borders and precise things.
+         1px on a retina screen is 0.5 physical pixels — but we still call it px.
+
+  rem  — relative to the ROOT font size (html element). Default root = 16px.
+         1rem = 16px, 1.5rem = 24px, 2rem = 32px
+         PREFERRED for font sizes and spacing. Scales with user's browser settings.
+
+  em   — relative to the CURRENT element's font size.
+         Compounds when nested (1.2em inside 1.2em = 1.44x).
+         Useful for padding/margin that should scale with the element's font.
+
+  %    — percentage of the PARENT element's value.
+         width: 50% = half the parent's width.
+
+  vw   — viewport width. 100vw = full window width.
+  vh   — viewport height. 100vh = full window height.
+         Great for hero sections and full-screen layouts.
+
+  Rule of thumb:
+    Font sizes → rem
+    Spacing (padding, margin, gap) → rem
+    Widths → % or px
+    Full-screen heights → vh
+    Borders → px
+*/
+
+.unit-demo {
+  font-size: 1rem; /* 16px by default */
+  padding: 1.5rem; /* 24px */
+  width: 80%; /* 80% of parent's width */
+  max-width: 600px; /* never wider than 600px even if parent is huge */
+  min-height: 100vh; /* at least as tall as the viewport */
+}
+
+/** =========
+ * COLORS
+ * ========= */
+
+/*
+  Four ways to write colors in CSS:
+
+  Named colors    — readable, limited
+                    red, blue, white, black, coral, tomato, ...
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/named-color
+
+  Hex             — #RRGGBB (each pair is 00–FF in base 16)
+                    #000000 = black, #ffffff = white, #ff0000 = red
+                    Shorthand: #abc = #aabbcc
+
+  rgb()           — rgb(red, green, blue) each 0–255
+                    rgb(0, 0, 0) = black, rgb(255, 255, 255) = white
+
+  rgba()          — same as rgb but with an alpha (opacity) channel, 0–1
+                    rgba(0, 0, 0, 0.5) = 50% transparent black
+                    Most useful for overlays and shadows
+
+  Modern CSS also has hsl() and oklch() — you'll encounter these.
+*/
+
+.color-demo {
+  color: #333; /* text color */
+  background-color: #f0f2f5; /* background */
+  border: 1px solid rgb(200, 200, 200);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /*
+    box-shadow: x-offset  y-offset  blur-radius  color
+    Positive y = shadow below, negative y = shadow above.
+    Multiple shadows: box-shadow: 0 2px 4px rgba(0,0,0,.1), 0 8px 16px rgba(0,0,0,.05);
+  */
+}
+
+/** ============
+ * TYPOGRAPHY
+ * ============ */
+
+body {
+  /* font-family: list of fallbacks separated by commas, last is a generic family */
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  /*
+    The browser tries each one in order, using the first it finds.
+    Always end with a generic: sans-serif, serif, monospace, cursive
+    To use Google Fonts, add a <link> in your HTML <head> first.
+  */
+
+  font-size: 1rem; /* base size (inherits to most elements) */
+  line-height: 1.5; /* line-height without a unit = multiplier of font-size */
+  /* 1.5 is the recommended minimum for readability */
+  color: #1a1a1a;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800; /* 100–900, multiples of 100. 400 = normal, 700 = bold */
+  letter-spacing: -0.02em; /* tight letter spacing for large headings */
+  line-height: 1.2; /* tighter line-height for headings */
+}
+
+.small-text {
+  font-size: 0.875rem; /* 14px at default root */
+  color: #666;
+}
+
+a {
+  color: #2563eb; /* blue */
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.centered {
+  text-align: center; /* left | center | right | justify */
+}
+
+.truncate {
+  /* Single-line truncation with ellipsis — all three properties required */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/** =========
+ * DISPLAY
+ * ========= */
+
+/*
+  Every element has a default display value — the browser gives it one.
+  You can override it with CSS.
+
+  block        — starts on a new line, takes full width
+                 width and height can be set
+                 examples: <div>, <p>, <h1>, <section>, <li>
+
+  inline       — flows within text, takes only as much width as content
+                 width and height are IGNORED (use padding for spacing)
+                 vertical margins don't work as expected
+                 examples: <span>, <a>, <strong>, <em>
+
+  inline-block — hybrid: flows inline, but width/height and all margins work
+                 examples: <img>, <button> (technically inline-block by default)
+
+  flex         — turns the element into a flex container (covered next)
+
+  grid         — turns the element into a grid container (covered in a later lecture)
+
+  none         — removes the element from the page entirely (no space left behind)
+                 vs. visibility: hidden — hides it but KEEPS the space
+*/
+
+.block-demo {
+  display: block;
+}
+.inline-demo {
+  display: inline;
+}
+.hidden {
+  display: none;
+} /* completely removes from layout */
+
+/** =========
+ * FLEXBOX
+ * =========
+ *
+ * Flexbox is a one-dimensional layout system.
+ * One axis at a time: either a row OR a column.
+ * Apply it to a CONTAINER, and it controls how the CHILDREN are arranged.
+ *
+ * Most common use cases:
+ *   - Centering content (horizontally, vertically, or both)
+ *   - Nav bar: logo left, links right
+ *   - Card grid with equal spacing
+ *   - Form rows: label + input side by side
+ */
+
+.flex-container {
+  display: flex; /* activates flexbox on this element. Children become flex items. */
+
+  /* ── Direction ────────────────────────────────────────── */
+  flex-direction: row; /* default: children in a row, left→right */
+  /* flex-direction: column;   — children stacked top→bottom */
+  /* flex-direction: row-reverse; column-reverse; also exist */
+
+  /* ── Alignment on the main axis (direction of flex-direction) ── */
+  justify-content: flex-start; /* default: pack to the start */
+  /* justify-content: flex-end;           — pack to the end */
+  /* justify-content: center;             — center in the row/column */
+  /* justify-content: space-between;      — first/last at edges, equal gaps between */
+  /* justify-content: space-around;       — equal space around each item */
+  /* justify-content: space-evenly;       — equal space between AND at edges */
+
+  /* ── Alignment on the cross axis (perpendicular to flex-direction) ── */
+  align-items: stretch; /* default: items stretch to fill container height */
+  /* align-items: center;        — vertically center (in a row) */
+  /* align-items: flex-start;    — align to the top (in a row) */
+  /* align-items: flex-end;      — align to the bottom (in a row) */
+
+  /* ── Spacing ─────────────────────────────────────────── */
+  gap: 1rem; /* space BETWEEN flex items — preferred over margins */
+  /* gap: 1rem 2rem;             — row-gap  column-gap */
+
+  /* ── Wrapping ─────────────────────────────────────────── */
+  flex-wrap: nowrap; /* default: all items in one line, shrinks if needed */
+  /* flex-wrap: wrap;            — items wrap to next line when they run out of space */
+}
+
+/* ── Controlling individual flex items ─────────────────── */
+.flex-item {
+  flex: 1; /* shorthand for flex-grow: 1 — item grows to fill space */
+  /* flex: 0 0 200px;            — don't grow, don't shrink, always 200px wide */
+}
+
+/* ── The #1 centering technique ─────────────────────────── */
+.center-everything {
+  display: flex;
+  justify-content: center; /* horizontal center (in row direction) */
+  align-items: center; /* vertical center (in row direction) */
+  min-height: 100vh; /* needs a height for vertical centering to work */
+}
+
+/* ── Common real-world pattern: nav bar ──────────────────── */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* logo left, links right */
+  align-items: center;
+  padding: 0 2rem;
+  height: 60px;
+  background: #1e293b;
+}
+
+/** ============
+ * POSITIONING
+ * ============ */
+
+/*
+  position controls how an element is placed on the page and what it's positioned RELATIVE TO.
+
+  static   — default. Normal document flow. top/left/right/bottom have no effect.
+
+  relative — stays in normal flow, but you can NUDGE it with top/left/right/bottom.
+             Creates a positioning context for absolute children.
+             Other elements are NOT affected — the original space is preserved.
+
+  absolute — removed from normal flow. Positioned relative to its nearest
+             positioned ancestor (one with position !== static).
+             If no positioned ancestor exists, it's relative to <html>.
+             Use for: tooltips, dropdowns, badges, overlays.
+
+  fixed    — removed from normal flow. Positioned relative to the VIEWPORT.
+             Stays in place when the page scrolls.
+             Use for: sticky navbars, floating chat buttons, modals.
+
+  sticky   — hybrid of relative and fixed.
+             Acts as relative until it hits a scroll threshold, then sticks.
+             Use for: headers that stick at the top when you scroll past them.
+             Requires a top/bottom value to know WHEN to stick.
+*/
+
+.parent {
+  position: relative; /* establishes positioning context for children */
+  width: 300px;
+  height: 200px;
+}
+
+.badge {
+  position: absolute;
+  top: 8px; /* 8px from the parent's top edge */
+  right: 8px; /* 8px from the parent's right edge */
+  /* Without a positioned parent, this would stick to the page corner instead */
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 0; /* sticks when it reaches 0px from the top of the viewport */
+  z-index: 100; /* ensures it sits above other content when stuck */
+}
+
+/*
+  z-index — controls stacking order on the Z axis (toward/away from viewer).
+  Higher z-index = on top.
+  Only works on positioned elements (relative, absolute, fixed, sticky).
+  Default is auto (treat as 0).
+*/
+
+/** ==============
+ * PSEUDO-CLASSES
+ * ============== */
+
+/*
+  Pseudo-classes apply styles based on STATE or POSITION — not just what an element is.
+  Syntax: selector:pseudo-class { ... }
+*/
+
+/* ── Interaction states ──────────────────────────────────── */
+a:hover {
+  color: #1d4ed8; /* when mouse is over the element */
+}
+
+button:hover {
+  background: #1d4ed8;
+  cursor: pointer; /* changes mouse to a pointer (hand) */
+}
+
+input:focus {
+  /* when an input is actively selected/typed in */
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+button:active {
+  /* while the mouse button is held down */
+  transform: scale(0.98);
+}
+
+input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Structural pseudo-classes ──────────────────────────── */
+li:first-child {
+  font-weight: bold; /* first item in a list */
+}
+
+li:last-child {
+  border-bottom: none; /* remove border from last item */
+}
+
+li:nth-child(2) {
+  color: steelblue; /* exactly the 2nd child */
+}
+
+li:nth-child(odd) {
+  background: #f9f9f9; /* alternating row colors — works for tables too */
+}
+
+/* ── :not() — negate a selector ──────────────────────────── */
+li:not(:last-child) {
+  border-bottom: 1px solid #eee; /* border on all items EXCEPT the last */
+}
+
+/** ==========================
+ * CSS VARIABLES
+ * (Custom Properties)
+ * ==========================
+ *
+ * Store values in one place, use them everywhere.
+ * If your brand color changes, update one line instead of 50.
+ *
+ * Define on :root (the html element) to make them globally available.
+ * Use: var(--variable-name)
+ * Fallback: var(--variable-name, fallback-value)
+ */
+
+:root {
+  /* Design tokens — colors */
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-text: #1a1a1a;
+  --color-muted: #6b7280;
+  --color-background: #f9fafb;
+  --color-white: #ffffff;
+  --color-border: #e5e7eb;
+
+  /* Design tokens — spacing */
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem; /* 8px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+
+  /* Design tokens — typography */
+  --font-sans: "Inter", sans-serif;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+
+  /* Design tokens — border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px; /* fully rounded — pill shape */
+
+  /* Design tokens — shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Using the variables */
+.button {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-family: var(--font-sans);
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--color-primary-dark);
+}
+
+/*
+  Variables can also be overridden locally — set a new value on a child element
+  and it takes effect for that element and all its descendants.
+
+  .dark-section {
+    --color-text: #ffffff;
+    --color-background: #1a1a1a;
+  }
+*/
+
+/** ================
+ * MEDIA QUERIES
+ * ================
+ *
+ * Media queries apply styles ONLY when a condition is true —
+ * most commonly, when the screen is above or below a certain width.
+ * This is how you make a site "responsive" (looks good on any screen size).
+ *
+ * Two approaches:
+ *   Mobile-first: write styles for small screens first, then use min-width
+ *                 to add/override for larger screens. PREFERRED.
+ *   Desktop-first: write for large screens first, use max-width for smaller.
+ *
+ * Common breakpoints (just conventions — no strict rules):
+ *   < 640px    mobile (small)
+ *   640–768px  mobile (large) / tablet portrait
+ *   768–1024px tablet landscape
+ *   > 1024px   desktop
+ */
+
+/* Base styles — mobile first (no media query needed) */
+.container {
+  width: 100%;
+  padding: 0 var(--space-md);
+}
+
+/* Tablet and up */
+@media (min-width: 640px) {
+  .container {
+    padding: 0 var(--space-xl);
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* ── Real example: responsive card grid ──────────────────── */
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+}
+
+.card-grid .card {
+  flex: 1 1 100%; /* full width on mobile */
+}
+
+@media (min-width: 640px) {
+  .card-grid .card {
+    flex: 1 1 calc(50% - var(--space-lg)); /* 2 columns on tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid .card {
+    flex: 1 1 calc(33% - var(--space-lg)); /* 3 columns on desktop */
+  }
+}
+
+/*
+  Other media features (less common but useful):
+    @media (prefers-color-scheme: dark) { ... }  — respects system dark mode
+    @media (orientation: landscape) { ... }
+    @media print { ... }                          — styles for printing
+*/

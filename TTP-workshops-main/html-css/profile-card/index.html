@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--
+      EXERCISE 1 OF 3 — Profile Card
+      ================================
+      Start here. This is the warmup exercise.
+
+      WHAT YOU'LL PRACTICE:
+        - Writing HTML elements from scratch: div, h2, p, button
+        - Nesting elements inside each other
+        - Assigning CSS classes to elements
+        - Centering a card on the page with flexbox
+        - The box model: padding, border-radius, box-shadow
+
+      ── HOW TO WORK THROUGH THIS ────────────────────────────────────────────────
+        Read ONE step at a time.
+        Write that step's HTML below, then SAVE (Ctrl+S / Cmd+S) and REFRESH the browser.
+        Confirm something changed before moving on. Don't write it all at once!
+
+      ── GOAL ────────────────────────────────────────────────────────────────────
+      When you're done, your card should look roughly like this:
+
+        ┌───────────────────────────────┐
+        │                               │
+        │            [ JR ]             │
+        │                               │
+        │         Jamie Rivera          │
+        │      Full-Stack Developer     │
+        │                               │
+        │  Making things for the web.   │
+        │  Based in Brooklyn, NY.       │
+        │                               │
+        │   [ Follow ]   [ Message ]    │
+        │                               │
+        └───────────────────────────────┘
+
+      The card should be centered on the page, both horizontally and vertically.
+
+      ── PART A: HTML ────────────────────────────────────────────────────────────
+
+      Step 1 — Outer wrapper
+        Create a <div> with class="page"
+        This invisible container fills the full screen.
+        CSS will use it to center the card.
+
+        HINT: <div class="page"> ... </div>
+
+      Step 2 — The card box
+        Inside .page, create a <div> with class="card"
+        Everything else in the exercise goes inside this div.
+
+        HINT — your nesting structure should look like this:
+          <div class="page">
+            <div class="card">
+              (everything else goes in here)
+            </div>
+          </div>
+
+        ✓ CHECKPOINT: Save and refresh — nothing visible yet, and that's fine.
+          Divs are invisible until CSS gives them color and size.
+
+      Step 3 — Avatar placeholder
+        Inside .card, create a <div> with class="avatar"
+        Put two initials inside it — like "JR" for Jamie Rivera, or use your own.
+        CSS will later turn this into a colored circle.
+
+        HINT: <div class="avatar">JR</div>
+
+        ✓ CHECKPOINT: Save and refresh — you should see your initials on the page.
+
+      Step 4 — Name
+        After the avatar div (still inside .card), add an <h2> with class="name"
+        Put a full name inside — real or made up.
+
+        Use <h2> here (not <h1>). The card is a component on a page,
+        not the main heading of the whole document.
+
+        HINT: <h2 class="name">Jamie Rivera</h2>
+
+        ✓ CHECKPOINT: Save and refresh — you should see a bold name below the initials.
+
+      Step 5 — Job title
+        Add a <p> tag with class="role"
+        Put a job title inside — like "Full-Stack Developer" or "Student Developer"
+
+        HINT: <p class="role">Full-Stack Developer</p>
+
+      Step 6 — Bio
+        Add a <p> tag with class="bio"
+        Write one or two sentences about this person. Make something up!
+
+        ✓ CHECKPOINT: Save and refresh — you should see the name, role, and bio
+          stacked on top of each other as plain, unstyled text. That's expected.
+
+      Step 7 — Action buttons
+        Add a <div> with class="actions"
+        Inside it, add TWO <button> elements:
+          First button:  class="btn btn-primary"   → text: Follow
+          Second button: class="btn btn-secondary"  → text: Message
+
+        HINT: An element can have more than one class — separate them with a space:
+          <div class="actions">
+            <button class="btn btn-primary">Follow</button>
+            <button class="btn btn-secondary">Message</button>
+          </div>
+
+        ✓ CHECKPOINT: Save and refresh — you should see two plain browser-default
+          buttons at the bottom. The whole page looks very basic right now —
+          that's normal! All the visual polish happens in CSS.
+
+      ── PART B: CSS ─────────────────────────────────────────────────────────────
+      Once all 7 steps render in the browser, open style.css.
+      Work through each TODO section from top to bottom.
+
+      DEBUGGING TIP: If a CSS rule isn't working, right-click the element in
+      the browser and choose "Inspect". DevTools shows exactly what CSS is
+      applied and what's being overridden.
+    -->
+
+    <!-- WRITE YOUR HTML HERE -->
+
+    <div class="page"></div>
+
+    <div class="page">
+      <div class="card">
+        <div class="avatar">JR</div>
+        <h2 class="name">Jame Smite</h2>
+        <p class="role">Full-Stack Web Developer</p>
+        <p class="bio">
+          Computer Science student passionate about software development,
+          problem-solving, and building user-friendly web applications.
+        </p>
+
+        <div class="actions">
+          <button class="btn btn-primary">Follow</button>
+          <button class="btn btn-secondary">Message</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

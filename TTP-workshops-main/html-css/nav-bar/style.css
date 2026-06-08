@@ -1,0 +1,202 @@
+/*
+  Navigation Bar — Style Sheet
+  =============================
+  Complete PART A (all 5 HTML steps) before opening this file.
+  Work through each section in order.
+
+  KEY CONCEPT: The .navbar uses flexbox with justify-content: space-between.
+  This single property is responsible for the logo-left / links-right layout
+  you see on nearly every website. The parent controls the children's positions.
+*/
+
+/* ─── 1. RESET & BASE ──────────────────────────────────────────────────────
+   No changes needed here.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/* ─── 2. NAVBAR ────────────────────────────────────────────────────────────
+   The <nav> spans the top of the page.
+   This is where the core layout magic happens.
+
+   TODO — add these properties and fill in your values:
+     background-color: ???;           ← dark colors work great for navs
+                                         try #1a1a2e, #222, or your own
+     display: flex;                   ← turn on flexbox
+     align-items: center;             ← vertically center .brand and .nav-links
+     justify-content: space-between;  ← push .brand left and .nav-links right
+     padding: 0 2rem;                 ← horizontal breathing room (you can adjust)
+     height: 60px;                    ← or use padding top/bottom instead
+
+   ✓ After adding these: the logo should jump to the left and the links
+     should jump to the right — even though they still look plain/unstyled.
+*/
+.navbar {
+  /* TODO */
+  background-color: #173b55;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4 2rem;
+  height: 60px;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  box-shadow: 0 2px 8px rgba(199, 164, 164, 0.15);
+}
+
+/* ─── 3. BRAND (logo / site name) ─────────────────────────────────────────
+   .brand is an <a> tag — by default it's blue and underlined.
+   Fix that so it looks like a logo or app name.
+
+   TODO:
+   - text-decoration: none;    ← removes the underline
+   - color: ???;               ← try white or a light color
+   - font-size: ???;           ← make it a bit larger than the nav links (try 1.2rem)
+   - font-weight: bold;
+*/
+.brand {
+  /* TODO */
+  text-decoration: none;
+  color: lightcyan;
+  font-size: 1.5 rem;
+  font-weight: bold;
+}
+
+/* ─── 4. NAV-LINKS (the <ul>) ─────────────────────────────────────────────
+   By default <ul> has bullet points and the items stack vertically.
+   You need to turn it into a horizontal row.
+
+   TODO:
+   - list-style: none;    ← removes the bullet points
+   - display: flex;       ← lays the <li> items out in a row
+   - gap: ???;            ← space between the links (try 1.5rem or 2rem)
+*/
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    border: 2px solid rgb(109, 89, 89);
+  }
+  .nav-links {
+    gap: 1rem;
+  }
+}
+
+.nav-links {
+  /* TODO */
+  list-style: none;
+  display: flex;
+  gap: 10rem;
+  padding-top: 3px;
+  color: rgba(227, 238, 233, 0.832);
+}
+
+.nav-links a.sign {
+  color: rgb(254, 253, 253);
+  padding: 5px;
+  white-space: nowrap;
+  border: black;
+  border-radius: 50px;
+}
+
+/* ─── 5. NAV LINKS — the <a> tags inside the list ─────────────────────────
+   Target: .nav-links a
+   These are the actual clickable links.
+
+   TODO:
+   - text-decoration: none;    ← removes underlines
+   - color: ???;               ← should be readable on your navbar background
+                                  (try white or a light gray like #ccc)
+   - font-size: 0.95rem;
+
+   ✓ After adding these: you should have a clean, styled navbar!
+*/
+.nav-links a {
+  /* TODO */
+  text-decoration: none;
+  color: lightskyblue;
+  font-size: 0.95rem;
+}
+
+/* ─── 6. HOVER STATE ───────────────────────────────────────────────────────
+   What happens when the mouse moves over a link?
+   This is your first pseudo-class: :hover
+
+   TODO — pick one or combine them:
+   - Change the text color:    color: ???;
+   - Add a bottom border:      border-bottom: 2px solid ???;
+   - Add an underline:         text-decoration: underline;
+
+   Keep it subtle — the goal is visual feedback, not distraction.
+
+   HINT: the selector is .nav-links a:hover { ... }
+*/
+.nav-links a:hover {
+  /* TODO */
+  color: whitesmoke;
+  border-bottom: 2px solid;
+}
+
+/* ─── 7. ACTIVE LINK ───────────────────────────────────────────────────────
+   On a real site, the current page's link looks different so users know
+   where they are. We'll simulate this by manually adding a class.
+
+   TODO:
+   Step 1 — Go back to index.html and add class="active" to the "Home" <a> tag:
+               <a href="#" class="active">Home</a>
+
+   Step 2 — Style .nav-links a.active here so it stands out from the others.
+             (Try the same color or border style as your :hover state, but always visible)
+*/
+.nav-links a.active {
+  /* TODO */
+  color: lightcyan;
+  border: 0.5px solid;
+  border-color: whitesmoke;
+}
+
+/* ─── 8. CONTENT AREA ──────────────────────────────────────────────────────
+   Basic styling for the page content below the navbar.
+   You can customize this however you like.
+*/
+.content {
+  padding: 3rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content h1 {
+  margin-bottom: 1rem;
+}
+
+/* ─── EXTENSION (if you finish early) ─────────────────────────────────────
+   1. Make the navbar sticky (stays at top when you scroll):
+        position: sticky;
+        top: 0;
+        z-index: 100;
+
+   2. Add a subtle shadow to separate the nav from the page content:
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+   3. Add a "Sign Up" button to the nav — add it in the HTML after the </ul>,
+      then style it differently from the links (background, border-radius, padding
+
+   4. Make the nav collapse on narrow screens:
+        @media (max-width: 600px) {
+          .navbar { flex-direction: column; height: auto; padding: 1rem; }
+          .nav-links { gap: 1rem; }
+        }
+*/

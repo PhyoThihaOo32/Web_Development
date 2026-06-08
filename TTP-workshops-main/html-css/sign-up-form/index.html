@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--
+      EXERCISE 3 OF 3 — Sign-Up Form
+      ================================
+      Do Exercises 1 and 2 before this one.
+
+      WHAT YOU'LL PRACTICE:
+        - Writing form HTML from scratch: <form>, <label>, <input>, <button>
+        - Linking labels to inputs with for and id attributes (accessibility)
+        - Choosing the right input type: text vs email vs password
+        - Styling form elements and the :focus pseudo-class in CSS
+
+      ── REFERENCE EXAMPLE — read this before you start ──────────────────────────
+      Here is one complete, correct input group. Study it before writing your own.
+
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter a username" />
+        </div>
+
+      Three things to notice:
+        1. The label's  for="username"  matches the input's  id="username"
+           → When a user clicks the label text, the browser focuses the input.
+             This is important for accessibility.
+        2. type="text" is for plain text. Email and password fields use different types.
+        3. <input> is self-closing — there is no </input> closing tag.
+
+      ── GOAL ────────────────────────────────────────────────────────────────────
+
+        ┌──────────────────────────────────────┐
+        │                                      │
+        │         Create an account            │
+        │                                      │
+        │   Full Name                          │
+        │   ┌──────────────────────────────┐   │
+        │   │                              │   │
+        │   └──────────────────────────────┘   │
+        │                                      │
+        │   Email                              │
+        │   ┌──────────────────────────────┐   │
+        │   │                              │   │
+        │   └──────────────────────────────┘   │
+        │                                      │
+        │   Password                           │
+        │   ┌──────────────────────────────┐   │
+        │   │                              │   │
+        │   └──────────────────────────────┘   │
+        │                                      │
+        │   ┌──────────────────────────────┐   │
+        │   │       Create Account         │   │
+        │   └──────────────────────────────┘   │
+        │                                      │
+        │       Already have an account?       │
+        │              Log in                  │
+        │                                      │
+        └──────────────────────────────────────┘
+
+      ── PART A: HTML ────────────────────────────────────────────────────────────
+      Write all three input groups inside the <form> below.
+      Use the reference example above as your guide.
+    -->
+
+    <div class="page">
+      <div class="form-card">
+        <h1 class="form-title">Create an account</h1>
+
+        <form>
+          <!-- Input Group 1: Full Name
+               Write a complete input group using the reference example as a guide.
+                 - label text:  Full Name
+                 - for / id:    name
+                 - type:        text
+                 - placeholder: Jamie Rivera
+
+               ✓ CHECKPOINT: Save and refresh — you should see a "Full Name" label
+                 above an input field. Click the label text — the input should
+                 get focus (cursor appears inside it).
+          -->
+
+          <!-- WRITE INPUT GROUP 1 HERE -->
+
+          <div class="input-group">
+            <label for="name">Full name</label>
+            <input type="text" id="username" placeholder="Jamie Rivera" />
+          </div>
+
+          <!-- Input Group 2: Email
+               Same pattern, but use type="email" instead of type="text"
+               type="email" tells the browser to validate the format and
+               shows the correct keyboard on mobile devices.
+                 - label text:  Email
+                 - for / id:    email
+                 - type:        email
+                 - placeholder: jamie@example.com
+          -->
+
+          <!-- WRITE INPUT GROUP 2 HERE -->
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" placeholder="jamie@example.com" />
+          </div>
+
+          <!-- Input Group 3: Password
+               Same pattern, but use type="password"
+               type="password" hides the characters as dots while typing —
+               this is how every password field on the web works.
+                 - label text:  Password
+                 - for / id:    password
+                 - type:        password
+                 - placeholder: Min. 8 characters
+
+               ✓ CHECKPOINT: Save and refresh — you should see all three labeled
+                 input fields stacked above the button. They'll be unstyled — CSS is next!
+          -->
+
+          <!-- WRITE INPUT GROUP 3 HERE -->
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" placeholder="Min. 8 characters" />
+          </div>
+
+          <button type="submit" class="submit-btn">Create Account</button>
+        </form>
+
+        <p class="login-link">
+          Already have an account? <a href="#">Log in</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

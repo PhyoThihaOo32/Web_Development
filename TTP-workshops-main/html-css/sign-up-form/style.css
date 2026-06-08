@@ -1,0 +1,284 @@
+/*
+  Sign-Up Form — Style Sheet
+  ==========================
+  Complete the HTML in index.html FIRST, then come here.
+
+  NEW IN THIS EXERCISE: You write the full CSS rule yourself — selector included.
+  In Exercises 1 and 2 the selectors were pre-written for you. Not anymore!
+
+  A CSS rule looks like this:
+    selector {
+      property: value;
+      property: value;
+    }
+
+  Each section below tells you what selector to write and what properties to add.
+*/
+
+/* ─── 1. RESET & BASE ──────────────────────────────────────────────────────
+   No changes needed here.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/* ─── 2. PAGE ──────────────────────────────────────────────────────────────
+   Write a rule for .page
+   It should fill the screen and center the form card inside it.
+
+   Properties to add:
+     min-height: 100vh
+     display: flex
+     justify-content: center      ← center horizontally
+     align-items: center          ← center vertically
+     background-color: ???        ← try a light gray like #f0f2f5
+
+   ✓ After writing this rule: the card should appear centered on the page.
+*/
+
+/* WRITE YOUR .page RULE HERE */
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(203, 240, 138);
+}
+
+/* ─── 3. FORM CARD ─────────────────────────────────────────────────────────
+   Write a rule for .form-card
+   The white box that holds everything.
+
+   Properties to add:
+     background-color: white
+     padding: ???                 ← try 2.5rem
+     border-radius: ???           ← try 12px
+     box-shadow: ???              ← try: 0 4px 20px rgba(0, 0, 0, 0.1)
+     width: ???                   ← try 400px
+     display: flex
+     flex-direction: column
+     gap: ???                     ← space between the title, form, and login link (try 1.5rem)
+*/
+
+/* WRITE YOUR .form-card RULE HERE */
+.form-card {
+  background-color: rgb(140, 215, 163);
+  padding: 200px 100px;
+  border-radius: 30px;
+  box-shadow: 1 10px 50px rgba(51, 43, 30, 0.1);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ─── 4. FORM TITLE ────────────────────────────────────────────────────────
+   Write a rule for .form-title
+
+   Properties to add:
+     font-size: ???               ← try 1.6rem
+     text-align: center
+     color: ???                   ← a dark color like #222
+*/
+
+/* WRITE YOUR .form-title RULE HERE */
+.form-title {
+  font-size: 1.5rem;
+  text-align: center;
+  color: rgb(37, 91, 92);
+}
+
+/* ─── 5. FORM ──────────────────────────────────────────────────────────────
+   Write a rule for the form element itself.
+   Stack the input groups and button vertically.
+
+   HINT: the selector is just:  form { ... }
+
+   Properties to add:
+     display: flex
+     flex-direction: column
+     gap: ???                     ← space between each input group (try 1.2rem)
+*/
+
+/* WRITE YOUR form RULE HERE */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ─── 6. INPUT GROUP ───────────────────────────────────────────────────────
+   Write a rule for .input-group
+   Stacks the label above the input with a small gap.
+
+   Properties to add:
+     display: flex
+     flex-direction: column
+     gap: ???                     ← small gap between label and input (try 0.4rem)
+*/
+
+/* WRITE YOUR .input-group RULE HERE */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ─── 7. LABELS ────────────────────────────────────────────────────────────
+   Write a rule that targets <label> elements inside .input-group
+
+   HINT: To target a child element, use a descendant selector:
+     .parent child { ... }
+   Your selector should be:  .input-group label
+
+   Properties to add:
+     font-size: 0.875rem
+     font-weight: 600
+     color: ???                   ← a dark gray like #333
+*/
+
+/* WRITE YOUR .input-group label RULE HERE */
+.input-group label {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(53, 57, 48);
+}
+
+/* ─── 8. INPUTS ────────────────────────────────────────────────────────────
+   Write a rule that targets <input> elements inside .input-group
+
+   HINT: same descendant selector pattern — .input-group input
+
+   Properties to add:
+     width: 100%                  ← stretch to fill the form card
+     padding: ???                 ← try 0.65rem
+     border: 1px solid ???        ← a light border (try #ccc)
+     border-radius: ???           ← try 6px
+     font-size: 1rem
+     outline: none                ← removes the default browser focus ring
+                                     (we'll add our own below)
+
+   ✓ After writing this rule: the inputs should look clean and full-width.
+*/
+
+/* WRITE YOUR .input-group input RULE HERE */
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(151, 144, 108);
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* ─── 9. FOCUS STATE ───────────────────────────────────────────────────────
+   Write a rule that styles an input when it is focused (clicked into).
+
+   HINT: combine a descendant selector with the :focus pseudo-class:
+     .input-group input:focus { ... }
+
+   Properties to add:
+     border-color: ???            ← change the border to your accent color
+     box-shadow: ???              ← soft glow around the input
+                                     try: 0 0 0 3px rgba(59, 130, 246, 0.2)
+
+   ✓ CHECKPOINT: Click into each input — the border should change color
+     and a soft glow should appear around it.
+*/
+
+/* WRITE YOUR .input-group input:focus RULE HERE */
+.input-group input:focus {
+  border-color: rgb(226, 40, 40);
+  box-shadow: 0 0 0 5px rgba(120, 203, 149, 0.2);
+}
+
+/* ─── 10. SUBMIT BUTTON ────────────────────────────────────────────────────
+   Write a rule for .submit-btn
+
+   Properties to add:
+     width: 100%
+     padding: ???                 ← try 0.75rem
+     background-color: ???        ← your primary accent color
+     color: white
+     border: none
+     border-radius: ???           ← try 6px
+     font-size: 1rem
+     font-weight: 600
+     cursor: pointer
+
+   Then write a second rule for the hover state: .submit-btn:hover
+     Change the background color slightly on hover.
+*/
+
+/* WRITE YOUR .submit-btn RULE HERE */
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: rgb(102, 156, 159);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+/* WRITE YOUR .submit-btn:hover RULE HERE */
+.submit-btn:hover {
+  background-color: rgb(119, 152, 104);
+}
+
+/* ─── 11. LOGIN LINK ───────────────────────────────────────────────────────
+   Write rules for the "Already have an account? Log in" section.
+
+   Three rules total:
+
+   1. .login-link
+        text-align: center
+        font-size: 0.875rem
+        color: ???               ← muted gray like #888
+
+   2. .login-link a
+        color: ???               ← your accent color
+        text-decoration: none
+        font-weight: 600
+
+   3. .login-link a:hover
+        text-decoration: underline
+*/
+
+/* WRITE YOUR .login-link RULES HERE */
+.login-link {
+  text-align: center;
+  font-size: 15px;
+  color: rgb(37, 91, 92);
+}
+
+.login-link a {
+  color: rgb(53, 24, 215);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ─── EXTENSION (if you finish early) ─────────────────────────────────────
+   1. Error state: add class="error" to one .input-group in the HTML, then write:
+        .input-group.error input { border-color: #e53e3e; }
+        .input-group.error label { color: #e53e3e; }
+      Add an error message element and style it: small, red text below the input.
+
+   2. Password strength bars: below the password input, add three small divs.
+      Style them with background colors to show weak / medium / strong.
+
+   3. Responsive: make the form fill the screen on mobile:
+        @media (max-width: 480px) {
+          .form-card { width: 100%; border-radius: 0; box-shadow: none; }
+        }
+*/

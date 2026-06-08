@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nav Bar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!--
+      EXERCISE 2 OF 3 — Navigation Bar
+      ==================================
+      Do Exercise 1 (Profile Card) first.
+
+      WHAT YOU'LL PRACTICE:
+        - Semantic HTML: using <nav> instead of a plain <div>
+        - The <ul> / <li> / <a> pattern for navigation links
+        - Flexbox with justify-content: space-between
+          (this is the most common nav layout pattern on the web)
+        - The :hover pseudo-class
+        - The .active class pattern
+
+      ── GOAL ────────────────────────────────────────────────────────────────────
+      When you're done, the navbar should look roughly like this:
+
+        ┌─────────────────────────────────────────────────────────────────┐
+        │  ◈ MyApp          Home    About    Projects    Contact          │
+        └─────────────────────────────────────────────────────────────────┘
+
+      The brand/logo sits on the left. The navigation links sit on the right.
+      This logo-left / links-right layout appears on almost every website you'll build.
+
+      ── HOW TO WORK THROUGH THIS ────────────────────────────────────────────────
+        Read one step. Write the HTML. Save and refresh. Confirm. Repeat.
+
+      ── PART A: HTML ────────────────────────────────────────────────────────────
+
+      Step 1 — Navigation container
+        Create a <nav> element with class="navbar"
+
+        <nav> is a semantic HTML tag — it tells browsers and screen readers
+        that this section contains navigation links, not just any content.
+        It's better than using a plain <div class="nav">.
+
+        HINT: <nav class="navbar"> ... </nav>
+
+      Step 2 — Brand / logo link
+        Inside the <nav>, create an <a> (anchor) element:
+          - class="brand"
+          - href="#"        ← "#" is a placeholder — we don't have a real page yet
+          - Text inside it: "◈ MyApp" or any name you want
+
+        <a> tags create clickable links. By default they're blue and underlined —
+        CSS will fix that.
+
+        HINT: <a class="brand" href="#">◈ MyApp</a>
+
+        ✓ CHECKPOINT: Save and refresh — you should see a blue underlined link
+          in the top-left area. It won't look like a logo yet, but it's there.
+
+      Step 3 — Navigation links list
+        Still inside the <nav> (after the brand link), create a <ul> with class="nav-links"
+        A <ul> creates a bulleted list. We'll remove the bullets with CSS later.
+
+        HINT: <ul class="nav-links"> ... </ul>
+
+      Step 4 — List items and links
+        Inside the <ul>, add four <li> elements.
+        Inside each <li>, put an <a> tag with href="#" and one of these labels:
+          Home | About | Projects | Contact
+
+        HINT — the pattern looks like this:
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+
+        ✓ CHECKPOINT: Save and refresh — you should see a bulleted vertical list
+          of four links. Still unstyled, but the structure is correct!
+
+      Step 5 — Page content area
+        AFTER the closing </nav>, add a <main> element with class="content"
+        Inside it, add an <h1> and a <p> with any placeholder text.
+
+        This gives you something below the navbar so you can see it in context.
+
+        HINT:
+          <main class="content">
+            <h1>Welcome to MyApp</h1>
+            <p>This is the main page content.</p>
+          </main>
+
+        ✓ CHECKPOINT: Save and refresh — you should see the heading and paragraph
+          below the navbar. The whole page looks very plain right now — CSS is next!
+
+      ── PART B: CSS ─────────────────────────────────────────────────────────────
+      Open style.css and work through each TODO section in order.
+
+      The key concept to understand: flexbox with justify-content: space-between
+      is what pushes the logo to the far left and the links to the far right.
+      You apply this to the .navbar element (the parent), not to the links themselves.
+    -->
+
+  <!-- WRITE YOUR HTML HERE -->
+
+  <nav class="navbar">
+    <a href="#" class="brand">◈ MyApp</a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#"></a>About</li>
+      <li><a href="#"></a>Projects</li>
+      <li><a href="#"></a>Contact</li>
+      <li><a href="#" class ="sign">Sign Up</a></li>
+    </ul>
+  </nav>
+  <main class="content">
+    <h1>Welcome to MyApp</h1>
+    <p>This is the main page content.</p>
+  </main>
+
+</body>
+
+</html>

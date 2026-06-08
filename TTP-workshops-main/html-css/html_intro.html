@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<!--
+  HTML Foundations Demo
+  =====================
+  Open this file in your browser (right-click → Open with → Chrome).
+  Everything you see on the page is produced by the markup below.
+  Read the source alongside what the browser renders — that's the whole skill.
+-->
+
+<!--
+  ========================
+  DOCUMENT STRUCTURE
+  ========================
+
+  Every HTML file follows the same skeleton:
+    1. <!doctype html>  — tells the browser this is modern HTML5 (not an old standard)
+    2. <html>           — the root element, wraps everything
+    3. <head>           — metadata about the page (not visible on screen)
+    4. <body>           — everything the user actually sees
+
+  The browser reads top to bottom. Order matters.
+-->
+
+<html lang="en">
+  <!--
+    lang="en" tells assistive tech (screen readers) and search engines
+    what language the content is in. Always include it.
+  -->
+
+  <head>
+    <!--
+      ========================
+      THE HEAD
+      ========================
+
+      Nothing in <head> is visible on the page.
+      It's instructions for the browser and metadata for search engines / social sharing.
+    -->
+
+    <!-- Character encoding — always include this, always utf-8 -->
+    <meta charset="UTF-8" />
+
+    <!--
+      Viewport — critical for responsive design.
+      Without this, mobile browsers zoom out and show a tiny desktop layout.
+      width=device-width: use the actual screen width, not a fake 980px default
+      initial-scale=1.0: don't zoom in or out on load
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- The tab title in the browser -->
+    <title>HTML Foundations</title>
+
+    <!--
+      Link an external CSS file — the browser fetches and applies it before rendering.
+      rel="stylesheet" tells the browser what kind of file it is.
+      You'll almost always have this pointing to your own style.css
+    -->
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+
+    <!-- Minimal styles so this file looks reasonable on its own -->
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        line-height: 1.6;
+      }
+      section {
+        border-left: 3px solid #e0e0e0;
+        padding-left: 1.5rem;
+        margin-bottom: 3rem;
+      }
+      h2 {
+        color: #333;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 0.25rem;
+      }
+      code {
+        background: #f4f4f4;
+        padding: 0.1rem 0.4rem;
+        border-radius: 3px;
+        font-size: 0.9em;
+      }
+      .demo-box {
+        background: #f9f9f9;
+        border: 1px dashed #ccc;
+        padding: 1rem;
+        margin-top: 0.75rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--
+      ========================
+      SEMANTIC vs GENERIC ELEMENTS
+      ========================
+
+      HTML elements are either semantic or generic.
+
+      Semantic  → the tag NAME tells you what the content is
+                  <header>, <nav>, <main>, <section>, <article>, <footer>, <aside>
+                  Screen readers, search engines, and other developers understand these.
+
+      Generic   → the tag has no meaning — it's just a container
+                  <div>  block-level container (starts on its own line)
+                  <span> inline container (sits within a line of text)
+
+      Rule of thumb: always prefer semantic elements when the content has a clear role.
+      Use <div> and <span> for layout grouping when no semantic tag fits.
+    -->
+
+    <header>
+      <!-- <header> usually contains the site logo, nav, and page title -->
+      <h1>HTML Foundations Demo</h1>
+      <p>A living reference — read the source alongside the rendered page.</p>
+    </header>
+
+    <nav>
+      <!--
+        <nav> wraps the primary navigation links.
+        You don't need it for every group of links — only the main site navigation.
+      -->
+      <a href="#headings">Headings</a> · <a href="#text">Text</a> ·
+      <a href="#lists">Lists</a> · <a href="#links-images">Links & Images</a> ·
+      <a href="#forms">Forms</a>
+    </nav>
+
+    <main>
+      <!--
+        <main> wraps the primary content of the page.
+        There should only be ONE <main> per page.
+        It tells assistive tech to jump straight to the main content.
+      -->
+
+      <!-- ========================
+           HEADINGS
+           ======================== -->
+      <section id="headings">
+        <h2>Headings — h1 through h6</h2>
+
+        <!--
+          Headings communicate hierarchy and importance — not size.
+          Use them in order: h1 is the page title, h2 for major sections,
+          h3 for subsections, and so on.
+
+          There should be exactly ONE h1 per page (used above in the header).
+          Don't skip levels (e.g. don't jump from h2 to h4).
+          Don't pick a heading level because of how it looks — that's CSS's job.
+        -->
+
+        <div class="demo-box">
+          <h2>h2 — Major section heading</h2>
+          <h3>h3 — Subsection</h3>
+          <h4>h4 — Sub-subsection</h4>
+          <h5>h5 — Rarely needed</h5>
+          <h6>h6 — Almost never needed</h6>
+        </div>
+      </section>
+
+      <!-- ========================
+           TEXT ELEMENTS
+           ======================== -->
+      <section id="text">
+        <h2>Text Elements</h2>
+
+        <!--
+          These are the core inline and block elements for written content.
+        -->
+
+        <!-- <p> is a paragraph. It's block-level: it starts on a new line. -->
+        <p>
+          This is a paragraph. It wraps automatically when it reaches the edge.
+          Use <code>&lt;p&gt;</code> for any standalone block of text.
+        </p>
+
+        <p>
+          <!-- <strong> = semantically important text (rendered bold by default) -->
+          Use <strong>strong</strong> for text that is important to the meaning.
+
+          <!-- <em> = emphasized text (rendered italic by default) -->
+          Use <em>em</em> for text that needs emphasis — like a spoken stress.
+
+          <!--
+            Don't use <strong> or <em> just to make text bold/italic.
+            For styling only, use CSS: font-weight: bold; font-style: italic;
+          -->
+        </p>
+
+        <p>
+          <!--
+            <span> is an inline generic container.
+            Use it when you need to style part of a sentence without adding meaning.
+            Example: highlight a keyword with a CSS class.
+          -->
+          The price is
+          <span style="color: green; font-weight: bold">$0</span> today.
+        </p>
+
+        <!--
+          Block vs Inline — the most important layout concept in HTML
+          ─────────────────────────────────────────────────────────────
+          Block elements:   start on a new line, take up full available width
+                            examples: <p>, <h1>–<h6>, <div>, <section>, <ul>, <form>
+
+          Inline elements:  sit within a line of text, only take up as much width as needed
+                            examples: <span>, <a>, <strong>, <em>, <img>
+
+          You can change either behavior with CSS: display: block; / display: inline;
+        -->
+      </section>
+
+      <!-- ========================
+           LISTS
+           ======================== -->
+      <section id="lists">
+        <h2>Lists</h2>
+
+        <!--
+          Three list types:
+            <ul> — unordered list (bullets)  — use when order doesn't matter
+            <ol> — ordered list (numbers)    — use when order matters (steps, rankings)
+            <dl> — definition list           — use for term/definition pairs
+
+          ALL list items use <li> inside ul and ol.
+        -->
+
+        <h3>Unordered List <code>&lt;ul&gt;</code></h3>
+        <ul>
+          <li>HTML — structure</li>
+          <li>CSS — style</li>
+          <li>JavaScript — behavior</li>
+        </ul>
+
+        <h3>Ordered List <code>&lt;ol&gt;</code></h3>
+        <ol>
+          <li>Write HTML first</li>
+          <li>Add CSS for layout and style</li>
+          <li>Add JavaScript for interactivity</li>
+        </ol>
+
+        <h3>Nested List</h3>
+        <!-- You can nest lists by putting a <ul> or <ol> inside an <li> -->
+        <ul>
+          <li>
+            Frontend
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>React</li>
+            </ul>
+          </li>
+          <li>
+            Backend
+            <ul>
+              <li>Node.js</li>
+              <li>Express</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ========================
+           LINKS & IMAGES
+           ======================== -->
+      <section id="links-images">
+        <h2>Links &amp; Images</h2>
+
+        <h3>Links — <code>&lt;a&gt;</code></h3>
+        <!--
+          <a> is the anchor tag — it creates hyperlinks.
+          href is the destination (required).
+
+          href values:
+            "https://..."        absolute URL — a specific full address
+            "/about"             root-relative — starts from the site root
+            "./about.html"       relative — relative to the current file
+            "#section-id"        anchor — jumps to an id on the current page
+            "mailto:a@b.com"     opens email client
+        -->
+
+        <p>
+          <a
+            href="https://developer.mozilla.org"
+            target="_blank"
+            rel="noopener"
+          >
+            MDN Web Docs
+          </a>
+          — the best HTML/CSS/JS reference.
+        </p>
+        <!--
+          target="_blank" opens the link in a new tab.
+          rel="noopener" is a security best practice when using target="_blank"
+          (prevents the new page from accessing your page via window.opener).
+        -->
+
+        <p>
+          Jump to a section on this page:
+          <a href="#forms">Go to Forms ↓</a>
+        </p>
+        <!--
+          The href="#forms" matches the id="forms" attribute on the <section> below.
+          This is how in-page navigation works.
+        -->
+
+        <h3>Images — <code>&lt;img&gt;</code></h3>
+        <!--
+          <img> is self-closing (no closing tag needed).
+
+          Attributes:
+            src  — path to the image file (required)
+            alt  — text description of the image (required for accessibility)
+                   screen readers read this aloud; shown if the image fails to load
+            width, height — set in HTML to reserve space before the image loads
+                            (prevents layout shift — good practice)
+        -->
+
+        <!-- Placeholder image from a public service -->
+        <img
+          src="https://placehold.co/400x200"
+          alt="A placeholder image showing 400 by 200 pixels"
+          width="400"
+          height="200"
+        />
+
+        <!--
+          alt="" (empty alt) is valid — use it for purely decorative images
+          that add no information. Screen readers will skip them.
+        -->
+      </section>
+
+      <!-- ========================
+           DIVS, IDs & CLASSES
+           ======================== -->
+      <section id="divs">
+        <h2>Divs, IDs &amp; Classes</h2>
+
+        <!--
+          <div> is the workhorse of layout — a generic block container.
+          It has no semantic meaning. Use it to group elements for styling.
+
+          id    — unique identifier. Only ONE element on the page should have a given id.
+                  Used for: in-page anchor links (#section-id), JS getElementById, CSS #id
+                  Selector in CSS: #my-id
+
+          class — reusable label. Many elements can share the same class.
+                  Used for: styling multiple similar elements, JS querySelectorAll
+                  Selector in CSS: .my-class
+
+          One element can have multiple classes: class="card featured large"
+          IDs take priority over classes in CSS specificity — prefer classes for styling.
+        -->
+
+        <div class="demo-box">
+          <div id="unique-box" class="card">
+            I'm a div with id="unique-box" and class="card"
+          </div>
+          <div class="card">
+            I'm another div with class="card" — same class, no id
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================
+           FORMS
+           ======================== -->
+      <section id="forms">
+        <h2>Forms</h2>
+
+        <!--
+          Forms collect user input and (eventually) send it somewhere.
+
+          <form> wraps all form controls.
+            action="/submit"  — URL to send data to (handled by a server or JS)
+            method="post"     — how data is sent: "get" (in URL) or "post" (in body)
+
+          Key rule: every input MUST have a <label>.
+            - Connects the label to the input visually AND for screen readers.
+            - Clicking the label focuses the input (better UX).
+            - Link them with matching for= and id= attributes.
+        -->
+
+        <form action="#" method="post">
+          <!-- Text input -->
+          <div style="margin-bottom: 1rem">
+            <label for="full-name">Full Name</label><br />
+            <input
+              type="text"
+              id="full-name"
+              name="fullName"
+              placeholder="Jamie Rivera"
+            />
+            <!--
+              type="text"        — single-line text (default)
+              id                 — must match label's for=""
+              name               — the key sent to the server with this field's value
+              placeholder        — hint text shown before typing (not a replacement for label!)
+            -->
+          </div>
+
+          <!-- Email input -->
+          <div style="margin-bottom: 1rem">
+            <label for="email">Email</label><br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="jamie@example.com"
+              required
+            />
+            <!--
+              type="email"  — browser validates the format (must contain @)
+              required      — browser won't submit the form if this is empty
+            -->
+          </div>
+
+          <!-- Password input -->
+          <div style="margin-bottom: 1rem">
+            <label for="password">Password</label><br />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              minlength="8"
+            />
+            <!-- type="password" — hides characters as dots/asterisks -->
+          </div>
+
+          <!-- Number input -->
+          <div style="margin-bottom: 1rem">
+            <label for="age">Age</label><br />
+            <input type="number" id="age" name="age" min="18" max="120" />
+          </div>
+
+          <!-- Checkbox -->
+          <div style="margin-bottom: 1rem">
+            <input type="checkbox" id="agree" name="agree" />
+            <label for="agree">I agree to the terms</label>
+            <!--
+              Note: for checkboxes and radio buttons, the label can go AFTER the input.
+              The for/id link still works — clicking the label toggles the checkbox.
+            -->
+          </div>
+
+          <!-- Radio buttons (only one in a group can be selected at a time) -->
+          <fieldset style="margin-bottom: 1rem; border: none; padding: 0">
+            <legend>Preferred contact method</legend>
+            <!--
+              <fieldset> groups related inputs. <legend> is its title.
+              Radio buttons in the same group MUST share the same name attribute.
+              The browser uses name to know which buttons are in the same group.
+            -->
+            <input
+              type="radio"
+              id="contact-email"
+              name="contact"
+              value="email"
+            />
+            <label for="contact-email">Email</label>
+
+            <input
+              type="radio"
+              id="contact-phone"
+              name="contact"
+              value="phone"
+            />
+            <label for="contact-phone">Phone</label>
+          </fieldset>
+
+          <!-- Select / dropdown -->
+          <div style="margin-bottom: 1rem">
+            <label for="track">Track</label><br />
+            <select id="track" name="track">
+              <option value="">-- choose --</option>
+              <option value="frontend">Frontend</option>
+              <option value="backend">Backend</option>
+              <option value="fullstack" selected>Full-Stack</option>
+            </select>
+            <!--
+              <option value="..."> — value sent to the server
+              selected             — pre-selected option
+            -->
+          </div>
+
+          <!-- Textarea — multi-line text input -->
+          <div style="margin-bottom: 1rem">
+            <label for="bio">Bio</label><br />
+            <textarea
+              id="bio"
+              name="bio"
+              rows="4"
+              cols="40"
+              placeholder="Tell us about yourself..."
+            ></textarea>
+            <!-- Unlike <input>, <textarea> has an opening and closing tag -->
+          </div>
+
+          <!-- Buttons -->
+          <button type="submit">Submit</button>
+          <button type="reset" style="margin-left: 0.5rem">Reset</button>
+          <button type="button" style="margin-left: 0.5rem">
+            Just a Button (no form action)
+          </button>
+          <!--
+            type="submit"  — submits the form (default if you omit type inside a form)
+            type="reset"   — clears all fields back to their defaults
+            type="button"  — does nothing by default; attach behavior with JavaScript
+          -->
+        </form>
+      </section>
+
+      <!-- ========================
+           SEMANTIC LAYOUT ELEMENTS
+           ======================== -->
+      <section id="semantic-layout">
+        <h2>Semantic Layout Elements</h2>
+
+        <!--
+          These elements describe the ROLE of a block of content.
+          They render identically to <div> but carry meaning that
+          helps browsers, search engines, and screen readers.
+
+          <header>  — introductory content, usually logo + nav
+          <nav>     — a group of navigation links
+          <main>    — the primary content (one per page)
+          <section> — a thematic grouping of content, usually with a heading
+          <article> — standalone piece of content (blog post, card, comment)
+          <aside>   — tangentially related content (sidebar, callout box)
+          <footer>  — closing content (copyright, links, contact)
+          <figure>  — self-contained media (image + caption)
+          <figcaption> — caption for a <figure>
+        -->
+
+        <div class="demo-box" style="font-size: 0.85rem">
+          <pre>
+&lt;body&gt;
+  &lt;header&gt;         ← logo, site title, main nav
+    &lt;nav&gt;...&lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section&gt;       ← a major topic area
+      &lt;article&gt;...&lt;/article&gt;   ← a self-contained item
+      &lt;article&gt;...&lt;/article&gt;
+    &lt;/section&gt;
+
+    &lt;aside&gt;...&lt;/aside&gt;   ← sidebar / related content
+  &lt;/main&gt;
+
+  &lt;footer&gt;...&lt;/footer&gt;
+&lt;/body&gt;
+</pre
+          >
+        </div>
+
+        <!--
+          When is <article> vs <section>?
+            <article> = could be lifted out and published elsewhere on its own
+                        (a blog post, a tweet, a product card)
+            <section> = a chunk of the current page that makes no sense alone
+                        (the "About Us" block, the "Features" area)
+        -->
+      </section>
+
+      <!-- ========================
+           IMPORTANT ATTRIBUTES
+           ======================== -->
+      <section id="attributes">
+        <h2>Important Attributes</h2>
+
+        <!--
+          Attributes live inside the opening tag and configure the element.
+          Format:  attributename="value"   (quotes are required in HTML)
+
+          Global attributes — valid on any element:
+            id="..."        unique identifier on the page
+            class="..."     one or more CSS class names, space-separated
+            style="..."     inline CSS (avoid this outside of demos — use a .css file)
+            hidden          hides the element (like display: none)
+            tabindex="0"    makes non-interactive elements keyboard-focusable
+            data-*="..."    custom data attributes for JavaScript to read
+
+          data-* attributes:
+            Store extra information on an element without inventing fake attributes.
+            JavaScript reads them with: element.dataset.propertyName
+        -->
+
+        <div
+          id="user-card"
+          class="card featured"
+          data-user-id="42"
+          data-role="admin"
+        >
+          <!--
+            In JavaScript you can read these like:
+              card.dataset.userId  → "42"
+              card.dataset.role    → "admin"
+          -->
+          User card with custom data attributes
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <!--
+        <footer> usually holds copyright, links, and contact info.
+        It can appear inside <article> or <section> too, not just at the page level.
+      -->
+      <p>&copy; 2026 TTP Bootcamp — HTML &amp; CSS Lecture</p>
+      <!--
+        HTML entities:
+          &amp;   →  &     (& is reserved in HTML — always escape it in text)
+          &lt;    →  <
+          &gt;    →  >
+          &copy;  →  ©
+          &nbsp;  →  non-breaking space (use sparingly)
+      -->
+    </footer>
+  </body>
+</html>

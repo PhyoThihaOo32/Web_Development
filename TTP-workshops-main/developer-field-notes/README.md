@@ -20,3 +20,9 @@ https://github.com/PhyoThihaOo32/Web_Development/tree/main/TTP-workshops-main/de
 ## One Thing I Learned About Git
 
 I learned that Git helps track changes in my code step by step, while GitHub is where I can store and share my Git repository online.
+
+## git practice screenshot
+
+TTP-workshops-main/developer-field-notes/gitpractice_ss/Screenshot 2026-06-08 at 4.35.20 PM.png
+
+TTP-workshops-main/developer-field-notes/gitpractice_ss/Screenshot 2026-06-08 at 4.35.51 PM.png

@@ -21,8 +21,12 @@ https://github.com/PhyoThihaOo32/Web_Development/tree/main/TTP-workshops-main/de
 
 I learned that Git helps track changes in my code step by step, while GitHub is where I can store and share my Git repository online.
 
-## git practice screenshot
+## Git practice screenshot
 
-TTP-workshops-main/developer-field-notes/gitpractice_ss/Screenshot 2026-06-08 at 4.35.20 PM.png
+### Git Status
 
-TTP-workshops-main/developer-field-notes/gitpractice_ss/Screenshot 2026-06-08 at 4.35.51 PM.png
+![Git status] (screenshots/screenshot1.png)
+
+### Git Branch and Commit
+
+![Git Branch](screenshots/screenshot2.png)

@@ -25,7 +25,7 @@ I learned that Git helps track changes in my code step by step, while GitHub is 
 
 ### Git Status
 
-![Git status] (screenshots/screenshot1.png)
+![Git status](screenshots/screenshot1.png)
 
 ### Git Branch and Commit
 

@@ -271,3 +271,80 @@ console.log(timReg.test(timStr)); // true
 /**
  * CHECK FOR ALL OR NONE
  */
+
+let favWord = "favorite";
+let dirtyWord = "fuck";
+let favReg = /favou?rite/; // may or may not have u
+let dirtyReg = /f?uck/;
+
+console.log(favReg.test(favWord)); // true
+console.log(dirtyReg.test(dirtyWord)); // true
+
+/**
+ * POSITIVE AND NEGATIVE LOOKAHEAD
+ * A lookahead lets you check what comes after a position without actually consuming those characters.
+ * It asserts "the next thing is (or isn't) X" but the matched result doesn't include X
+ * — that's the key idea: it's a check, not a capture.
+ * There are two kinds:
+ * Positive lookahead (?=...) — "followed by ..."
+ * Negative lookahead (?!...) — "NOT followed by ..."
+ */
+
+let quit = "qu";
+let noquit = "qt";
+let quRegex = /q(?=u)/; // positie lookahead
+let qRegex = /q(?!u)/; // negatie lookahead
+
+console.log(quit.match(quRegex));
+console.log(noquit.match(qRegex));
+
+let sampleWord = "astronut";
+let pwRegex = /(?=\w{5})(?=\D*\d{2})/; // password greater than 5 char long and 2 consecutive digit
+console.log(pwRegex.test(sampleWord)); // false
+
+/**
+ * REUSE PATTERNS USING CAPTURE GROUPS
+ */
+
+let repeatStr = "regex regex";
+let repeatRegex = /(\w+)\s\1/;
+
+console.log(repeatRegex.test(repeatStr)); // true
+console.log(repeatStr.match(repeatRegex)); // ['regex regex', 'regex']
+
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+)\s\1\s\1$/;
+console.log(reRegex.test(repeatNum));
+
+/**
+ * USE CAPTURE GROUPS TO SEARCH AND REPLACE
+ */
+
+let wrongText = "The sky is silver";
+let silveRegex = /silver/;
+console.log(wrongText.replace(silveRegex, "blue"));
+
+/**
+ *  The replacement: "$2 $1"
+    In a replace replacement string, $1, $2, etc. refer back to the captured groups:
+    $1 = group 1 = "Code"
+    $2 = group 2 = "Camp"
+ * 
+ */
+"Code Camp".replace(/(\w+)\s(\w+)/, "$2 $1");
+// return "Camp Code"
+
+let huhText = "This sandwich is good.";
+let fixRegex = /good/;
+let replaceText = "okey-dokey";
+result = huhText.replace(fixRegex, replaceText);
+console.log(result);
+
+/**
+ * REMOVE WHITESPACE FROM START AND END
+ */
+
+let hello = "  Hello World!  ";
+let wsRegex = /^\s+|\s+$/g;
+result = hello.replace(wsReg, "");
+console.log(result);

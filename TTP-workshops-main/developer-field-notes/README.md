@@ -25,6 +25,18 @@ I learned that Git helps track changes in my code step by step, while GitHub is 
 
 ### Git Status
 
+## Steps to add Screen Shots on Readme
+
+How to Add Screenshots to README.md
+
+1. Create a folder named screenshots inside your project directory.
+2. Move your screenshot images into the screenshots folder.
+3. Open README.md.
+4. Add a new section called Screenshots.
+5. Insert each image using Markdown image syntax:
+
+for example - ![Git Status Screenshot] (screenshots/screenshot1.png)
+
 ![Git status](screenshots/screenshot1.png)
 
 ### Git Branch and Commit

@@ -286,3 +286,33 @@ function showEndScreen() {
   // 6. Append all three elements to endScreen
   //    note: createElement builds the node in memory — appendChild is what puts it on the page
 }
+
+/**
+ * Phase 6: Restart
+ */
+
+endScreen.addEventListener("click", (event) => {
+  // 1. Return early if the clicked element is not the restart button
+  //    hint: check event.target.id
+  //    think: why can't we just do document.getElementById("restart-btn") at the top of the file?
+  if (event.target.id !== "restart-btn") console.log("not restart");
+  // 2. Reset both state variables (score and currentIndex) to 0
+  //    - Also update scoreDisplay.textContent so the header reflects the reset
+  else if (event.target.id === "restart-btn") {
+    console.log("restart-btn clicked");
+    score = 0;
+    currentIndex = 0;
+    scoreDisplay.innerText = score;
+    endScreen.innerHTML = "";
+    endScreen.classList.add("hidden");
+    questionCard.classList.remove("hidden");
+    loadQuestion(0);
+  }
+
+  // 3. Clear everything showEndScreen built
+  //    hint: setting endScreen.innerHTML to "" removes all child elements at once
+
+  // 4. Bring the question card back
+
+  // 5. Load the first question
+});

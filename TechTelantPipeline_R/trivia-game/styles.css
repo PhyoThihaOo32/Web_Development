@@ -121,22 +121,22 @@ header {
 #next-btn {
   display: inline-block;
   background: #5dd0918b;
-  color: rgba(222, 238, 215, 0.95);
+  color: rgba(249, 251, 249, 0.95);
   border: none;
   padding: 0.9rem 1.4rem;
   border-radius: 10px;
   font-size: 1rem;
-  font-weight: bold;
+
   cursor: pointer;
   transition: background 0.2s ease, transform 0.15s ease;
 }
 
-#next-btn:hover {
+.next-btn:hover {
   background: #77c495df;
   transform: translateY(-1px);
 }
 
-#next-btn:active {
+.next-btn:active {
   transform: translateY(0);
 }
 
@@ -166,8 +166,8 @@ header {
 
 /* Wrong answer */
 .wrong {
-  background-color: #e53935 !important;
-  color: white;
+  background-color: #492321 !important;
+  color: rgb(173, 149, 149);
   border-color: #c62828;
 }
 
@@ -180,46 +180,10 @@ header {
 
 /* Question card after answer is locked */
 .answered {
-  border-left: 4px solid #97c5db;
+  border-left: 4px solid #97c5db !important;
 }
 
 /* Hide elements initially */
 .hidden {
-  display: none;
-}
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-@media (max-width: 600px) {
-  body {
-    padding: 1rem;
-  }
-
-  #game {
-    padding: 1.25rem;
-  }
-
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  #game-title {
-    font-size: 1.6rem;
-  }
-
-  #question-text {
-    font-size: 1.2rem;
-  }
-
-  .answer-btn {
-    font-size: 0.95rem;
-    padding: 0.9rem;
-  }
-
-  #next-btn {
-    width: 100%;
-    text-align: center;
-  }
+  display: none !important;
 }

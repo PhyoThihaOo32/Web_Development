@@ -41,6 +41,7 @@ const questions = [
 ];
 
 // questions[1].answers.forEach((n) => console.log(n));
+console.log(questions[1].correct); // 3
 
 // state variable to track the game as it progresses
 let currentIndex = 0;
@@ -153,10 +154,60 @@ function loadQuestion(index) {
   });
 
   // 5. Hide the next button
-  nextBtn.remove();
+  nextBtn.classList.add("hidden");
+  //   console.log(nextBtn);
 
   // 6. Remove the "answered" class from questionCard
   questionCard.classList.remove("answered");
 }
 
 loadQuestion(0);
+
+/**
+ * Phrase 4; Make it Interactive
+ */
+
+/**
+ * Now the buttons do something.
+
+Instead of attaching a click listener to every button, attach one listener to #answer-list. When any button inside the list is clicked, the event bubbles up to the list and fires the listener. This is event delegation — one handler covers all current and future children.
+
+Every DOM element has a tagName property that tells you what kind of element it is — "BUTTON", "LI", "DIV", etc. It's always uppercase. You'll use this to filter out clicks that land on the list itself rather than on a button.
+ */
+
+answerList.addEventListener("click", (event) => {
+  //   console.log(btnArr.indexOf(event.target));
+  // 1. If the click was not on a BUTTON element, return early and do nothing
+  //    hint: check event.target.tagName — it will be the string "BUTTON" if a button was clicked
+  if (event.target.tagName !== "BUTTON") return;
+  // 2. Store the clicked button and figure out which index it is in the list
+  //    hint: convert answerBtnsNodeList to an array and use .indexOf(event.target)
+  // 3. Get the correct answer index from the current question in the data array
+  // 4. Compare: did the player pick the right one?
+  //    - If correct: add the "correct" class to the clicked button, increment score,
+  //      and update scoreDisplay.textContent
+  //    - If wrong: add the "wrong" class to the clicked button,
+  //      and add "correct" to the button at the correct index to reveal it
+  // 5. Disable all four answer buttons so the player can't change their answer
+  //    hint: convert to a real array and use forEach to add "disabled" to each
+  else {
+    let index = btnArr.indexOf(event.target) + 1;
+    // console.log(index);
+    // console.log(questions[0].correct);
+    if (index === questions[index].correct) {
+      //   console.log("Correct");
+      event.target.classList.add("correct");
+      score++;
+      scoreDisplay.textContent = score;
+    } else {
+      event.target.classList.add("wrong");
+      btnArr.forEach((btn) => {
+        btn.classList.add("disabled");
+      });
+    }
+  }
+
+  // 6. Add "answered" to questionCard and remove "hidden" from nextBtn
+  questionCard.classList.add("answered");
+  nextBtn.classList.remove("hidden");
+});

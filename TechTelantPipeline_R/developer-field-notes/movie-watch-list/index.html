@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Watchlist</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1 id="app-title">My Watchlist</h1>
+      <p id="movie-count">0 movies</p>
+    </header>
+
+    <main>
+      <form id="movie-form">
+        <input
+          type="text"
+          id="title-input"
+          placeholder="Movie title..."
+          required
+        />
+        <input
+          type="text"
+          id="genre-input"
+          placeholder="Genre (e.g. Action, Comedy...)"
+        />
+        <button type="submit" id="add-btn">Add Movie</button>
+      </form>
+
+      <div id="filter-bar">
+        <button class="filter-btn active-filter" id="filter-all">All</button>
+        <button class="filter-btn" id="filter-unwatched">Unwatched</button>
+        <button class="filter-btn" id="filter-watched">Watched</button>
+        <button id="clear-watched-btn">Clear Watched</button>
+      </div>
+
+      <ul id="movie-list"></ul>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

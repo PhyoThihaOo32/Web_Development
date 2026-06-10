@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Bar</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="exam-container"></div>
+    <h3>Exam progress</h3>
+
+    <div class="progress-track">
+      <div id="exam-bar" class="progress-fill"></div>
+    </div>
+
+    <p id="progress-text">0% completed</p>
+    <p id="question-count">Question 0 of 5 answered</p>
+
+    <div class="actions">
+      <button onclick="answerQuestion()">Answer Next Question</button>
+      <button onclick="resetExam()" class="btn-reset">Reset</button>
+    </div>
+  </body>
+</html>

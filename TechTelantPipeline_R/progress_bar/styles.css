@@ -1,0 +1,39 @@
+.exam-container {
+  font-family: sans-serif;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.progress-track {
+  width: 100%;
+  background-color: #7a5151;
+  border-radius: 10px;
+  overflow: hidden; /*If content goes outside the element’s box, hide the extra part.*/
+}
+
+/* The colored fill inside the bar */
+.progress-fill {
+  width: 0; /* Starts at 0 */
+  height: 10px;
+  background-color: #e59d37; /* Smart blue color */
+  transition: width 0.3s ease-in-out; /* Smooth transition animation */
+}
+
+p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-reset {
+  background-color: #6b7280;
+  margin-left: 8px;
+}

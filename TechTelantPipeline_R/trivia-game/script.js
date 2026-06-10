@@ -66,6 +66,8 @@ const nextBtn = document.getElementById("next-btn");
 // select #end-screen       → store in endScreen
 const endScreen = document.getElementById("end-screen");
 
+const progressFill = document.getElementById("progress-fill");
+
 /**
  *
  * getElementsByClassName returns an HTMLCollection — it has no .map(), no .filter(), no array methods at all.
@@ -227,10 +229,13 @@ nextBtn.addEventListener("click", () => {
   // 1. Increment currentIndex
   currentIndex++;
 
+  const percentage = Math.round((currentIndex / questions.length) * 100);
+
   // 2. If there are more questions left (currentIndex < questions.length):
   //    - Call loadQuestion with the updated index
   if (currentIndex < questions.length) {
     loadQuestion(currentIndex);
+    progressFill.style.width = `${percentage}%`;
   }
 
   // 3. Otherwise the game is over — call showEndScreen()
@@ -299,13 +304,17 @@ endScreen.addEventListener("click", (event) => {
   // 2. Reset both state variables (score and currentIndex) to 0
   //    - Also update scoreDisplay.textContent so the header reflects the reset
   else if (event.target.id === "restart-btn") {
-    console.log("restart-btn clicked");
+    // console.log("restart-btn clicked");
     score = 0;
     currentIndex = 0;
     scoreDisplay.innerText = score;
     endScreen.innerHTML = "";
     endScreen.classList.add("hidden");
     questionCard.classList.remove("hidden");
+
+    // restart the progress bar
+    progressFill.style.width = 0;
+
     loadQuestion(0);
   }
 

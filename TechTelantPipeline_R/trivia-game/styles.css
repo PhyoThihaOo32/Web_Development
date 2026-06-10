@@ -82,6 +82,22 @@ header {
   color: #f8fafc;
 }
 
+#progress-container {
+  width: 100%;
+  background-color: #94865a;
+  margin: 10px 0 10px 0;
+  border-radius: 10px;
+  overflow: hidden; /*If content goes outside the element’s box, hide the extra part.*/
+}
+
+/* The colored fill inside the bar */
+#progress-fill {
+  width: 0; /* Starts at 0 */
+  height: 8px;
+  background-color: #eaf978f3; /* Smart blue color */
+  transition: width 0.3s ease-in-out; /* Smooth transition animation */
+}
+
 /* =========================================================
    ANSWER LIST
 ========================================================= */
@@ -185,9 +201,9 @@ header {
 
 /* Wrong answer */
 .wrong {
-  background-color: #492321 !important;
+  background-color: #683330 !important;
   color: rgb(173, 149, 149);
-  border-color: #c62828;
+  border-color: #a94242;
 }
 
 /* Disabled answers after user picks one */

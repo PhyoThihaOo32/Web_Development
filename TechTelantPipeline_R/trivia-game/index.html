@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <!-- defer: don't block HTML parsing — download script in background,
+     wait for DOM to fully load, then execute. same effect as placing
+     script at bottom of <body> but keeps code organized in <head> -->
+  </head>
+  <body>
+    <main id="game">
+      <header>
+        <h1 id="game-title">Quick Fire Trivia</h1>
+        <!--<span> — a generic inline tag. Used to target or style a specific piece of text inside a line without breaking the layout.-->
+        <div id="score-display">Score: <span id="score">0</span></div>
+      </header>
+      <section id="queston-card">
+        <p id="question-number">Question 1 of 5</p>
+        <h2 id="question-text">
+          What is the name of the boundary around a black hole beyond which
+          nothing can escape?
+        </h2>
+        <ul id="answer-list">
+          <li><button class="answer-btn">Photon ring</button></li>
+          <li><button class="answer-btn">Event horizon</button></li>
+          <li><button class="answer-btn">Singularity shell</button></li>
+          <li><button class="answer-btn">Gravity belt</button></li>
+        </ul>
+        <button id="next-btn" class="hidden">Next Question</button>
+      </section>
+      <section id="end-screen" class="hidden"></section>
+    </main>
+  </body>
+</html>

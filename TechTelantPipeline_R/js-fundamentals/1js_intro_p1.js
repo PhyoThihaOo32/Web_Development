@@ -223,6 +223,8 @@ for (let key in car) {
 // Destructuring — pull out properties into variables
 const { firstName, lastName } = person;
 console.log(firstName, lastName); // "Jamie" "Rivera"
+const { make, model } = car;
+console.log("Destructuring: ", make, model);
 
 /** ========
  * ARRAYS

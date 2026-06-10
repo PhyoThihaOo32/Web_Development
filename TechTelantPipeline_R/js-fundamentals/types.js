@@ -20,7 +20,10 @@ console.log("\n");
 // Returns true only if value is a number and not NaN
 function isNumber(value) {
   // TODO: write your code here
-  return getType(value) !== "number" ? false : true;
+  // return getType(value) !== "number" ? false : true;
+  if (Number.isNaN(value)) return false;
+  else if (typeof value === "number") return true;
+  else return false;
 }
 
 console.log(isNumber(5)); // true
@@ -28,8 +31,8 @@ console.log(isNumber(NaN)); // false  ← typeof NaN === "number"!
 console.log(isNumber("5")); // false
 console.log(isNumber(Infinity)); // true
 
-// //----------------------------------------------------
-// console.log("\n");
+//----------------------------------------------------
+console.log("\n");
 
 // Predict true or false before running each line, then explain why in a comment
 console.log(Boolean(0)); // 0
@@ -42,8 +45,8 @@ console.log(Boolean("0")); // ?  ← 1
 console.log(Boolean([])); // ?  ← 1
 console.log(Boolean({})); // ?  ← 1
 
-// //----------------------------------------------------
-// console.log("\n");
+//----------------------------------------------------
+console.log("\n");
 
 // // Predict the output, then add a comment explaining why
 // console.log(1 == "1"); // ?

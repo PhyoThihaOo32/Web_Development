@@ -9,7 +9,7 @@ console.log(getFullName({ firstName: "Grace", lastName: "Hopper" })); // "Grace 
 
 //----------------------------------------------------
 console.log("\n");
-
+// if the age is greater than or equal to 18 return true
 function isAdult(person) {
   return person.age >= 18;
 }
@@ -21,8 +21,9 @@ console.log(isAdult({ name: "Sam", age: 18 })); // true
 //----------------------------------------------------
 console.log("\n");
 
+// this function take the obj and return string (Hi I'm obj.name - obj.role at obj.company)
 function introduce(person) {
-  return `Hi, I'm ${person.name} — ${person.role} at ${person.company}.`;
+  return `Hi, I'm ${person.name} - ${person.role} at ${person.company}.`;
 }
 
 console.log(introduce({ name: "Ada", role: "engineer", company: "ACME" }));

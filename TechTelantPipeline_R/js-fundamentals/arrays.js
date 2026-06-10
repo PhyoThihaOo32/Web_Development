@@ -24,11 +24,11 @@ console.log("\n");
 
 // Use a loop — no array methods yet
 function sum(numbers) {
-  let total = 0;
+  let sum = 0;
   for (let i = 0; i < numbers.length; i++) {
-    total += numbers[i];
+    sum += numbers[i];
   }
-  return total;
+  return sum;
 }
 
 console.log(sum([1, 2, 3])); // 6
@@ -39,11 +39,18 @@ console.log(sum([])); // 0
 console.log("\n");
 
 // Use a loop — no .includes() yet
+// this function takes two args ( arr, searchValue) and if the value is in the arr return true or else false
 function contains(arr, value) {
+  let isFound;
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === value) return true;
+    if (value === arr[i]) {
+      isFound = true;
+      break;
+    } else {
+      isFound = false;
+    }
   }
-  return false;
+  return isFound;
 }
 
 console.log(contains([1, 2, 3], 2)); // true
@@ -55,22 +62,15 @@ console.log("\n");
 
 // Returns a new array without the element at index — do not mutate the original
 function removeAt(arr, index) {
-  // solution 1:
-  // return [...arr.slice(0, index), ...arr.slice(index + 1)];
-
-  // solution 2:
-  // return arr.filter((num, idx) => idx !== index)
-
-  // solution 3:
-  let result = [];
+  let newArr = [];
+  // loop through the arr and add the element into new array but skip the element at the target index
   for (let i = 0; i < arr.length; i++) {
     if (i === index) {
       continue;
     }
-
-    result.push(arr[i]);
+    newArr.push(arr[i]);
   }
-  return result;
+  return newArr;
 }
 
 const nums = [10, 20, 30];

@@ -126,7 +126,7 @@ header {
   padding: 0.9rem 1.4rem;
   border-radius: 10px;
   font-size: 1rem;
-
+  font-weight: bold;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.15s ease;
 }
@@ -151,6 +151,25 @@ header {
   text-align: center;
   font-size: 1.2rem;
   color: #f8fafc;
+}
+
+#restart-btn {
+  display: inline-block;
+  background: #5dd0918b;
+  color: rgba(249, 251, 249, 0.95);
+  border: none;
+  margin: 40px;
+  padding: 0.5rem 1.4rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+#restart-btn:hover {
+  background: #77c495df;
+  transform: translateY(-1px);
 }
 
 /* =========================================================

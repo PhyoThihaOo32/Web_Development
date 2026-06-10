@@ -57,3 +57,24 @@ dosomething("phyo", 100, run, eat);
 function makeCoffee() {
   setTimeout(() => console.log("making coffee"), 2000);
 }
+
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach((ele, index, arr) => {
+  console.log(ele);
+  console.log(index);
+  console.log(arr);
+});
+
+function triple(ele, index, arr) {
+  arr[index] = ele * 3;
+}
+
+function display(numbers) {
+  numbers.forEach((n) => {
+    console.log(n);
+  });
+}
+
+numbers.forEach(triple);
+display(numbers);

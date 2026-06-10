@@ -211,3 +211,78 @@ answerList.addEventListener("click", (event) => {
   questionCard.classList.add("answered");
   nextBtn.classList.remove("hidden");
 });
+
+// Why does clicking a button inside #answer-list trigger this listener?
+// Answer: because event delegation - one handler covers all current and future children
+//
+// What is the difference between event.target and event.currentTarget here?
+// event.target  → is the element where the event actually happened (for ex: when the user click the answer button)
+// event.currentTarget → is where the event listen is attached - that can be partent node
+
+/**
+ * Move to the Next Question
+ */
+
+nextBtn.addEventListener("click", () => {
+  // 1. Increment currentIndex
+  currentIndex++;
+
+  // 2. If there are more questions left (currentIndex < questions.length):
+  //    - Call loadQuestion with the updated index
+  if (currentIndex < questions.length) {
+    loadQuestion(currentIndex);
+  }
+
+  // 3. Otherwise the game is over — call showEndScreen()
+  else {
+    showEndScreen();
+  }
+});
+
+// this function builds the entire end screen dynamically
+// (by not editing HTML - use document.createElement for every element)
+function showEndScreen() {
+  // 1. Hide the question card
+  questionCard.classList.add("hidden");
+
+  // 2. Show the end screen (it started with class="hidden" — remove that now)
+  endScreen.classList.remove("hidden");
+
+  // 3. Create an <h2> and set its textContent to show the final score
+  //    e.g. "You scored 3 out of 5"
+  //    hint: use the score and questions.length variables
+  endScreen.innerHTML = `<h2>You scored ${score} out of ${questions.length}`;
+
+  // 4. Create a <p> for an encouragement message
+  //    Write a conditional with at least two different messages
+  //    (e.g. one for a perfect score, one for passing, one for failing)
+
+  if (score > questions.length / 2) {
+    // endScreen.innerHTML += `<p>You have the passing score! </p>`;
+    const p = document.createElement("p");
+    p.textContent = `Passing Score.`;
+    endScreen.append(p);
+  }
+
+  if (score === questions.length) {
+    const p = document.createElement("p");
+    p.textContent = `Perfect.Bravo!`;
+    endScreen.append(p);
+  }
+
+  if (score === 0) {
+    // endScreen.innerHTML += `<p>You Failed!</p>`;
+    const p = document.createElement("p");
+    p.textContent = `You Fail!`;
+    endScreen.append(p);
+  }
+
+  // 5. Create a <button>, set its id to "restart-btn" and its textContent to "Play Again"
+  const re_btn = document.createElement("button");
+  endScreen.append(re_btn);
+  re_btn.textContent = "Play Again?";
+  re_btn.id = "restart-btn";
+
+  // 6. Append all three elements to endScreen
+  //    note: createElement builds the node in memory — appendChild is what puts it on the page
+}

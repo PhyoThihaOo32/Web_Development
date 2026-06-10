@@ -1,9 +1,15 @@
+/* =========================================================
+   RESET
+========================================================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* =========================================================
+   PAGE
+========================================================= */
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #0a2a32, #0a4156);
@@ -12,8 +18,12 @@ body {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  color: #f8fafc;
 }
 
+/* =========================================================
+   MAIN GAME CONTAINER
+========================================================= */
 #game {
   width: 100%;
   max-width: 700px;
@@ -23,12 +33,15 @@ body {
   box-shadow: 0 10px 30px rgba(6, 73, 73, 0.35);
 }
 
+/* =========================================================
+   HEADER
+========================================================= */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
   gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 #game-title {
@@ -39,16 +52,21 @@ header {
 
 #score-display {
   background: #1e293b;
+  color: #96d2eb;
   padding: 0.6rem 1rem;
   border-radius: 10px;
   font-weight: bold;
-  color: #96d2eb;
+  font-size: 1rem;
 }
 
-#queston-card {
+/* =========================================================
+   QUESTION CARD
+========================================================= */
+#question-card {
   background: #1a2238;
   padding: 1.5rem;
   border-radius: 14px;
+  transition: border 0.2s ease;
 }
 
 #question-number {
@@ -64,6 +82,9 @@ header {
   color: #f8fafc;
 }
 
+/* =========================================================
+   ANSWER LIST
+========================================================= */
 #answer-list {
   list-style: none;
   display: grid;
@@ -75,13 +96,14 @@ header {
   width: 100%;
   background: #334155;
   color: white;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 10px;
   padding: 1rem;
   font-size: 1rem;
   text-align: left;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
+  transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .answer-btn:hover {
@@ -93,27 +115,34 @@ header {
   transform: translateY(0);
 }
 
+/* =========================================================
+   NEXT BUTTON
+========================================================= */
 #next-btn {
   display: inline-block;
   background: #5dd0918b;
-  color: rgba(222, 238, 215, 0.895);
+  color: rgba(222, 238, 215, 0.95);
   border: none;
   padding: 0.9rem 1.4rem;
   border-radius: 10px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
 #next-btn:hover {
   background: #77c495df;
+  transform: translateY(-1px);
 }
 
-.hidden {
-  display: none;
+#next-btn:active {
+  transform: translateY(0);
 }
 
+/* =========================================================
+   END SCREEN
+========================================================= */
 #end-screen {
   margin-top: 1.5rem;
   background: #1a2238;
@@ -121,4 +150,76 @@ header {
   border-radius: 14px;
   text-align: center;
   font-size: 1.2rem;
+  color: #f8fafc;
+}
+
+/* =========================================================
+   STATE CLASSES
+========================================================= */
+
+/* Correct answer */
+.correct {
+  background-color: #4caf50 !important;
+  color: white;
+  border-color: #388e3c;
+}
+
+/* Wrong answer */
+.wrong {
+  background-color: #e53935 !important;
+  color: white;
+  border-color: #c62828;
+}
+
+/* Disabled answers after user picks one */
+.disabled {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Question card after answer is locked */
+.answered {
+  border-left: 4px solid #97c5db;
+}
+
+/* Hide elements initially */
+.hidden {
+  display: none;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  #game {
+    padding: 1.25rem;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #game-title {
+    font-size: 1.6rem;
+  }
+
+  #question-text {
+    font-size: 1.2rem;
+  }
+
+  .answer-btn {
+    font-size: 0.95rem;
+    padding: 0.9rem;
+  }
+
+  #next-btn {
+    width: 100%;
+    text-align: center;
+  }
 }

@@ -1,5 +1,5 @@
 /**
- * Open script.js. Your first job is to give JavaScript handles to the elements it'll need. The first two are done for you — follow the same pattern for the rest:
+ * Phase 1: Connect to the DOM
  */
 
 const gameTitle = document.getElementById("game-title");
@@ -31,6 +31,7 @@ const answerBtnNodes = document.querySelectorAll(".answer-btn");
 console.log(answerBtnCollection); // HTMLCollection
 console.log(answerBtnNodes); // NodeList
 answerBtnNodes.forEach((n) => console.log(n.innerHTML));
+
 // converting htmlCollection into array
 const btnArr = Array.from(answerBtnCollection);
 btnArr.forEach((e) => console.log(e.innerHTML));
@@ -40,3 +41,34 @@ btnArr.forEach((e) => console.log(e.innerHTML));
  * querySelectorAll returns a NodeList.
  * To use .map() on either, convert with Array.from().
  */
+
+/**
+ * Phase 2: Read and Modify the Page
+ */
+
+// update the tile
+gameTitle.textContent = " ☘︎ Quick Fire Trivia ";
+
+// read the current question text and log
+console.log("First Question: ", questionText.textContent);
+
+// change the question number label to uppercase
+questionNumber.innerText = questionNumber.innerText.toUpperCase();
+
+// walking the tree - with traversal
+const firstBtn = answerBtnNodes[0];
+const firstLi = firstBtn.parentElement;
+const parentBtn = firstLi.parentElement;
+
+console.log("The first button: ", firstBtn);
+console.log("Its parent <li>: ", firstLi);
+console.log("The <ul> that holds all buttons: ", parentBtn);
+
+// toggle a class on the question card
+
+/**
+ * classList is the list of CSS classes on an HTML
+ * element. add() puts a new class into that list.
+ */
+questionCard.classList.add("answered");
+questionCard.classList.remove("answered");

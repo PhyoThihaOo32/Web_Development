@@ -91,3 +91,41 @@ When you're working with form inputs, always use .value.
 
 console.log(titleInput.getAttribute("value"));
 console.log(titleInput.value);
+
+// What is the difference between getAttribute("value") and .value on an input?
+// getAttribute("value") → reads what was written in the HTML file
+// .value               → read the live state - what the user actually typed right now
+
+// Phrase3 : Handle the Form
+
+/**
+ * A form has default browser behavior: when you submit it, the browser tries to
+ * reload the page (or navigate to a URL). That would wipe everything
+ * your JavaScript built. Your first line inside any submit handler
+ * must stop that.
+ */
+
+movieForm.addEventListener("submit", (event) => {
+  // 1. Stop the browser from reloading the page — this must be the very first line
+  //    Without this, the page refreshes on every submit and you lose everything
+  //    hint: event.preventDefault()
+  event.preventDefault();
+
+  // 2. Read the movie title from the input — use .value, not getAttribute
+  //    hint: titleInput.value reads the live value the user typed
+  const currTitle = titleInput.value;
+
+  // 3. Read the genre the same way
+  const currGenre = genreInput.value;
+
+  // 4. Log both values to the console
+  //    Type a title and genre, submit — confirm you see them in DevTools
+  console.log(currTitle);
+  console.log(currGenre);
+
+  // 5. At the end, reset the form so the inputs are blank for the next entry
+  //    hint: movieForm.reset() clears all inputs in the form at once
+  movieForm.reset();
+
+  // 6. Don't build cards yet — that's Phase 4
+});

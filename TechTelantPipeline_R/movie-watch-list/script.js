@@ -130,6 +130,9 @@ movieForm.addEventListener("submit", (event) => {
   // 6. Don't build cards yet — that's Phase 4
   const card = createMovieCard(currTitle, currGenre);
   movieList.appendChild(card);
+
+  // 3. // TODO: call updateCount() here — you'll write that function in Phase 6
+  // 4. Call movieForm.reset()
 });
 
 // Phase 4: Build a Card
@@ -201,3 +204,57 @@ function createMovieCard(title, genre) {
   //    The function's job is to build and return. Appending is the caller's job.
   return li;
 }
+
+// phase 5: button behavior
+
+// event.target is the button that was clicked
+// event.target.closest("li") walks UP the tree and returns the first <li> it finds
+// This gives you the whole card, not just the button
+
+// const card = event.target.closest("li")
+// Now you can do card.remove(), card.classList.toggle("watched"), etc.
+
+movieList.addEventListener("click", (event) => {
+  const btn1 = document.querySelector(".watch-btn");
+  // 1. If the click was not on a BUTTON, return early
+  //    hint: event.target.tagName === "BUTTON"
+  if (event.target.tagName !== "BUTTON") return;
+  // 2. Get the card the button lives in
+  //    hint: event.target.closest("li")
+  else {
+    const card = event.target.closest("li");
+    // 3. Was it the remove button?
+    //    - Check: event.target.classList.contains("remove-btn")
+    //    - If yes: remove the card from the DOM entirely
+    //      hint: card.remove()
+
+    if (event.target.classList.contains("remove-btn")) {
+      card.remove();
+
+      //    - // TODO: call updateCount() here — Phase 6
+      //    - // TODO: call applyFilter(currentFilter) here — Phase 6
+    }
+    // 4. Was it the watch button?
+    //    - Check: event.target.classList.contains("watch-btn")
+    //    - If yes: toggle the "watched" class on the card
+    //      hint: card.classList.toggle("watched")
+    //   console.log(event.target);
+    else if (event.target.classList.contains("watch-btn")) {
+      if (!card.classList.contains("watched")) {
+        btn1.textContent = "Unmark Watch!!";
+        card.classList.toggle("watched");
+
+        //      if it no longer has .watched → set button text to "Mark Watched"
+        //      hint: card.classList.contains("watched") returns true or false
+      } else if (card.classList.contains("watched")) {
+        btn1.textContent = "Mark Watch";
+        card.classList.toggle("watched");
+      }
+      //    - Update the button's textContent based on the new state:
+      //      if the card now has .watched → set button text to "Unmark Watched"
+      // const btn1 = document.getElementbyClassName(".watch-btn");
+    }
+
+    //    - // TODO: call applyFilter(currentFilter) here — Phase 6
+  }
+});

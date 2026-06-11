@@ -81,3 +81,72 @@ const popeyes_scores = scores_obj.reduce((acc, curr) => {
 }, 0);
 
 console.log(popeyes_scores);
+
+//find method - iterate the array - check the condtion(find the element based on the condition) - if true - return the element
+
+const numbers = [10, 50, 0, 40, 60, 80, 19, 100];
+
+const number = numbers.find((num) => {
+  return num > 50;
+});
+
+console.log(number);
+
+const cities = ["new york", "yangon", "paris", "tokyo"];
+const myCity = cities.find((city) => {
+  const regex = /^y\w+n$/;
+  return city.match(regex);
+});
+
+console.log(myCity);
+
+// sort and reverse method
+// change the original array
+const names = ["bobo", "apollo", "uranus", "zeus"];
+
+names.sort(); // sort alphabetically
+names.reverse(); // reverse the array
+
+names.sort((a, b) => b - a);
+
+console.log(names);
+
+const money = [100, 299, 390, 400, 500];
+console.log(money.sort());
+
+const players = [
+  { name: "mario", score: 20 },
+  { name: "linus", score: 40 },
+  { name: "pepito", score: 100 },
+  { name: "bunny", score: 98 },
+  { name: "rain", score: 78 },
+];
+
+players.sort((a, b) => {
+  if (a.score > b.score) return -1;
+  else if (b.score > a.score) return 1;
+  else return 0;
+});
+
+//players.sort((a,b)=> b.score - a.score);
+
+// chaining array methods
+const my_products = [
+  { name: "gold star", price: 30 },
+  { name: "tomatoes", price: 10 },
+  { name: "spicy shrimp", price: 40 },
+  { name: "naughty beans", price: 80 },
+  { name: "long life noodles", price: 5 },
+  { name: "chocolate bar", price: 15 },
+];
+
+// const filtered = my_products.filter((product) => product.price > 20);
+// const promos = filtered.map((product) => {
+//   return `this ${product.name} is ${product.price / 2} pounds`;
+// });
+
+const promos = my_products
+  .filter((product) => product.price > 20)
+  .map((product) => `this ${product.name} is ${product.price / 2} pounds`);
+
+console.log(promos);

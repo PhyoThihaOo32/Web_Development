@@ -56,7 +56,8 @@ input {
 
 /* Applied to whichever filter button is currently active */
 .active-filter {
-  background-color: #1a1a2e;
+  background-color: #5f5c9c;
+  height: 20px;
   color: white;
 }
 

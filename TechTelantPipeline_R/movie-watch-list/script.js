@@ -128,4 +128,76 @@ movieForm.addEventListener("submit", (event) => {
   movieForm.reset();
 
   // 6. Don't build cards yet — that's Phase 4
+  const card = createMovieCard(currTitle, currGenre);
+  movieList.appendChild(card);
 });
+
+// Phase 4: Build a Card
+
+// this function receive the title and genre and build a complete <li> card
+/**
+ * <li class="movie-card" data-genre="Sci-Fi">
+  <div class="movie-info">
+    <span class="movie-title">Inception</span>
+    <span class="movie-genre">Sci-Fi</span>
+  </div>
+  <div class="movie-actions">
+    <button class="watch-btn">Mark Watched</button>
+    <button class="remove-btn">Remove</button>
+  </div>
+</li>
+ */
+// and return it
+
+function createMovieCard(title, genre) {
+  // 1. Create the outer <li>
+  //    - give it the class "movie-card"
+  //    - use setAttribute to set data-genre to the genre value
+  const li = document.createElement("li");
+  li.setAttribute("class", "movie-card");
+  li.setAttribute("data-genre", genre);
+
+  // 2. Create a <div> for the info section — class "movie-info"
+  //    Inside it, create two <span> elements:
+  //    - one with class "movie-title" — set its textContent to title
+  //    - one with class "movie-genre" — set its textContent to genre (show "No genre" if empty)
+  //    Append both spans into the info div
+  const div = document.createElement("div");
+  li.appendChild(div);
+  div.setAttribute("class", "movie-info");
+
+  const span1 = document.createElement("span");
+  div.appendChild(span1);
+  span1.setAttribute("class", "movie-title");
+  span1.textContent = title;
+
+  const span2 = document.createElement("span");
+  div.appendChild(span2);
+  span2.setAttribute("class", "movie-genre");
+  span2.textContent = genre;
+
+  // 3. Create a <div> for the buttons — class "movie-actions"
+  //    Inside it, create two <button> elements:
+  //    - one with class "watch-btn" — textContent "Mark Watched"
+  //    - one with class "remove-btn" — textContent "Remove"
+  //    Append both buttons into the actions div
+  const btn_div = document.createElement("div");
+  btn_div.setAttribute("class", "movie-actions");
+  li.appendChild(btn_div);
+
+  const btn1 = document.createElement("button");
+  btn1.setAttribute("class", "watch-btn");
+  btn1.innerText = "Mark Watch";
+  btn_div.appendChild(btn1);
+
+  const btn2 = document.createElement("button");
+  btn2.setAttribute("class", "remove-btn");
+  btn2.innerText = "Remove";
+  btn_div.appendChild(btn2);
+
+  // 4. Append the info div and actions div into the <li>
+
+  // 5. return the card — do NOT append it here
+  //    The function's job is to build and return. Appending is the caller's job.
+  return li;
+}

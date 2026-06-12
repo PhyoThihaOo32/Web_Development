@@ -324,24 +324,33 @@ console.log("\n[ SECTION F — Functions ]");
 // Write a function called greet that takes a name as an argument
 // and returns a greeting string.
 //
+function greet(name) {
+  return `Hello, ${name}`;
+}
 console.log(greet("Alex")); // → "Hello, Alex!"
 console.log(greet("Mike")); // → "Hello, Mike!"
 
 // F2.
 // Write a function called square that takes a number and returns its square.
 //
+function square(num) {
+  return num * num;
+}
 console.log(square(4)); // → 16
 console.log(square(9)); // → 81
 //
 // EXPLAIN: What does the return keyword do?
 //          What does a function return if you forget to write return?
 //
-//          answer:
+//          answer: return keyword return the value(or the data)/ if forgot it return undefined
 
 // F3.
 // Write a function called isEven that takes a number and returns
 // true if it is even and false if it is odd.
 //
+function isEven(num) {
+  return num % 2 === 0 ? true : false;
+}
 console.log(isEven(4)); // → true
 console.log(isEven(7)); // → false
 console.log(isEven(0)); // → true
@@ -351,6 +360,14 @@ console.log(isEven(0)); // → true
 // and returns the total of all the numbers added together.
 // Use a loop inside — do not use a built-in method.
 //
+function sum(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
 console.log(sum([1, 2, 3, 4, 5])); // → 15
 console.log(sum([10, 20, 30])); // → 60
 console.log(sum([])); // → 0
@@ -361,6 +378,12 @@ console.log(sum([])); // → 0
 // It should not return anything.
 // Do not use the native .forEach() inside your function — use a for loop.
 //
+function myForEach(arr, fn) {
+  for (let i = 0; i < arr.length; i++) {
+    fn(arr[i]);
+  }
+}
+
 myForEach([1, 2, 3], function (n) {
   console.log(n);
 });
@@ -371,7 +394,8 @@ myForEach([1, 2, 3], function (n) {
 // EXPLAIN: What is a callback function?
 //          In the example above, what plays the role of the callback?
 //
-//          answer:
+//          answer: a callback function is a function passed into another function as an argument
+//          console.log() play the role as a callback function
 
 // F6.
 // Write a function called myMap that takes an array and a callback function as arguments.
@@ -379,6 +403,15 @@ myForEach([1, 2, 3], function (n) {
 // calling the callback on the original element.
 // Do not use the native .map() inside your function — use a for loop.
 //
+
+function myMap(arr, fn) {
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(fn(arr[i]));
+  }
+  return newArr;
+}
+
 console.log(myMap([1, 2, 3], (n) => n * 2)); // → [2, 4, 6]
 console.log(myMap([1, 2, 3], (n) => n + 10)); // → [11, 12, 13]
 
@@ -388,6 +421,16 @@ console.log(myMap([1, 2, 3], (n) => n + 10)); // → [11, 12, 13]
 // the callback returns true.
 // Do not use the native .filter() inside your function — use a for loop.
 //
+function myFilter(arr, fn) {
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (fn(arr[i])) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+
 console.log(myFilter([1, 2, 3, 4, 5], (n) => n > 3)); // → [4, 5]
 console.log(myFilter([10, 25, 30, 45], (n) => n % 2 === 0)); // → [10, 30]
 //
@@ -395,4 +438,6 @@ console.log(myFilter([10, 25, 30, 45], (n) => n % 2 === 0)); // → [10, 30]
 //          What is the key difference between what they return?
 //          Why do neither of them change the original array?
 //
-//          answer:
+//          answer: myMap and myFiler check each element take action on each element and return new array
+//          myMap take action(change each element) and myFilter check the condition for each element
+//          according to the creator mysterious intent and desire!

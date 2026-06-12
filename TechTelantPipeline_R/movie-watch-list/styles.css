@@ -48,6 +48,11 @@ input {
   margin: 3px;
 }
 
+.filter-btn:hover {
+  background-color: rgb(140, 218, 192);
+  cursor: pointer;
+}
+
 /* Applied to the <li> when a movie is marked watched */
 .watched {
   opacity: 0.5;
@@ -56,9 +61,9 @@ input {
 
 /* Applied to whichever filter button is currently active */
 .active-filter {
-  background-color: #5f5c9c;
-  height: 20px;
-  color: white;
+  background-color: #063d27;
+  color: rgb(151, 221, 225);
+  height: 30px;
 }
 
 /* Applied to cards that don't match the current filter — hides them */

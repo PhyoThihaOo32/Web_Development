@@ -216,7 +216,7 @@ answerList.addEventListener("click", (event) => {
 
 // Why does clicking a button inside #answer-list trigger this listener?
 // Answer: because event delegation - one handler covers all current and future children
-//
+
 // What is the difference between event.target and event.currentTarget here?
 // event.target  → is the element where the event actually happened (for ex: when the user click the answer button)
 // event.currentTarget → is where the event listen is attached - that can be partent node

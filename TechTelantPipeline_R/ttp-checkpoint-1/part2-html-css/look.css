@@ -1,0 +1,76 @@
+/*
+  PART 2 — CSS
+  ============
+  Write all of your styles here under each task.
+  Open index.html in a browser to check your work.
+
+  Answer EXPLAIN prompts as CSS comments directly below the relevant rule.
+*/
+
+
+/*
+  TASK A
+  Using the body TAG selector, set a background color on the page.
+*/
+
+
+/*
+  TASK B
+  Using the h1 TAG selector, set a font size and a color.
+*/
+
+
+/*
+  TASK C
+  Using the CLASS selector, style the list items with the highlight class.
+  Give them a background color and some padding so they stand out.
+*/
+
+
+/*
+  TASK D
+  Using the ID selector, give the h2 with the id section-title a color that is
+  different from the h1 and different from body text.
+*/
+
+
+/*
+  TASK E
+  Give the div with the box id all five of the following — each as a separate property:
+    - a width
+    - a height
+    - a border
+    - a padding
+    - a margin
+
+  EXPLAIN: What is the difference between padding and margin?
+           Write your answer as a comment below this rule.
+
+
+           answer:
+*/
+
+
+/*
+  TASK F
+  Style the button with the click-me id so it looks like a real button.
+  It must have a background color, a text color, a border, padding,
+  and a cursor: pointer that turns into a pointer when the user hovers over it.
+*/
+
+
+/*
+  TASK G — Specificity
+  Write two rules that BOTH set the color of the paragraph with the id intro
+    - One rule using the p tag selector
+    - One rule using the id selector
+  Set them to two different colors.
+
+  Open the browser. Observe which color actually shows up.
+
+  EXPLAIN: Which rule won? Why?
+           What is CSS specificity and how does it determine which rule wins?
+           Write your answer as a comment below these two rules.
+
+           answer:
+*/

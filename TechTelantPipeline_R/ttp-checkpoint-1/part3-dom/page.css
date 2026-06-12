@@ -1,0 +1,46 @@
+/*
+  PART 3 — CSS
+  ============
+  Style the page however you like. Make it readable.
+
+  TASK A
+  Define a class called .highlighted that changes both the
+  background color and text color of any element it is applied to.
+  JavaScript will add and remove this class — you just define what it looks like.
+*/
+
+
+/*
+  Add any other styles you want below.
+  At minimum, make the page not look broken.
+*/
+
+body {
+  font-family: sans-serif;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+input {
+  padding: 0.4rem;
+  margin-right: 0.5rem;
+}
+
+button {
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  margin: 0.25rem;
+}
+
+#item-list {
+  margin-top: 1rem;
+}
+
+#output-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-height: 60px;
+}

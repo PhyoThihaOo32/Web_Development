@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Part 3 — DOM</title>
+    <link rel="stylesheet" href="page.css" />
+    <!--
+      TASK 1
+      Link app.js here using the script tag.
+      Make sure to use the defer attribute.
+
+      EXPLAIN: What does defer do? What would happen if you put the script
+              tag here WITHOUT defer?
+              Write your answer as a comment below this line.
+
+              answer: 
+    -->
+  </head>
+  <body>
+
+    <!--
+      Do not edit anything below this comment.
+      All of your work for Part 3 goes in app.js and page.css.
+    -->
+
+    <header>
+      <h1 id="main-heading">Welcome</h1>
+      <p id="subtitle">Status: waiting...</p>
+    </header>
+
+    <main>
+
+      <section id="controls">
+        <button id="change-btn">Change Heading</button>
+        <button id="toggle-btn">Toggle Highlight</button>
+      </section>
+
+      <section id="list-section">
+        <h2>Item List</h2>
+        <input type="text" id="item-input" placeholder="Type an item..." />
+        <button id="add-btn">Add Item</button>
+        <ul id="item-list">
+          <li class="list-item">Apples</li>
+          <li class="list-item">Bananas</li>
+          <li class="list-item">Cherries</li>
+        </ul>
+      </section>
+
+      <section id="output-section">
+        <div id="output-box">
+          <p id="output-text">Nothing here yet.</p>
+        </div>
+      </section>
+
+    </main>
+
+  </body>
+</html>

@@ -2,5 +2,12 @@ import { useState } from "react";
 import "./App.css";
 
 export default function App() {
-  return <div></div>;
+  const [name, setName] = useState("");
+
+  return (
+    <div>
+      <h1>RSVP Practice</h1>
+      <input type="text" />
+    </div>
+  );
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import List from "../../../../R e ⚛︎ c t/bro_code/src/List";
 
 export default function App() {
   const [name, setName] = useState("");
@@ -18,14 +19,20 @@ export default function App() {
     event.preventDefault();
     const newGuest = {
       id: Date.now(),
-      name: { name },
-      email: { email },
+      name: name,
+      email: email,
     };
 
-    setGuests(...guests, newGuest); // create a new array with everything in guests followed by newGuest
+    setGuests([...guests, newGuest]); // create a new array with everything in guests followed by newGuest
     setName("");
     setEmail("");
   };
+
+  const guestLists = guests.map((guest) => (
+    <li key={guest.id}>
+      {guest.name} {guest.email}
+    </li>
+  ));
 
   return (
     // step 2.2
@@ -42,8 +49,9 @@ export default function App() {
           Add Guest
         </button>
       </form>
-      <p>{name}</p>
-      <p>{email}</p>
+      <hr />
+      <h2>Guest List</h2>
+      <ul>{guestLists}</ul>
     </div>
   );
 }

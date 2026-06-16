@@ -3,16 +3,31 @@ import "./App.css";
 
 export default function App() {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState(""); // step 2.1 - state variable email start with empty string
 
   const handleNameChange = (event) => {
     setName(event.target.value);
   };
 
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
   return (
+    // step 2.2
     <div>
-      <h1>RSVP Practice</h1>
-      <input type="text" value={name} onChange={handleNameChange} />
-      <p>Name: {name}</p>
+      <h1>Company Picnic RSVP - répondez s'il vous plaît </h1>
+      <form action="">
+        <label for="name">Name </label>
+        <input id="name" type="text" onChange={handleNameChange} value={name} />
+        <br />
+        <label>Email </label>
+        <input type="email" onChange={handleEmailChange} value={email} />
+        <br />
+        <button type="submit">Add Guest</button>
+      </form>
+      <p>{name}</p>
+      <p>{email}</p>
     </div>
   );
 }

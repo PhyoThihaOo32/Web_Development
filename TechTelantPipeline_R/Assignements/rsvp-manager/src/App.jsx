@@ -4,6 +4,7 @@ import "./App.css";
 export default function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState(""); // step 2.1 - state variable email start with empty string
+  const [guests, setGuests] = useState([]); // state variable guests - initialized with empty array
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -13,18 +14,33 @@ export default function App() {
     setEmail(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newGuest = {
+      id: Date.now(),
+      name: { name },
+      email: { email },
+    };
+
+    setGuests(...guests, newGuest); // create a new array with everything in guests followed by newGuest
+    setName("");
+    setEmail("");
+  };
+
   return (
     // step 2.2
     <div>
       <h1>Company Picnic RSVP - répondez s'il vous plaît </h1>
       <form action="">
-        <label for="name">Name </label>
+        <label>Name </label>
         <input id="name" type="text" onChange={handleNameChange} value={name} />
         <br />
         <label>Email </label>
         <input type="email" onChange={handleEmailChange} value={email} />
         <br />
-        <button type="submit">Add Guest</button>
+        <button type="submit" onClick={handleSubmit}>
+          Add Guest
+        </button>
       </form>
       <p>{name}</p>
       <p>{email}</p>

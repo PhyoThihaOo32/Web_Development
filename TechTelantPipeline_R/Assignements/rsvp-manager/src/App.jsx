@@ -56,7 +56,7 @@ export default function App() {
       </form>
       <hr />
       <h2>Guest List</h2>
-      <ul>{guestLists}</ul>
+      <ul>{guests.length === 0 ? <p>"No Guest!"</p> : guestLists}</ul>
     </div>
   );
 }

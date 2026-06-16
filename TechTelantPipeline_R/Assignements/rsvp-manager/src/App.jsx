@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import List from "../../../../R e ⚛︎ c t/bro_code/src/List";
 
 export default function App() {
   const [name, setName] = useState("");
@@ -31,8 +30,14 @@ export default function App() {
   const guestLists = guests.map((guest) => (
     <li key={guest.id}>
       {guest.name} {guest.email}
+      <button onClick={() => removeGuest(guest.id)}>Romove Guest</button>
     </li>
   ));
+
+  function removeGuest(id) {
+    const updatedGuest = guests.filter((guest) => guest.id !== id);
+    setGuests(updatedGuest);
+  }
 
   return (
     // step 2.2

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ninja Quiz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!--top section-->
+    <div class="intro py-3 bg-white text-center">
+      <div class="container">
+        <h2 class="text-primary display-3 my-4">Ninja Quiz</h2>
+      </div>
+    </div>
+    <!--result section-->
+    <div class="result py-4 d-none bg-light text-center">
+      <div class="container lead">
+        <p>You are <span class="text-primary display-4 p-3">0%</span>ninja</p>
+      </div>
+    </div>
+
+    <!--quiz section-->
+    <div class="quiz py-4 bg-primary">
+      <div class="container">
+        <h2 class="my-5 text-white">On with the questions...</h2>
+
+        <form class="quiz-form text-light">
+          <div class="my-5">
+            <p class="lead font-weight-normal">
+              1. How do you give a ninja direction?
+            </p>
+            <div class="form-check my-2 text-white-50">
+              <input type="radio" name="q1" value="A" checked />
+              <label class="form-check-label">Show them a map</label>
+            </div>
+            <div class="form-check my-2 text-white-50">
+              <input type="radio" name="q1" value="B" />
+              <label class="form-check-label"
+                >Don't worry, a ninja will find you.</label
+              >
+            </div>
+          </div>
+          <div class="my-5">
+            <p class="lead font-weight-normal">
+              1. If a ninja opened a bakery, would the bread disappear before
+              anyone could buy it, or would the customers never even know the
+              bakery was there
+            </p>
+            <div class="form-check my-2 text-white-50">
+              <input type="radio" name="q2" value="A" checked />
+              <label class="form-check-label"
+                >The bread would disappear before anyone could buy it</label
+              >
+            </div>
+            <div class="form-check my-2 text-white-50">
+              <input type="radio" name="q2" value="B" />
+              <label class="form-check-label"
+                >The customers would never even know the bakery was there</label
+              >
+            </div>
+          </div>
+          <div class="my-5">
+            <p class="lead font-weight-normal">
+              2. If a ninja sneezes during a stealth mission, would the mission
+              fail instantly, or would everyone just assume it was the wind?
+            </p>
+            <div class="form-check my-2 text-white-50">
+              <input type="radio" name="q3" value="A" checked />
+              <label class="form-check-label"
+                >The mission would fail instantly</label
+              >
+            </div>
+            <div class="form-check my-2 text-white-50">
+              <input type="radio" name="q3" value="B" />
+              <label class="form-check-label"
+                >Everyone would just assume it was the wind</label
+              >
+            </div>
+          </div>
+
+          <div class="my-5">
+            <p class="lead font-weight-normal">
+              3. If two ninjas played hide-and-seek against each other, would
+              the game end in five minutes, or would it last forever because
+              neither could find the other?
+            </p>
+            <div class="form-check my-2 text-white-50">
+              <input type="radio" name="q4" value="A" checked />
+              <label class="form-check-label"
+                >The game would end in five minutes</label
+              >
+            </div>
+            <div class="form-check my-2 text-white-50">
+              <input type="radio" name="q4" value="B" />
+              <label class="form-check-label"
+                >It would last forever because neither could find the
+                other</label
+              >
+            </div>
+          </div>
+          <div class="text-ceter">
+            <input type="submit" class="btn btn-light" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

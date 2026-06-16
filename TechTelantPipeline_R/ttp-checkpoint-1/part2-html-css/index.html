@@ -61,3 +61,48 @@
 <!-- ============================================================ -->
 <!-- Write your complete HTML page starting below this line      -->
 <!-- ============================================================ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Part2_HTML_CSS</title>
+    <link rel="stylesheet" href="look.css" />
+
+    <!-- TASK 2
+    we put the css link in the head because browser should load the css before the page is shown.
+    if css in the body - the brower will show the skeleton html first and then load the styling.-->
+  </head>
+  <body>
+    <h1>My Checkpoint page</h1>
+    <p id="intro">
+      (Slow Radio Music Playing) Drivin' down the road, I get a feelin' that I
+      should've been home ♫⋆｡♪ ₊˚♬
+    </p>
+    <h2 id="section-title">Random Songs</h2>
+    <ul>
+      <li class="highlight">Drown-Bring me the Horizon</li>
+      <li>Shadow of the Day-Linkin Park</li>
+      <li class="highlight">Tangled up in you-Staind</li>
+      <li>Somewhere Only we know-Kane</li>
+    </ul>
+    <div id="box">Old Radio Channel</div>
+    <button id="click-me">Click ME</button>
+    <!-- TASK 3
+        What is the difference between a class and an id?
+        - different tags can have same class name but there is one unique id for one specific element or tag
+        Can two elements on the same page share the same class?
+        - yes
+        Can two elements on the same page share the same id? 
+        - no -->
+
+    <!-- TASK 4 — Specificity (answer here, styles go in look.css)
+        Look at these two CSS rules:
+          p      { color: steelblue; }
+          #intro { color: tomato;    }
+        Both rules target the same paragraph.
+        Which color will the paragraph actually be? Why does one rule win?
+
+        Answer: color will be tomato. #(id) has higher prority than class or element selector in this case p -->
+  </body>
+</html>

@@ -8,7 +8,10 @@
   background color and text color of any element it is applied to.
   JavaScript will add and remove this class — you just define what it looks like.
 */
-
+.highlighted {
+  font-size: 20px;
+  background-color: rgba(227, 241, 104, 0.97);
+}
 
 /*
   Add any other styles you want below.
@@ -17,20 +20,33 @@
 
 body {
   font-family: sans-serif;
+  background-color: honeydew;
   max-width: 700px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
 
 input {
+  background-color: rgba(215, 240, 252, 0.908);
+  border: 2px solid rgb(156, 128, 91);
+  border-radius: 5px;
   padding: 0.4rem;
   margin-right: 0.5rem;
 }
 
 button {
+  background-color: rgb(233, 171, 183);
+  box-shadow: 0 2px 5px rgb(123, 125, 51);
+  border-radius: 5px;
+  border: none;
   padding: 0.4rem 1rem;
   cursor: pointer;
   margin: 0.25rem;
+}
+
+button:hover {
+  background-color: rgba(225, 65, 169, 0.728);
+  box-shadow: 0 2px 5px rgb(104, 51, 125);
 }
 
 #item-list {
@@ -38,9 +54,16 @@ button {
 }
 
 #output-box {
-  margin-top: 1rem;
-  padding: 1rem;
-  border: 1px solid #ccc;
+  background-color: #efefe1;
+  margin-top: 2rem;
+  padding: 2rem;
+  border: 1px dotted #bcba3f;
   border-radius: 6px;
   min-height: 60px;
+}
+
+#output-text {
+  text-align: center;
+  font-family: monospace;
+  color: rgb(142, 126, 35);
 }

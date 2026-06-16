@@ -105,11 +105,12 @@ console.log(rawInput.includes("awesome")); // includes() is a method - take an a
 for (let i = 0; i < 10; i++) {
   console.log(rawInput[i]);
 }
+console.log(rawInput.trim().slice(0, 10));
 
 // B6.
 // Split rawInput (after trimming it) into an array of individual words.
 // Log the resulting array.
-const strArr = rawInput.trim().split("");
+const strArr = rawInput.trim().split(" ");
 console.log(strArr);
 
 // EXPLAIN: What does .split() do? What argument did you pass it and why?
@@ -125,6 +126,7 @@ console.log(strArr);
 // Use what is specified. Do not substitute one for another.
 // ------------------------------------------------------------
 console.log("\n[ SECTION C — Arrays ]");
+// In JS - array is dynamic by default [1,3, "string", function () {}, null, undefined];
 
 // The following array is provided for this section.
 const scores = [88, 72, 95, 60, 84, 100, 73, 91];
@@ -165,6 +167,7 @@ console.log(scores.includes(50)); // false incluse () - check if the value is in
 // C6.
 // Use a for loop to log each score on its own line.
 // Do not modify the original scores array.
+
 for (let i = 0; i < scores.length; i++) {
   console.log(scores[i]);
 }
@@ -235,12 +238,15 @@ console.log(student);
 for (let key in student) {
   console.log(key);
 }
+console.log(Object.keys(student));
 
 // D4.
 // Use a method to log all of the values in the object.
 for (let value in student) {
   console.log(student[value]);
 }
+console.log(Object.values(student));
+
 // D5.
 // Using a for...in loop, log each key-value pair in this exact format:
 //   name: Jane
@@ -294,6 +300,8 @@ roster.forEach((stu) => {
   }
 });
 
+console.log(roster.filter((stu) => stu.grade >= 70)); // using filter()
+
 passingStudents.forEach((passStu) =>
   console.log(passStu.name, "\t:", passStu.grade)
 );
@@ -305,6 +313,9 @@ const justNames = [];
 
 roster.forEach((stu) => justNames.push(stu.name));
 console.log(justNames);
+
+console.log("Printint out student names using map");
+console.log(roster.map((stu) => stu.name));
 
 // E5.
 // EXPLAIN: Why would you store objects inside an array?
@@ -349,7 +360,7 @@ console.log(square(9)); // → 81
 // true if it is even and false if it is odd.
 //
 function isEven(num) {
-  return num % 2 === 0 ? true : false;
+  return num % 2 === 0;
 }
 console.log(isEven(4)); // → true
 console.log(isEven(7)); // → false
@@ -440,4 +451,4 @@ console.log(myFilter([10, 25, 30, 45], (n) => n % 2 === 0)); // → [10, 30]
 //
 //          answer: myMap and myFiler check each element take action on each element and return new array
 //          myMap take action(change each element) and myFilter check the condition for each element
-//          according to the creator mysterious intent and desire!
+//          Neither of them change the original array - according to the creators' mysterious intent and desire!

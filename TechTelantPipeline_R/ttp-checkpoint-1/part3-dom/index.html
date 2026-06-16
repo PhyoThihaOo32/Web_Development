@@ -14,11 +14,12 @@
               tag here WITHOUT defer?
               Write your answer as a comment below this line.
 
-              answer: 
+              answer: defer mean the browser will load the html first and then run the .js file(script)
+              -without javascript will run before the dom element are loaded or exist - the program will out of sync
     -->
+    <script src="app.js" defer></script>
   </head>
   <body>
-
     <!--
       Do not edit anything below this comment.
       All of your work for Part 3 goes in app.js and page.css.
@@ -30,7 +31,6 @@
     </header>
 
     <main>
-
       <section id="controls">
         <button id="change-btn">Change Heading</button>
         <button id="toggle-btn">Toggle Highlight</button>
@@ -52,8 +52,6 @@
           <p id="output-text">Nothing here yet.</p>
         </div>
       </section>
-
     </main>
-
   </body>
 </html>

@@ -11,7 +11,7 @@ export default function App() {
   return (
     <div>
       <h1>RSVP Practice</h1>
-      <input type="text" onChange={handleNameChange} value={name} />
+      <input type="text" value={name} onChange={handleNameChange} />
       <p>Name: {name}</p>
     </div>
   );

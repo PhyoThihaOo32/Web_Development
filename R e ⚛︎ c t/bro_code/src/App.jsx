@@ -7,6 +7,9 @@ import ProfilePicture from "./ProfilePicture.jsx";
 import MyComponent from "./myComponent.jsx";
 import Counter from "./Counter.jsx";
 import OnChange from "./OnChange.jsx";
+import ColorPicker from "./ColorPicker.jsx";
+import Updater from "./Updater.jsx";
+import UpdateStateObject from "./UpdateStateObject.jsx";
 
 function App() {
   //   const fruits = [
@@ -33,7 +36,7 @@ function App() {
   //       )}
   //     </>
   //   );
-  return <OnChange></OnChange>;
+  return <UpdateStateObject></UpdateStateObject>;
 }
 
 export default App;

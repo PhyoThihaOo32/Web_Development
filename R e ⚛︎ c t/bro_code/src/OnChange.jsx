@@ -11,7 +11,6 @@ function OnChange() {
   const [quantity, setQuantity] = useState(0);
   const [comment, setComment] = useState("No comment");
   const [payment, setPayment] = useState("");
-
   const [shipping, setShipping] = useState("Delivery");
 
   function handleNameChange(event) {

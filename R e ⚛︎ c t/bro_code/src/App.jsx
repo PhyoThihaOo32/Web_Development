@@ -10,6 +10,8 @@ import OnChange from "./OnChange.jsx";
 import ColorPicker from "./ColorPicker.jsx";
 import Updater from "./Updater.jsx";
 import UpdateStateObject from "./UpdateStateObject.jsx";
+import UpdateStateArray from "./UpdateStateArray.jsx";
+import UpdateStateArrObject from "./UpdateStateArrObject.jsx";
 
 function App() {
   //   const fruits = [
@@ -36,7 +38,7 @@ function App() {
   //       )}
   //     </>
   //   );
-  return <UpdateStateObject></UpdateStateObject>;
+  return <UpdateStateArrObject></UpdateStateArrObject>;
 }
 
 export default App;

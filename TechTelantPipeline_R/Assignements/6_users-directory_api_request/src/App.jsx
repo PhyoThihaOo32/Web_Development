@@ -4,6 +4,7 @@ import UserCard from "./UserCard";
 
 export default function App() {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // useEffect(() => console.log("page loaded"), []);
   // [] array is the second arg passed in useEffect - which tell react 'only run one time'.
@@ -16,15 +17,19 @@ export default function App() {
       const data = await response.json();
       setUsers(data);
       // console.log(data);
+      setLoading(false);
     }
+
     fetchUsers();
   }, []);
 
   return (
     <div>
-      {users.map((user) => (
-        <UserCard key={user.id} user={user}></UserCard>
-      ))}
+      {loading ? (
+        <p>Loading Users . . . </p>
+      ) : (
+        users.map((user) => <UserCard key={user.id} user={user}></UserCard>)
+      )}
     </div>
   );
 }

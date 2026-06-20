@@ -1,4 +1,6 @@
-console.log('----------------- ASYNC BASICS & THE EVENT LOOP -----------------');
+console.log(
+  "----------------- ASYNC BASICS & THE EVENT LOOP -----------------",
+);
 
 // JavaScript is single-threaded — it runs one thing at a time.
 // But it can SCHEDULE work to happen later without blocking the rest of your code.
@@ -13,7 +15,7 @@ console.log('----------------- ASYNC BASICS & THE EVENT LOOP -----------------')
 //                  Async callbacks only run after the current stack is clear.
 
 //----------------------------------------------------
-console.log('\n--- Problem 1: Predict the output order ---');
+console.log("\n--- Problem 1: Predict the output order ---");
 
 // Before running this code, read it and write down what you expect the output to be.
 // Then uncomment the block and run it. Were you right?
@@ -23,19 +25,17 @@ console.log('\n--- Problem 1: Predict the output order ---');
 //   - Which lines are delayed (inside setTimeout)?
 //   - Does the delay amount change which async callback runs first?
 
-/*
-console.log('start');
+console.log("start");
 
 setTimeout(() => {
-  console.log('timeout A — 1000ms');
+  console.log("timeout A — 1000ms");
 }, 1000);
 
 setTimeout(() => {
-  console.log('timeout B — 0ms');
+  console.log("timeout B — 0ms");
 }, 0);
 
-console.log('end');
-*/
+console.log("end");
 
 // Write your predicted output here as a comment before running:
 // Line 1: 'start'
@@ -44,7 +44,7 @@ console.log('end');
 // Line 4: 'timeout A — 1000ms'
 
 //----------------------------------------------------
-console.log('\n--- Problem 2: delayedGreeting ---');
+console.log("\n--- Problem 2: delayedGreeting ---");
 
 // Write a function called delayedGreeting(name, ms, callback).
 // After `ms` milliseconds, it should call callback with a greeting string.
@@ -56,19 +56,21 @@ console.log('\n--- Problem 2: delayedGreeting ---');
 //     Who decides what to DO with the greeting? The caller, not this function.
 function delayedGreeting(name, ms, callback) {
   setTimeout(() => {
-    callback(`Hello, ${name}! Nice to meet you.`)
+    callback(`Hello, ${name}! Nice to meet you.`);
   }, ms);
 }
 
 // When implemented, this should log the greeting after ~1 second:
-delayedGreeting('Taylor', 1000, (greeting) => {
+delayedGreeting("Taylor", 1000, (greeting) => {
   console.log(greeting); // "Hello, Taylor! Nice to meet you." (after 1s)
 });
 
-console.log('This logs before the greeting, even though it comes after in the file.');
+console.log(
+  "This logs before the greeting, even though it comes after in the file.",
+);
 
 //----------------------------------------------------
-console.log('\n--- Problem 3: asyncCountdown ---');
+console.log("\n--- Problem 3: asyncCountdown ---");
 
 // Write asyncCountdown(n) — it should log n, n-1, ..., 1, one per second,
 // then log "Done!" after the last number.
@@ -83,14 +85,13 @@ console.log('\n--- Problem 3: asyncCountdown ---');
 function asyncCountdown(n) {
   const id = setInterval(() => {
     if (n === 0) {
-      clearInterval(id)
-      console.log('Done!')
-      return 
+      clearInterval(id);
+      console.log("Done!");
+      return;
     }
 
-    console.log(n)
-    n -= 1
-
+    console.log(n);
+    n -= 1;
   }, 1000);
 }
 
@@ -102,7 +103,7 @@ function asyncCountdown(n) {
 asyncCountdown(3);
 
 //----------------------------------------------------
-console.log('\n--- Problem 4: fetchUser (simulated async) ---');
+console.log("\n--- Problem 4: fetchUser (simulated async) ---");
 
 // In the real world, fetching data from a server takes time — it's async.
 // We simulate that delay with setTimeout.
@@ -123,9 +124,9 @@ console.log('\n--- Problem 4: fetchUser (simulated async) ---');
 function fetchUser(userId, onSuccess, onError) {
   setTimeout(() => {
     if (userId > 0) {
-      onSuccess({ id: userId, name: userId, enrolled: true })
+      onSuccess({ id: userId, name: userId, enrolled: true });
     } else {
-      onError('Invalid user ID')
+      onError("Invalid user ID");
     }
   }, 1000);
 }
@@ -133,21 +134,21 @@ function fetchUser(userId, onSuccess, onError) {
 // Test case 1 — valid user (should call onSuccess after 1s)
 fetchUser(
   42,
-  (user) => console.log('Success:', user),
-  (err)  => console.log('Error:', err)
+  (user) => console.log("Success:", user),
+  (err) => console.log("Error:", err),
 );
 // Expected: Success: { id: 42, name: 'Student #42', enrolled: true }
 
 // Test case 2 — invalid id (should call onError after 1s)
 fetchUser(
   -1,
-  (user) => console.log('Success:', user),
-  (err)  => console.log('Error:', err)
+  (user) => console.log("Success:", user),
+  (err) => console.log("Error:", err),
 );
 // Expected: Error: "Invalid user ID"
 
 //----------------------------------------------------
-console.log('\n--- Problem 5 (Challenge): sequentialDelays ---');
+console.log("\n--- Problem 5 (Challenge): sequentialDelays ---");
 
 // This one is harder — think it through before writing code.
 //
@@ -169,12 +170,12 @@ function sequentialDelays(messages, delayMs) {
   for (let i = 0; i < messages.length; i++) {
     const msg = messages[i];
     setTimeout(() => {
-      console.log(msg)
-    }, delayMs)
+      console.log(msg);
+    }, delayMs);
   }
 }
 
-sequentialDelays(['ready', 'set', 'go!'], 800);
+sequentialDelays(["ready", "set", "go!"], 800);
 // 'ready' (after 0.8s)
 // 'set'   (after 1.6s)
 // 'go!'   (after 2.4s)

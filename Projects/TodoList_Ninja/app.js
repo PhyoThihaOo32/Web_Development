@@ -30,3 +30,9 @@ list.addEventListener("click", (event) => {
     event.target.parentElement.remove();
   }
 });
+
+
+// keyup event
+search.addEventListener('keyup', ()=>{
+    
+})

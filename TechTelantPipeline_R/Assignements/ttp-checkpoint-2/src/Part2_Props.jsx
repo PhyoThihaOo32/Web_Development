@@ -61,7 +61,7 @@ function SectionA() {
     return (
       <div>
         <h2>Teacher Name: {props.name}</h2>
-        <p>Subject: {props.subj}</p>
+        <p>Subject: {props.subject}</p>
       </div>
     );
   }
@@ -80,7 +80,7 @@ function SectionA() {
       <StudentBadge name="Mika" grade="B"></StudentBadge>
       <StudentBadge name="Bob" grade="C"></StudentBadge>
 
-      <TeacherCard name="Prof. Joy" subj="American Politics"></TeacherCard>
+      <TeacherCard name="Prof. Joy" subject="American Politics"></TeacherCard>
     </div>
   );
 }

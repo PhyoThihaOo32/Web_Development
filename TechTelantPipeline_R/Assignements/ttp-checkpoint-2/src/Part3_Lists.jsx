@@ -38,11 +38,9 @@ function SectionA() {
   // Why: React requires a unique key on each item in a mapped list so it
   //      can track which items changed, were added, or were removed.
   const playerLists = players.map((player) => (
-    <ul>
-      <li key={player.id}>
-        {player.name} -- {player.score}
-      </li>
-    </ul>
+    <li key={player.id}>
+      {player.name} -- {player.score}
+    </li>
   ));
 
   // A2.

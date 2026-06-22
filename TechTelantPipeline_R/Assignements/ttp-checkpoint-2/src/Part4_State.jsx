@@ -49,6 +49,9 @@ function Counter() {
   //      to update it. When you call the update function, React re-renders
   //      the component and shows the new value on the page.
   const [count, setCount] = useState(0);
+
+  // note: It is destructuring - taking values out of the array returned by useState.
+
   // A2.
   // Add a button that says "Add 1".
   // When clicked, it should increase count by 1.
@@ -64,7 +67,6 @@ function Counter() {
     <div>
       <h3>Count: {count}</h3>
       <button onClick={() => setCount(count + 1)}>Add 1</button>
-
       <button onClick={() => setCount(0)}>Reset</button>
     </div>
   );
@@ -130,7 +132,7 @@ function MoodPicker() {
     <div>
       <button onClick={() => setMood(event.target.innerText)}>Happy</button>
       <button onClick={() => setMood(event.target.innerText)}>Sad</button>
-      <button onClick={() => setMood(event.target.innerText)}>Excited</button>
+      <button onClick={() => setMood(event.target.innerText)}>Excited!</button>
       <p>Current Mood: {mood}</p>
     </div>
   );
@@ -187,7 +189,8 @@ function NameInput() {
     <div>
       <input
         type="text"
-        onChange={() => setInputValue(event.target.value)}
+        value={inputValue}
+        onChange={(event) => setInputValue(event.target.value)}
         placeholder="type something"
       />
       <p>{inputValue}</p>
@@ -391,8 +394,11 @@ function GreetingForm() {
   return (
     <div>
       <form>
-        <input type="text" onChange={() => setNameInput(event.target.value)} />
-        <button type="submit" onClick={() => submitForm(nameInput, event)}>
+        <input
+          type="text"
+          onChange={(event) => setNameInput(event.target.value)}
+        />
+        <button type="submit" onClick={(event) => submitForm(nameInput, event)}>
           Greet Button
         </button>
       </form>
@@ -450,7 +456,7 @@ function SnackList() {
     const removedSnacks = snacks.filter(
       (snack, i) => i.toString() !== currSnack.id,
     ); // first attempt was comparing the name of the snacks - the problem is if we have same name of snacks - all same snack were removed
-    // second attempt was comparing their id - with index - index is number - to had to convert to string - snack id is string 
+    // second attempt was comparing their id - with index - index is number - to had to convert to string - snack id is string
     setSnacks(removedSnacks); // render the updated snack to DOM
   }
 
@@ -476,10 +482,11 @@ function SnackList() {
           <p>NO SNACKS LEFT</p>
         ) : (
           snacks.map((snack, index) => (
-            <>
-              <li id={index}>{snack} </li>
+            <li key={index} id={index}>
+              {snack}
+              <br></br>
               <button onClick={() => removeSnack(index)}>Remove</button>
-            </>
+            </li>
           ))
         )}
       </ul>

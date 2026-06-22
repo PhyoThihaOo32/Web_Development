@@ -73,6 +73,7 @@ button {
   background: #fff;
   cursor: pointer;
   font-size: 0.95rem;
+  color: black;
 }
 
 button:hover {

@@ -42,21 +42,25 @@ const express = require("express");
 const app = express(); // create the app
 app.use(express.json());
 
+// route
+// method - path - handler
+
 // part2  fist route
 app.get("/", (req, res) => res.send("Books API is running"));
 
 // part3 get all books
 app.get("/api/books", (req, res) => {
+  console.log("Getting All Books!");
   res.json(books);
 });
 
 // part4 get one book by id
 app.get("/api/books/:id", (req, res) => {
-  const id = Number(req.params.id); // 4
+  const id = Number(req.params.id); // req.params.id return string
   //   console.log(id);
   const newBook = books.find((book) => book.id === id);
   if (!newBook) {
-    return res.status(404).json({ message: `book id${id} not found` });
+    return res.status(404).json({ message: `book id ${id} not found` });
   }
   res.status(200).json(newBook);
 });
@@ -66,9 +70,9 @@ app.post("/api/books", (req, res) => {
   const { title, author, genre } = req.body;
   const newBook = {
     id: nextId++,
-    title: title,
-    author: author,
-    genre: genre,
+    title,
+    author,
+    genre,
     available: true,
   };
 
@@ -76,7 +80,7 @@ app.post("/api/books", (req, res) => {
   res.status(201).json(books);
 });
 
-// part5 patch an existing book
+// part6 patch an existing book
 app.patch("/api/books/:id", (req, res) => {
   const id = Number(req.params.id);
   const newBook = books.find((book) => book.id === id);
@@ -89,6 +93,7 @@ app.patch("/api/books/:id", (req, res) => {
 // part 7 delete a book
 app.delete("/api/books/:id", (req, res) => {
   const id = Number(req.params.id);
+
   const del_book = books.find((book) => book.id === id);
   if (!del_book)
     return res.status(404).json({ message: `book id ${id} not found` });
@@ -98,5 +103,5 @@ app.delete("/api/books/:id", (req, res) => {
 });
 
 app.listen(8080, () => {
-  console.log("Server running on port 8080");
+  console.log("Server is Running on port 8080");
 });

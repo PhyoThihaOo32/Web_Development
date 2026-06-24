@@ -44,9 +44,16 @@ let recipes = [
 let nextId = 6;
 const PORT = 3000;
 
+// middleware function that logs the request's method and URL (req.method, req.originalUrl) to the console.
+const logger = (req, res, next) => {
+  console.log(`Logging: ${req.method}: ${req.originalUrl}`);
+  next();
+};
+
 const express = require("express");
 const app = express();
 app.use(express.json());
+app.use(logger);
 
 // get all recipes
 app.get("/api/recipes", (req, res) => {

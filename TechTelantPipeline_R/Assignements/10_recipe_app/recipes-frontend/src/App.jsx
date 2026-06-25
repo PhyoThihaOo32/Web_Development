@@ -24,8 +24,17 @@ export default function App() {
     fetchRecipes();
   }, []);
 
-  function handleAddRecipe(newRecipe) {
+  async function handleAddRecipe(newRecipe) {
     // TODO (Part 2): POST newRecipe to `${API_URL}/api/recipes`, then add the created recipe to `recipes`
+    const response = await fetch(`${API_URL}/api/recipes`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newRecipe),
+    });
+
+    const data = await response.json();
+    setRecipes([...recipes, data]);
+    console.log(data);
   }
 
   function handleDeleteRecipe(id) {

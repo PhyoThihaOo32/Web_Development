@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const recipeRouter = require("express").Router();
 
 let recipes = [
   {
@@ -55,13 +55,13 @@ const checkReqBody = (req, res, next) => {
 };
 
 // get all recipes
-router.get("/", (req, res) => {
+recipeRouter.get("/", (req, res) => {
   console.log("Getting all recipes!");
   res.json(recipes);
 });
 
 // get a specific recipe
-router.get("/:id", (req, res, next) => {
+recipeRouter.get("/:id", (req, res, next) => {
   try {
     console.log("Getting a specific recipe.");
     const id = Number(req.params.id);
@@ -76,7 +76,7 @@ router.get("/:id", (req, res, next) => {
 });
 
 // create a recipe
-router.post("/", checkReqBody, (req, res, next) => {
+recipeRouter.post("/", checkReqBody, (req, res, next) => {
   try {
     // console.log(req.body);
     const { title, cuisine, minutes, serving } = req.body;
@@ -96,11 +96,12 @@ router.post("/", checkReqBody, (req, res, next) => {
 });
 
 // update the existing recipe
-router.put("/:id", (req, res, next) => {
+recipeRouter.put("/:id", (req, res, next) => {
   try {
     const id = Number(req.params.id);
     const currRecipe = recipes.find((recipe) => recipe.id === id);
     if (!currRecipe)
+      // should i throw error in this line instead of return?
       return res.status(404).json({ message: `Recipe ${id} not found.` });
     // update the currRecipe with the data from the req.body
     Object.assign(currRecipe, req.body);
@@ -111,7 +112,7 @@ router.put("/:id", (req, res, next) => {
 });
 
 // delete a recipe
-router.delete("/:id", (req, res) => {
+recipeRouter.delete("/:id", (req, res) => {
   try {
     const id = Number(req.params.id);
     const currRecipe = recipes.find((recipe) => recipe.id === id);
@@ -124,4 +125,4 @@ router.delete("/:id", (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = recipeRouter;

@@ -1,16 +1,18 @@
-// middleware function that logs the request's method and URL (req.method, req.originalUrl) to the console.
-const logger = (req, res, next) => {
-  console.log(`Logging: ${req.method}: ${req.originalUrl}`);
-  next();
-};
-
 const PORT = 3000;
 const express = require("express");
-const router = require("./api/index.js");
+const morgan = require("morgan");
+const router = require("./api/index");
+
+// // middleware function that logs the request's method and URL (req.method, req.originalUrl) to the console.
+// const logger = (req, res, next) => {
+//   console.log(`Logging: ${req.method}: ${req.originalUrl}`);
+//   next();
+// };
 
 const app = express();
 app.use(express.json());
-app.use(logger);
+// app.use(logger);
+app.use(morgan("dev"));
 app.use("/api", router);
 
 // middleware

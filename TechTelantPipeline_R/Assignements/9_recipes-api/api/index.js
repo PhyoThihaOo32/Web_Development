@@ -4,10 +4,12 @@
 // router.use("/recipes", recipesRouter);
 // module.exports = router;
 
-const router = require("express").Router();
+const mainRouter = require("express").Router();
 const recipeRouter = require("./recipes");
+const reviewRouter = require("./reviews");
 
 // mout the router
-router.use("/recipes", recipeRouter);
+mainRouter.use("/recipes", recipeRouter);
+mainRouter.use("/recipes", reviewRouter);
 
-module.exports = router;
+module.exports = mainRouter;

@@ -14,7 +14,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger); // logger middleware
 app.use("/api/posts", posts); // ROUTES
 app.use(notFound);
-
 app.use(errorHandler); // error handling
 
 // start the server

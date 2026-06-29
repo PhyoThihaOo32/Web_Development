@@ -19,7 +19,6 @@ export default function App() {
       const response = await fetch(`${API_URL}/api/recipes`);
       const data = await response.json();
       setRecipes(data);
-      console.log(data);
     }
     fetchRecipes();
   }, []);
@@ -34,15 +33,33 @@ export default function App() {
 
     const data = await response.json();
     setRecipes([...recipes, data]);
-    console.log(data);
   }
 
-  function handleDeleteRecipe(id) {
+  async function handleDeleteRecipe(id) {
     // TODO (Part 3): DELETE `${API_URL}/api/recipes/${id}`, then remove that recipe from `recipes`
+    const response = await fetch(`${API_URL}/api/recipes/${id}`, {
+      method: "DELETE",
+    });
+
+    const newRecipes = recipes.filter((recipe) => recipe.id !== id);
+    setRecipes(newRecipes);
   }
 
-  function handleToggleVegetarian(id) {
+  async function handleToggleVegetarian(id) {
     // TODO (Stretch): PATCH `${API_URL}/api/recipes/${id}` to flip `vegetarian`, then update `recipes`
+
+    const updateRecipes = recipes.map((recipe) => {
+      if (recipe.id === id) {
+        return { ...recipe, vegetarian: !recipe.vegetarian };
+      } else return recipe;
+    });
+    const response = await fetch(`${API_URL}/api/recipes/${id}`, {
+      method: "PATCH",
+      // body:  
+    });
+    // const data = await response.json();
+    // console.log(data.vegetarian);
+    setRecipes(updateRecipes);
   }
 
   return (

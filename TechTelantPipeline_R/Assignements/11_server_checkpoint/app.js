@@ -39,6 +39,41 @@ let nextNoteId = 4;
 let nextId = 5;
 const PORT = 8080;
 
+// middlewares
+// logging middleare that show request method and URL
+function logger(req, res, next) {
+  console.log(`${req.method} ${req.url}`);
+  next();
+}
+
+function validatePlant(req, res, next) {
+  const { name, type } = req.body;
+  if (!name || !type)
+    return res.status(400).json({ message: `missing name and type.` });
+  next();
+}
+
+/**
+ * Explain: What is a good reason to have a middleware for our POST routes?
+ * To make sure the req.body has valid data- and if the data is not valid
+ * the route will stop,
+ *
+ *
+ *
+ * Explain: What happens to a request if this middleware never calls
+ * next(), and never sends a response?
+ * The request get stuck and keep waiting, because express don't know what
+ * function to call next or what to do next.
+ */
+
+app.use(logger);
+
+/**
+ * Explain: What happens if you put this middleware
+ * below your routes instead of above them?
+ * Express will call the route and the middleware will never run.
+ */
+
 // get all plants
 app.get("/api/plants", (request, response, next) => {
   try {
@@ -92,7 +127,7 @@ Explain: What happens if you remove await from in front of the delay? Does the r
  */
 
 // create a new plant - POST
-app.post("/api/plants", (req, res, next) => {
+app.post("/api/plants", validatePlant, (req, res, next) => {
   try {
     const { name, type, sunlight, watered = true } = req.body;
 
@@ -208,6 +243,16 @@ app.delete("/api/notes/:id", (req, res, next) => {
     next(error);
   }
 });
+
+/**
+ * Explain: This :id is the note's own id, not a plant's id.
+ * Why does this route start with /api/notes, and not /api/plants?
+ *
+ * Becaue the route don't need to go to the plant(database-or memeory) in this case and
+ * we are now dealing directly with carenote(database - memeory) - we need the carenotes' id which is
+ * not related to or rely on plants.
+ *
+ */
 
 app.use((error, req, res, next) => {
   console.log(error);

@@ -262,3 +262,23 @@ app.use((error, req, res, next) => {
 app.listen(PORT, () => {
   console.log("Server running on port 8080.");
 });
+
+/**
+ *
+ * Explain: You stop and restart node app.js.
+ * What happens to your plants array? Why does that happen?
+ *
+ * All the updated/manipulated data in plants array were reset - that happen becaues the whole program
+ * reset and the memory refresh and again start with hardcoded data.
+ *
+ *
+ * Explain: Two people send requests to your API at the same time, from two different computers.
+ * Do they see the same list of plants? Why or why not?
+ *
+ * No - if there is no centralized database - each person will see diff plant data dependin on their local machine.
+ *
+ * Explain: Think about your last answer. What would need to be true about where your data lives,
+ * so it can survive a restart?
+ *
+ * Data must be stored not on the memeory but in someplace static.
+ */

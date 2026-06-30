@@ -28,6 +28,14 @@ let plants = [
   },
 ];
 
+let careNotes = [
+  { id: 1, plantId: 1, note: "Needs water every 2 weeks." },
+  { id: 2, plantId: 1, note: "Tolerates low light well." },
+  { id: 3, plantId: 3, note: "Loves humidity." },
+];
+
+let nextNoteId = 4;
+
 let nextId = 5;
 const PORT = 8080;
 
@@ -130,6 +138,72 @@ app.delete("/api/plants/:id", (req, res, next) => {
     plants.splice(index, 1);
     res.status(204).json({ message: `plant id ${id} deleted.` });
     // const plant = plants.filter(plant => plant.id !== id);
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
+ * -------------------Part2----------------------------------------
+ */
+
+app.get("/api/notes", (req, res) => {
+  try {
+    res.status(200).json(careNotes);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// get all care note
+app.get("/api/plants/:plantId/notes", (req, res, next) => {
+  try {
+    const plantId = Number(req.params.plantId);
+    const notes = careNotes.filter((note) => note.plantId === plantId);
+    if (notes.length === 0)
+      return res
+        .status(404)
+        .json({ message: `note with plant id ${plantId} not found.` });
+    res.status(200).json(notes);
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
+ * Explain: What does :plantId represent in this URL?
+ * Why is it a param, and notes isn't?
+ * plantId represent /api/plants/1/notes => foregin key in careNote which is also the primary key in plants
+ * becaue careNotes can't be mention or exit with the plantId
+ */
+
+// make a new note - POST
+app.post("/api/plants/:plantId/notes", (req, res, next) => {
+  try {
+    const { note } = req.body;
+    const newNote = {
+      id: nextNoteId++,
+      plantId: Number(req.params.plantId),
+      note,
+    };
+    careNotes.push(newNote);
+    res.status(201).json(newNote);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Delete a note
+app.delete("/api/notes/:id", (req, res, next) => {
+  try {
+    const id = Number(req.params.id);
+    const index = careNotes.findIndex((note) => note.id === id);
+    if (index === -1)
+      return res
+        .status(404)
+        .json({ message: `careNote with id ${id} not found.` });
+    careNotes.splice(index, 1);
+    res.status(204).json({ message: `note id ${id} deleted.` });
   } catch (error) {
     next(error);
   }

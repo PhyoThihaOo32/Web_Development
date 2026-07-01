@@ -5,7 +5,7 @@ const cors = require("cors");
 // TODO: Workshop Part 1: import your db connection from ./db once it's wired up.
 const db = require("./db/index");
 // TODO: Workshop Part 2: import your Book model from ./models/Book once it's defined.
-const Book = require("./models/book");
+const { Book, Review } = require("./models"); // /index is optional
 
 const app = express();
 const PORT = 8080;
@@ -95,7 +95,10 @@ app.get("/api/books/:id", async (request, response, next) => {
     // }
 
     // response.json(book);
-    const book = await Book.findByPk(request.params.id);
+    const id = Number(request.params.id);
+    const book = await Book.findByPk(id, {
+      include: Review,
+    });
     if (!book) return response.sendStatus(404);
     response.json(book);
   } catch (error) {
@@ -175,6 +178,32 @@ app.delete("/api/books/:id", async (request, response, next) => {
     }
     await book.destroy();
     response.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// creat a review
+app.post("/api/books/:bookId/reviews", async (request, response, next) => {
+  try {
+    const { reviewer, rating, comment } = request.body;
+
+    const bookId = Number(request.params.bookId);
+
+    const book = await Book.findByPk(bookId);
+
+    if (!book) {
+      return response.status(404).json({ message: "Book not found" });
+    }
+
+    const newReview = await Review.create({
+      reviewer,
+      rating,
+      comment,
+      BookId: bookId,
+    });
+
+    response.status(201).json(newReview);
   } catch (error) {
     next(error);
   }

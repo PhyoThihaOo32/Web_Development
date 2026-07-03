@@ -187,9 +187,7 @@ app.delete("/api/books/:id", async (request, response, next) => {
 app.post("/api/books/:bookId/reviews", async (request, response, next) => {
   try {
     const { reviewer, rating, comment } = request.body;
-
     const bookId = Number(request.params.bookId);
-
     const book = await Book.findByPk(bookId);
 
     if (!book) {

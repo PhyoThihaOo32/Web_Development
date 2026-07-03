@@ -1,5 +1,5 @@
 /**
- *Given an array and a target value, return how many times the target appears.
+ * Given an array and a target value, return how many times the target appears.
  */
 
 function checkOccurance(arr, target) {

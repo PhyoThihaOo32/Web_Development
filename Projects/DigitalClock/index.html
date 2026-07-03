@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dates & Times</title>
+    <style>
+      body {
+        background: #1a1a2e;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        margin: 0;
+      }
+
+      .clock {
+        font-size: 4em;
+        font-family:
+          "Courier New", monospace; /* monospace stops digits jumping */
+        color: #ffd700;
+        display: flex;
+        gap: 12px;
+      }
+
+      .clock span {
+        padding: 20px 24px;
+        background: #16213e;
+        border-radius: 12px;
+        box-shadow:
+          0 4px 15px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* glow */
+        min-width: 1.4em;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock"></div>
+
+    <script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
+    <script src="sandbox.js"></script>
+  </body>
+</html>

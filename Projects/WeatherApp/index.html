@@ -3,40 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./img/day.svg" type="image/svg+xml" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="styles.css" />
 
-    <title>Ninja Weather</title>
+    <title>myWeather</title>
   </head>
   <body>
-    <div class="container my-5 mx-auto">
-      <h1 class="text-muted text-center my-4">Ninja Weather</h1>
-      <form class="change-location my-4 text-center text-muted">
-        <label for="city">Enter a location for weather information</label>
-        <input type="text" name="city" class="form-control p-4" />
-      </form>
-
-      <div class="card shadow-lg rounded d-none">
-        <img src="https://placehold.co/400x300" class="time card-image-top" />
-        <div class="icon bg-light mx-auto text-center">
-          <img src="" alt="" />
+    <main class="app-shell">
+      <section class="search-panel">
+        <div class="app-header">
+          <p class="eyebrow">Local conditions</p>
+          <h1>myWeather</h1>
+          <p class="intro">
+            Get the current weather, day or night view, and temperature for any city.
+          </p>
         </div>
-        <div class="text-muted text-uppercase text-center details">
-          <h5 class="my-3">City name</h5>
-          <div class="my-3">Weather Condition</div>
-          <div class="display-4 my-4">
-            <span>temp</span>
-            <span>&deg;C</span>
+
+        <form class="change-location" autocomplete="off">
+          <label for="city" class="form-label">Search by city</label>
+          <div class="input-group weather-search">
+            <input
+              type="text"
+              id="city"
+              name="city"
+              class="form-control"
+              placeholder="e.g. New York"
+              required
+            />
+            <button class="btn btn-primary" type="submit">Search</button>
+          </div>
+          <p class="feedback" aria-live="polite"></p>
+        </form>
+
+        <div class="quick-search" aria-label="Popular city searches">
+          <button type="button" class="quick-city" data-city="New York">New York</button>
+          <button type="button" class="quick-city" data-city="London">London</button>
+          <button type="button" class="quick-city" data-city="Tokyo">Tokyo</button>
+        </div>
+      </section>
+
+      <section class="result-column" aria-live="polite">
+        <div class="empty-state">
+          <img src="./img/day.svg" alt="" />
+          <h2>Ready for a forecast</h2>
+          <p>Search a city or choose a quick search to see current conditions.</p>
+        </div>
+
+        <div class="card weather-card d-none">
+          <div class="weather-media">
+            <img src="./img/day.svg" class="time card-img-top" alt="Day sky" />
+            <span class="sky-label">Daytime</span>
+          </div>
+          <div class="icon bg-light mx-auto text-center">
+            <img src="" alt="" />
+          </div>
+          <div class="details">
+            <p class="weather-label">Current weather</p>
+            <h2 class="city-name">City name</h2>
+            <p class="condition">Weather condition</p>
+            <div class="temperature">
+              <span>temp</span>
+              <span>&deg;C</span>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
 
     <script src="./scripts/config.js"></script>
     <script src="./scripts/forecast.js"></script>

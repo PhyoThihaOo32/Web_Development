@@ -12,6 +12,8 @@ import Updater from "./Updater.jsx";
 import UpdateStateObject from "./UpdateStateObject.jsx";
 import UpdateStateArray from "./UpdateStateArray.jsx";
 import UpdateStateArrObject from "./UpdateStateArrObject.jsx";
+import UseEffect from "./useEffect.jsx";
+import UseEffect_CleanUp from "./useEffect_cleanUp.jsx";
 
 function App() {
   //   const fruits = [
@@ -38,13 +40,13 @@ function App() {
   //       )}
   //     </>
   //   );
-  return <UpdateStateArrObject></UpdateStateArrObject>;
+  return <UseEffect_CleanUp></UseEffect_CleanUp>;
 }
 
 export default App;
 
 /**
- * props - readonly properties that are shared between components.
+ * props - properties that are shared between components.
  * A parent component can send data to a child component.
  * <Component key=value />
  *

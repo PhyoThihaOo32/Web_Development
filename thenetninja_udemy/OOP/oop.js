@@ -16,3 +16,5 @@ city.toUpperCase();
 // do all this under hook
 
 const places = new String("somewhere");
+// String() is the constructor and this create a new String wrapper object
+// that is wrapping the primitive value which is string in a String object - now the object has diff prop and methods that we can use

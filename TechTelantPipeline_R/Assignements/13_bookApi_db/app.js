@@ -147,7 +147,7 @@ app.patch("/api/books/:id", async (request, response, next) => {
     // Object.assign(book, request.body);
 
     // response.status(200).json(book);
-    const book = await Book.findByPk(request.params.id);
+    const book = await Book.findByPk(Number(request.params.id));
     if (!book) return response.sendStatus(404);
 
     await book.update(request.body);
@@ -172,7 +172,7 @@ app.delete("/api/books/:id", async (request, response, next) => {
     // books.splice(indexToDelete, 1);
 
     // response.sendStatus(204); // 204 No Content — no body on a successful delete
-    const book = await Book.findByPk(request.params.id);
+    const book = await Book.findByPk(Number(request.params.id));
     if (!book) {
       return response.sendStatus(404);
     }

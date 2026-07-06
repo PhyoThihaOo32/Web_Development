@@ -19,3 +19,7 @@ const { Sequelize } = require("sequelize");
 const db = new Sequelize("postgres://localhost:5432/quotes");
 
 module.exports = db;
+
+// db.authenticate().then(() => {
+//   console.log("it works");
+// });

@@ -23,8 +23,10 @@ function Navbar() {
         there isn't one yet, so pick something simple (e.g. font-weight
         or color).
       */}
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/AddQuote">Add-Quote</NavLink>
+      <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
+        Home
+      </NavLink>
+      <NavLink to="/quotes/new">Add-Quote</NavLink>
     </nav>
   );
 }

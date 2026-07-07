@@ -29,10 +29,10 @@ function Home() {
             
         */
           quotes.map((quote) => (
-            <Link key={quote.id}>
-              <div>
-                <p>{quote.text}</p>
-                <p>{quote.author}</p>
+            <Link key={quote.id} to={`/quotes/${quote.id}`}>
+              <div className="quote-item">
+                <p className="quote-text">{quote.text}</p>
+                <p className="quote-author">{quote.author}</p>
               </div>
             </Link>
           ))

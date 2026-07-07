@@ -1,0 +1,127 @@
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.app h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-h);
+  margin: 0 0 32px 0;
+}
+
+/* ---- card ---- */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 20px;
+  background: var(--bg);
+}
+
+.card h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---- inputs ---- */
+input {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: var(--accent);
+}
+
+/* ---- buttons ---- */
+button {
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 6px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* ---- quote list ---- */
+.quote-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quote-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.quote-id {
+  font-size: 0.75rem;
+  font-family: var(--mono);
+  color: var(--text);
+}
+
+.quote-text {
+  color: var(--text-h);
+  line-height: 1.4;
+}
+
+.quote-author {
+  font-size: 0.875rem;
+  color: var(--text);
+  font-style: italic;
+}
+
+/* ---- empty state ---- */
+.empty {
+  font-size: 0.9rem;
+  color: var(--text);
+  margin: 12px 0 0;
+}
+
+/* ---- navbar ----
+   Bare shell only — no active-link style yet.
+   Part 2 asks you to add one. */
+.navbar {
+  display: flex;
+  gap: 16px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar a {
+  color: var(--text);
+  text-decoration: none;
+}

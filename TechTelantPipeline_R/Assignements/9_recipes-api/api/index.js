@@ -1,15 +1,19 @@
-// const router = require("express").Router();
-// const recipesRouter = require("./recipes");
+const express = require("express");
+const router = express.Router();
 
-// router.use("/recipes", recipesRouter);
-// module.exports = router;
+const recipesRouter = require("./recipes");
+const reviewsRouter = require("./reviews");
 
-const mainRouter = require("express").Router();
-const recipeRouter = require("./recipes");
-const reviewRouter = require("./reviews");
+// order matters: recipesRouter goes first so its own "/:id" claims anything
+// matching /recipes/<one segment> (e.g. /recipes/1) before reviewsRouter sees it
+router.use("/recipes", recipesRouter);
 
-// mout the router
-mainRouter.use("/recipes", recipeRouter);
-mainRouter.use("/recipes", reviewRouter);
+// recipesRouter only recognizes "/" and "/:id" — anything else under /recipes
+// (like /recipes/1/reviews, which has two segments) falls through to this
+router.use("/recipes", reviewsRouter);
 
-module.exports = mainRouter;
+// same router file as above, mounted again — this time it's reached directly,
+// since nothing else is registered under /reviews to claim a request first
+router.use("/reviews", reviewsRouter);
+
+module.exports = router;

@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+:root {
+  --primary: #bc4123;
+  --secondary: #2b3452;
+  --light: #ffffff;
+  --muted: #d8dbe8;
+  --card: #34405f;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  background: var(--secondary);
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--light);
+  margin: 0;
+}
+
+p {
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+button {
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 6px;
+  color: var(--light);
+  background: var(--primary);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* navbar */
+
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-end;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header nav h1 {
+  margin-right: auto;
+  font-size: 2.5rem;
+  border-bottom: 4px solid var(--primary);
+  padding-bottom: 8px;
+}
+
+header nav a {
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+header nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+header nav a.active {
+  background: var(--primary);
+}
+
+/* page content */
+
+main {
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+main h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+main h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+/* help layout */
+
+.help-layout {
+  max-width: 100%;
+}
+
+.help-layout > p {
+  max-width: 1000px;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.help-layout nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.help-layout nav a {
+  padding: 14px 22px;
+  border: 2px solid var(--light);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.help-layout nav a:hover {
+  border-color: var(--primary);
+  background: rgba(188, 65, 35, 0.2);
+}
+
+.help-layout nav a.active {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* faq */
+
+.faq {
+  margin-top: 30px;
+}
+
+.faq .question {
+  background: var(--card);
+  padding: 18px 24px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.faq .question strong {
+  color: var(--light);
+}
+
+.faq .question p {
+  margin: 10px 0;
+  color: var(--muted);
+}
+
+/* forms */
+
+form {
+  margin-top: 30px;
+  max-width: 500px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+form label span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+form input,
+form textarea {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 0;
+  outline: none;
+  color: var(--secondary);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: 2px solid var(--primary);
+}
+
+form button {
+  margin-top: 10px;
+}
+
+/* responsive */
+
+@media (max-width: 700px) {
+  body {
+    padding: 16px;
+  }
+
+  header nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header nav h1 {
+    margin-right: 0;
+    font-size: 2rem;
+  }
+
+  .help-layout nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .help-layout nav a {
+    text-align: center;
+  }
+}
+
+/* Page not Found */
+.not-found {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.not-found h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.not-found p {
+  max-width: 500px;
+  margin: 0 auto 30px;
+  color: var(--muted);
+}
+
+.not-found a {
+  display: inline-block;
+  padding: 12px 18px;
+  background: var(--primary);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+/* careers list */
+
+/* careers details */
+
+/* breadcrumbs */

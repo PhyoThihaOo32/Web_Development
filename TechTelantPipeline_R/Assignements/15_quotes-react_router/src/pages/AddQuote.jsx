@@ -24,6 +24,7 @@ function AddQuote() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
     navigate("/");
 
     // TODO (Part 4): send the user back to the home page after submit

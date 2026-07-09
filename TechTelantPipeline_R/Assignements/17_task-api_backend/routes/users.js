@@ -44,7 +44,7 @@ userRouter.get("/", async (req, res, next) => {
 
       return res.status(200).json(user);
     }
-    // if no query string
+    // if no query string return all users - exclude the password 
     const users = await User.findAll({
       attributes: {
         exclude: ["password"],

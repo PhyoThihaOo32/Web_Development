@@ -58,8 +58,6 @@ function validatePlant(req, res, next) {
  * To make sure the req.body has valid data- and if the data is not valid
  * the route will stop,
  *
- *
- *
  * Explain: What happens to a request if this middleware never calls
  * next(), and never sends a response?
  * The request get stuck and keep waiting, because express don't know what

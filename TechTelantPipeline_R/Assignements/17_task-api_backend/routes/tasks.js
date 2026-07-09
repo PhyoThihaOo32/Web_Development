@@ -35,7 +35,22 @@ const taskRouter = express.Router();
 const { Task, User } = require("./../models");
 // import OP from sequelize
 // import { Op } from "@sequelize/core"; -> give me error LOL
-const { Op } = require("sequelize");
+
+const { Sequelize, Op } = require("sequelize");
+
+/**
+ * Route-specific validation. In routes/tasks.js,
+ * write requireTitle(req, res, next) that sends 400
+ * if req.body.title is missing, otherwise calls next().
+ * Add it as an extra argument on the POST route,
+ * before the handler.
+ */
+function requireTitle(req, res, next) {
+  const { title } = req.body;
+  if (!title)
+    return res.status(400).json({ mes: `missing title in request body.` });
+  next();
+}
 
 // get all tasks - query -> filtering
 taskRouter.get("/", async (req, res, next) => {
@@ -76,7 +91,7 @@ taskRouter.get("/", async (req, res, next) => {
       where.priority = { [Op.gte]: Number(minPriority) };
     }
 
-    console.log(where);
+    // console.log(where);
 
     const task = await Task.findAll({
       where, // where : where,
@@ -109,12 +124,14 @@ taskRouter.get("/:id", async (req, res, next) => {
   }
 });
 
-// create a task
-taskRouter.post("/", async (req, res, next) => {
+// create a task - validate title
+taskRouter.post("/", requireTitle, async (req, res, next) => {
   try {
     const newTask = await Task.create(req.body);
     res.status(201).json(newTask);
   } catch (error) {
+    if (err.name === "SequelizeValidationError")
+      return res.status(400).json({ error: err.errors[0].message });
     next(error);
   }
 });

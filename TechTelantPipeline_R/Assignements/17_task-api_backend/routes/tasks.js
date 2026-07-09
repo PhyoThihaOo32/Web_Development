@@ -34,7 +34,7 @@ const express = require("express");
 const taskRouter = express.Router();
 const { Task, User } = require("./../models");
 // import OP from sequelize
-// import { Op } from "@sequelize/core"; -> give me error LOL
+// import { Op } from "@sequelize/core"; -> give me error LOL // "type" :"module"
 
 const { Sequelize, Op } = require("sequelize");
 

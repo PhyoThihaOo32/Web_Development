@@ -59,7 +59,7 @@ app.use((req, res) => {
  */
 app.use((error, req, res, next) => {
   console.log(error);
-  res.status(500).json({ msg: `weird error of unknown!17  ` });
+  res.status(500).json({ msg: `weird error of unknown!` });
 });
 
 async function startApp() {

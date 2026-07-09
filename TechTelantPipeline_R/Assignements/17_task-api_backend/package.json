@@ -2,6 +2,7 @@
   "name": "17_task-api_backend",
   "version": "1.0.0",
   "description": "",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",

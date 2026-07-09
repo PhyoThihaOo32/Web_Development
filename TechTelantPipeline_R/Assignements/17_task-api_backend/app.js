@@ -2,8 +2,9 @@ const express = require("express");
 const db = require("./db");
 const { User, Task } = require("./models/index");
 
-// import taskRouter
+// import taskRouter and userRouter
 const taskRouter = require("./routes/tasks");
+const userRouter = require("./routes/users");
 
 const app = express();
 const PORT = 3000;
@@ -23,8 +24,10 @@ app.get("/", (req, res) => {
   res.redirect("/api/tasks");
 });
 
-// mount it after /api/tasks
+// mount taskRouter
 app.use("/api/tasks", taskRouter);
+//mount userRouter
+app.use("/api/users", userRouter);
 
 async function startApp() {
   await db.sync();

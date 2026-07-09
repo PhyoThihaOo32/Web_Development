@@ -11,15 +11,85 @@ In app.js, mount the router: app.use("/api/tasks", tasksRouter).
 Change the home route GET / to redirect to /api/tasks using res.redirect.
  */
 
+/**
+ *
+ * Goal: Let the client filter the task list with query strings.
+ * This is how every search bar and filter in your capstone gets built on the backend.
+ * We want three filters on GET /api/tasks:
+ * ?search=review → tasks whose title contains "review"
+ * ?status=todo → tasks with an exact status
+ * ?minPriority=2 → tasks with priority ≥ 2
+ * Steps
+ * In routes/tasks.js, import Op from Sequelize.
+ * In the GET / route, read search, status, and minPriority from req.query.
+ * Build up a where object, adding a condition only for the filters that were actually passed:
+ * exact match for status → where.status = status
+ * "contains" for search → Op.iLike with %value%
+ * "greater than or equal" for minPriority → Op.gte
+ * Pass { where } to findAll.
+ * Test each filter in Postman, and combinations like ?status=todo&minPriority=2.
+ */
+
 const express = require("express");
 const taskRouter = express.Router();
 const { Task, User } = require("./../models");
+// import OP from sequelize
+// import { Op } from "@sequelize/core"; -> give me error LOL
+const { Op } = require("sequelize");
 
-// get all tasks
+// get all tasks - query -> filtering
 taskRouter.get("/", async (req, res, next) => {
   try {
-    const tasks = await Task.findAll();
-    res.json(tasks);
+    // const { search, status, minPriority } = req.query;
+    // if (search || status) {
+    //   const task = await Task.findAll({
+    //     where: {
+    //       title: {
+    //         [Op.iLike]: `%${search}%`,
+    //       },
+    //       status: status,
+    //     },
+    //   });
+
+    //   //if task  not found
+    //   if (!task) return res.status(404).json({ msg: `task not found!` });
+    //   return res.status(200).json(task);
+    // }
+
+    // // const tasks = await Task.findAll();
+    // // res.json(tasks);
+    const { search, status, minPriority } = req.query;
+    const where = {}; // empty obj to filter-inside findAll()
+
+    //  ?search=review → tasks whose title contains "review"
+    if (search) {
+      where.title = { [Op.iLike]: `%${search}%` };
+    }
+
+    //  ?status=todo → tasks with an exact status
+    if (status) {
+      where.status = status;
+    }
+
+    // ?minPriority=2 → tasks with priority ≥ 2
+    if (minPriority) {
+      where.priority = { [Op.gte]: Number(minPriority) };
+    }
+
+    console.log(where);
+
+    const task = await Task.findAll({
+      where, // where : where,
+      /**
+       * {title = { [Op.iLike] : `%${search}%`}}
+       * {status = status}
+       * {priority = { [Op.gte]: Number(minPriority) }}
+       */
+    });
+
+    // check task
+    if (!task) return res.sendStatus(404);
+    return res.status(200).json(task);
   } catch (error) {
     next(error);
   }

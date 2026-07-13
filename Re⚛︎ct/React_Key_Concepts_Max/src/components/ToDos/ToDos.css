@@ -1,0 +1,84 @@
+.todo-page {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #f3f4f6;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.todo-list {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+
+.todo-card {
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-left: 6px solid #0f766e;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+}
+
+.todo-card h2 {
+  margin: 0 0 10px;
+  color: #111827;
+  font-size: 1.4rem;
+  line-height: 1.25;
+}
+
+.todo-card p {
+  margin: 0;
+  color: #374151;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.first-todo {
+  border-left-color: #0f766e;
+}
+
+.second-todo {
+  border-left-color: #c2410c;
+}
+
+.third-todo {
+  border-left-color: #be123c;
+}
+
+.first-todo h2 {
+  color: #0f766e;
+}
+
+.second-todo h2 {
+  color: #c2410c;
+}
+
+.third-todo h2 {
+  color: #be123c;
+}
+
+.todo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(17, 24, 39, 0.12);
+}
+
+@media (max-width: 600px) {
+  .todo-page {
+    padding: 24px 12px;
+  }
+
+  .todo-card {
+    padding: 20px;
+  }
+
+  .todo-card h2 {
+    font-size: 1.25rem;
+  }
+
+  .todo-card p {
+    font-size: 1rem;
+  }
+}

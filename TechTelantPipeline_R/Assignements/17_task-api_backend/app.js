@@ -7,9 +7,8 @@ const taskRouter = require("./routes/tasks");
 const userRouter = require("./routes/users");
 
 const app = express();
-const PORT = 3000;
-
 app.use(express.json()); // app to read JSON request bodies later
+const PORT = 3000;
 
 // middleware
 /**

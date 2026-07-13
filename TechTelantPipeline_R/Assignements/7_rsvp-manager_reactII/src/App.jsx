@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import GuestList from "./component/GuestList";
 
 export default function App() {
   const [name, setName] = useState("");
@@ -27,13 +28,6 @@ export default function App() {
     setEmail("");
   };
 
-  const guestLists = guests.map((guest) => (
-    <li key={guest.id}>
-      {guest.name} {guest.email}
-      <button onClick={() => removeGuest(guest.id)}>Romove Guest</button>
-    </li>
-  ));
-
   function removeGuest(id) {
     const updatedGuest = guests.filter((guest) => guest.id !== id);
     setGuests(updatedGuest);
@@ -54,9 +48,12 @@ export default function App() {
           Add Guest
         </button>
       </form>
+      <p>{name}</p>
+      <p>{email}</p>
       <hr />
       <h2>Guest List</h2>
-      <ul>{guests.length === 0 ? <p>"No Guest!"</p> : guestLists}</ul>
+      {/* <ul>{guests.length === 0 ? <p>"There is No Guest!"</p> : guestLists}</ul> */}
+      <GuestList guestLists={guests} onRemove={removeGuest}></GuestList>
     </div>
   );
 }

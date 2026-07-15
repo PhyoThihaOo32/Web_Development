@@ -1,10 +1,21 @@
-function AddCard({
-  handleGetName,
-  handleGetDescription,
-  addPlaylist,
-  name,
-  description,
-}) {
+import { use, useState } from "react";
+
+function AddCard({ addPlaylist }) {
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+
+  // event hanlders
+  // get playlist title
+  function handleGetName(event) {
+    setName(event.target.value);
+  }
+
+  function handleSubmit() {
+    addPlaylist({ name, description });
+    setName("");
+    setDescription("");
+  }
+
   return (
     <div>
       <input
@@ -17,9 +28,9 @@ function AddCard({
         type="text"
         placeholder="enter description"
         value={description}
-        onChange={handleGetDescription}
+        onChange={(e) => setDescription(e.target.value)}
       />
-      <button onClick={addPlaylist}>Add Playlist</button>
+      <button onClick={handleSubmit}>Add Playlist</button>
     </div>
   );
 }

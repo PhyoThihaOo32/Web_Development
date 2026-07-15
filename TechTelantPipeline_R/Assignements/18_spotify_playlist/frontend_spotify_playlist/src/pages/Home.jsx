@@ -6,8 +6,6 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 function Home() {
   const [playlists, setPlaylists] = useState([]);
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
 
   useEffect(() => {
     const url = API_URL + "/api/playlist";
@@ -24,34 +22,17 @@ function Home() {
     loadPlaylists();
   }, []);
 
-  // event hanlders
-  // get playlist title
-  function handleGetName(event) {
-    setName(event.target.value);
-  }
-
-  // get playlist description
-  function handleGetDescription(event) {
-    setDescription(event.target.value);
-  }
-
   // add newplaylist
-  async function addPlaylist() {
-    const newPlaylist = {
-      name,
-      description,
-    };
+  async function addPlaylist(playlistObj) {
     const response = await fetch(API_URL + "/api/playlist", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPlaylist),
+      body: JSON.stringify(playlistObj),
     });
     const data = await response.json();
     setPlaylists([...playlists, data]);
-    setName("");
-    setDescription("");
   }
 
   async function deletePlaylist(id) {
@@ -66,19 +47,16 @@ function Home() {
   return (
     <>
       <div>
-        <AddCard></AddCard>
+        <AddCard addPlaylist={addPlaylist} />
 
         <div className="playlist-card-container">
           {playlists.map((playlist) => (
-            <>
-              <PlaylistCard
-                key={playlist.id}
-                playlist={playlist}
-              ></PlaylistCard>
+            <div key={playlist.id}>
+              <PlaylistCard playlist={playlist}></PlaylistCard>
               <button onClick={() => deletePlaylist(playlist.id)}>
                 Delete
               </button>
-            </>
+            </div>
           ))}
         </div>
       </div>

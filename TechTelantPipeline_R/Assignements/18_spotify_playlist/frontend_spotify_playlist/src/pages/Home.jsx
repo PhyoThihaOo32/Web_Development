@@ -6,7 +6,7 @@ function Home() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const url = "http://localhost:8000/api/playlist";
+    const url = "https://web-development-zynz.onrender.com/api/playlist";
     async function loadPlaylists() {
       try {
         const response = await fetch(url);
@@ -27,21 +27,27 @@ function Home() {
       name: "Raining Days",
       description: "Good Music for raining day",
     };
-    const response = await fetch("http://localhost:8000/api/playlist", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      "https://web-development-zynz.onrender.com/api/playlist",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newPlaylist),
       },
-      body: JSON.stringify(newPlaylist),
-    });
+    );
     const data = await response.json();
     setPlaylists([...playlists, data]);
   }
 
   async function deletePlaylist(id) {
-    const response = await fetch(`http://localhost:8000/api/playlist/${id}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `https://web-development-zynz.onrender.com/api/playlist/${id}`,
+      {
+        method: "DELETE",
+      },
+    );
 
     const newPlaylists = playlists.filter((playlist) => playlist.id !== id);
     setPlaylists(newPlaylists);

@@ -2,13 +2,12 @@ import { useState, useEffect } from "react";
 import PlaylistCard from "../components/PlaylistCard";
 import AddCard from "../components/AddCard";
 
-const API_URL = import.meta.env.VITE_API_URL;
-
 function Home() {
   const [playlists, setPlaylists] = useState([]);
+  const [name, setName] = useState("");
 
   useEffect(() => {
-    const url = API_URL + "/api/playlist";
+    const url = "https://web-development-zynz.onrender.com/api/playlist";
     async function loadPlaylists() {
       try {
         const response = await fetch(url);
@@ -24,21 +23,27 @@ function Home() {
 
   // add newplaylist
   async function addPlaylist(playlistObj) {
-    const response = await fetch(API_URL + "/api/playlist", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      "https://web-development-zynz.onrender.com/api/playlist",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(playlistObj),
       },
-      body: JSON.stringify(playlistObj),
-    });
+    );
     const data = await response.json();
     setPlaylists([...playlists, data]);
   }
 
   async function deletePlaylist(id) {
-    const response = await fetch(`${API_URL}/api/playlist/${id}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `https://web-development-zynz.onrender.com/api/playlist/${id}`,
+      {
+        method: "DELETE",
+      },
+    );
 
     const newPlaylists = playlists.filter((playlist) => playlist.id !== id);
     setPlaylists(newPlaylists);
@@ -47,15 +52,14 @@ function Home() {
   return (
     <>
       <div>
-        <AddCard addPlaylist={addPlaylist} />
-
+        <AddCard addPlaylist={addPlaylist}></AddCard>
         <div className="playlist-card-container">
           {playlists.map((playlist) => (
             <div key={playlist.id}>
-              <PlaylistCard playlist={playlist}></PlaylistCard>
-              <button onClick={() => deletePlaylist(playlist.id)}>
-                Delete
-              </button>
+              <PlaylistCard
+                handleDelete={deletePlaylist}
+                playlist={playlist}
+              ></PlaylistCard>
             </div>
           ))}
         </div>

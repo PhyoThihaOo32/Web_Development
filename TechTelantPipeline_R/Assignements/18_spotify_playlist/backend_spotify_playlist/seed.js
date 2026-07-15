@@ -1,4 +1,4 @@
-const { db, Song, Playlist } = require("./model");
+const { db, Song, Playlist } = require("./models");
 
 const playlists = [
   {

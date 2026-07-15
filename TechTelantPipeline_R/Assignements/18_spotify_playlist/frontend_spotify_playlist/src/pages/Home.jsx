@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import PlaylistCard from "../components/PlaylistCard";
+import AddPlaylist from "../components/AddPlaylistCard";
+
+const API_URL = "https://web-development-zynz.onrender.com";
 
 function Home() {
   const [playlists, setPlaylists] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const url = "https://web-development-zynz.onrender.com/api/playlist";
+    const url = API_URL + "/api/playlist";
     async function loadPlaylists() {
       try {
         const response = await fetch(url);
         if (!response.ok) throw new Error("Failed to Load the playlists.");
         const data = await response.json();
-        console.log(data);
         setPlaylists([...data]);
       } catch (error) {
         setError(error.message);
@@ -22,32 +24,22 @@ function Home() {
   }, []);
 
   // add newplaylist
-  async function addPlaylist() {
-    const newPlaylist = {
-      name: "Raining Days",
-      description: "Good Music for raining day",
-    };
-    const response = await fetch(
-      "https://web-development-zynz.onrender.com/api/playlist",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newPlaylist),
+  async function addPlaylist(newPlaylist) {
+    const response = await fetch(API_URL + "/api/playlist", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify(newPlaylist),
+    });
     const data = await response.json();
     setPlaylists([...playlists, data]);
   }
 
   async function deletePlaylist(id) {
-    const response = await fetch(
-      `https://web-development-zynz.onrender.com/api/playlist/${id}`,
-      {
-        method: "DELETE",
-      },
-    );
+    const response = await fetch(` ${API_URL}/api/playlist/${id}`, {
+      method: "DELETE",
+    });
 
     const newPlaylists = playlists.filter((playlist) => playlist.id !== id);
     setPlaylists(newPlaylists);
@@ -56,20 +48,15 @@ function Home() {
   return (
     <>
       <div>
-        <h1 className="playlist-title">Phyo's Playlists</h1>
-        <button onClick={addPlaylist}>Add Playlist</button>
-
+        <AddPlaylist addPlaylist={addPlaylist}></AddPlaylist>
         <div className="playlist-card-container">
           {playlists.map((playlist) => (
-            <>
+            <div key={playlist.id}>
               <PlaylistCard
-                key={playlist.id}
+                deletePlaylist={deletePlaylist}
                 playlist={playlist}
               ></PlaylistCard>
-              <button onClick={() => deletePlaylist(playlist.id)}>
-                Delete
-              </button>
-            </>
+            </div>
           ))}
         </div>
       </div>

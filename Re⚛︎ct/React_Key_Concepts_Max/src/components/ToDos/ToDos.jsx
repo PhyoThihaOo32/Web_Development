@@ -1,14 +1,8 @@
-import FirstToDo from "./FirstToDo";
-import SecondToDo from "./SecondToDo";
-import ThirdToDo from "./ThirdToDo";
-
-function ToDos() {
+function ToDos({ title, children }) {
   return (
-    <>
-      <FirstToDo></FirstToDo>
-      <SecondToDo></SecondToDo>
-      <ThirdToDo></ThirdToDo>
-    </>
+    <div className="todo-card" title={title}>
+      <p>{children}</p>
+    </div>
   );
 }
 export default ToDos;

@@ -1,0 +1,32 @@
+.playlist-card-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.playlist-card {
+  min-height: 220px;
+  padding: 24px;
+  background: #2b2020;
+  border: 2px solid #d1d5db;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.playlist-name {
+  margin: 0 0 16px;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.playlist-des {
+  margin: 0;
+  color: #c4c4cc;
+  font-size: 1rem;
+  line-height: 1.5;
+}

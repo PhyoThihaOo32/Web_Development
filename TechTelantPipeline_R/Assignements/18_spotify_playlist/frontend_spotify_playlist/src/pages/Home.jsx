@@ -56,7 +56,7 @@ function Home() {
   return (
     <>
       <div>
-        <h1 className="playlist-title">Your Playlists</h1>
+        <h1 className="playlist-title">Phyo's Playlists</h1>
         <button onClick={addPlaylist}>Add Playlist</button>
 
         <div className="playlist-card-container">

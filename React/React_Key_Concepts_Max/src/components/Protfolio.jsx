@@ -1,4 +1,4 @@
-import cat from "./../assets/cat.jpg";
+import cat from "../assets/cat.jpg";
 
 function Portfolio() {
   return (

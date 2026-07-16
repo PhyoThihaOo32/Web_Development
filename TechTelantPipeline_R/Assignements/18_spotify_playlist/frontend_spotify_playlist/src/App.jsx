@@ -6,6 +6,7 @@ function App() {
     <div>
       <h1 className="playlist-title">Phyo's Playlists</h1>
       <Home></Home>
+      {/* <Song></Song> */}
     </div>
   );
 }

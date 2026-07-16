@@ -37,9 +37,14 @@ function Home() {
   }
 
   async function deletePlaylist(id) {
-    const response = await fetch(` ${API_URL}/api/playlist/${id}`, {
+    const response = await fetch(`${API_URL}/api/playlist/${id}`, {
       method: "DELETE",
     });
+
+    if (!response.ok) {
+      setError("Failed to delete the playlist");
+      return;
+    }
 
     const newPlaylists = playlists.filter((playlist) => playlist.id !== id);
     setPlaylists(newPlaylists);
@@ -51,12 +56,11 @@ function Home() {
         <AddPlaylist addPlaylist={addPlaylist}></AddPlaylist>
         <div className="playlist-card-container">
           {playlists.map((playlist) => (
-            <div key={playlist.id}>
-              <PlaylistCard
-                deletePlaylist={deletePlaylist}
-                playlist={playlist}
-              ></PlaylistCard>
-            </div>
+            <PlaylistCard
+              key={playlist.id}
+              deletePlaylist={deletePlaylist}
+              playlist={playlist}
+            ></PlaylistCard>
           ))}
         </div>
       </div>

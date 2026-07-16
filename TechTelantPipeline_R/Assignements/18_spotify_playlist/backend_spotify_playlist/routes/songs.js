@@ -24,8 +24,8 @@ songRouter.get("/:id", async (req, res, next) => {
 // create/add a song
 songRouter.post("/", async (req, res, next) => {
   try {
-    const { title, artist, duration } = req.body;
-    if (!title || !artist || !duration)
+    const { title, artist, duration, PlaylistId } = req.body;
+    if (!title || !artist || !duration || !PlaylistId)
       return res
         .status(404)
         .json({ message: `Request Body Missing Information` });
@@ -35,6 +35,7 @@ songRouter.post("/", async (req, res, next) => {
       title,
       artist,
       duration,
+      PlaylistId,
     });
 
     res.status(201).json(song);

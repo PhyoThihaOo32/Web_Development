@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import PollDetails from "./pages/PollDetails";
 
+
 function App() {
   return (
     <div>

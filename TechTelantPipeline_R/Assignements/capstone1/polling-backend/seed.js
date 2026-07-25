@@ -10,9 +10,9 @@ const createFavColorPoll = () => {
 
 const createColorOptions = (favColor) => {
   return Option.bulkCreate([
-    { text: "Red", pollId: favColor.id },
-    { text: "Blue", pollId: favColor.id },
-    { text: "Green", pollId: favColor.id },
+    { text: "Red", PollId: favColor.id },
+    { text: "Blue", PollId: favColor.id },
+    { text: "Green", PollId: favColor.id },
   ]);
 };
 
@@ -34,37 +34,28 @@ const createSeasonPoll = () => {
 
 const createSeasonOptions = (bestSeason) => {
   return Option.bulkCreate([
-    { text: "Summer", pollId: bestSeason.id },
-    { text: "Winter", pollId: bestSeason.id },
+    { text: "Summer", PollId: bestSeason.id },
+    { text: "Winter", PollId: bestSeason.id },
   ]);
 };
 
 const createSeasonVotes = (seasonOptions) => {
   return Vote.bulkCreate([
-    { optionId: seasonOptions[0].id }, // Summer
-    { optionId: seasonOptions[0].id }, // Summer
-    { optionId: seasonOptions[1].id }, // Winter
+    { optionId: seasonOptions[0].id },
+    { optionId: seasonOptions[0].id },
+    { optionId: seasonOptions[1].id },
   ]);
 };
 
 async function seed() {
-  try {
-    await db.sync({ force: true });
-
-    const favColor = await createFavColorPoll();
-    const colorOptions = await createColorOptions(favColor);
-    await createColorVotes(colorOptions);
-
-    const bestSeason = await createSeasonPoll();
-    const seasonOptions = await createSeasonOptions(bestSeason);
-    await createSeasonVotes(seasonOptions);
-
-    console.log("Seed successful");
-    process.exit(0);
-  } catch (error) {
-    console.error("Seed failed:", error);
-    process.exit(1);
-  }
+  db.sync({ force: true })
+    .then(createFavColorPoll)
+    .then(createColorOptions)
+    .then(createColorVotes)
+    .then(createSeasonPoll)
+    .then(createSeasonOptions)
+    .then(createSeasonVotes);
+  console.log("Seed successful");
 }
 
 seed();

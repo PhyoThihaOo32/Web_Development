@@ -6,10 +6,6 @@ const Option = db.define("Option", {
     type: DataTypes.TEXT,
     allowNull: false,
   },
-  pollId: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
 });
 
 module.exports = Option;

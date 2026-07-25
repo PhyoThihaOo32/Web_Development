@@ -1,2 +1,4 @@
 Projects/WeatherApp/scripts/config.js
 ./Sequelize_Postgres/.env
+
+node_modules/

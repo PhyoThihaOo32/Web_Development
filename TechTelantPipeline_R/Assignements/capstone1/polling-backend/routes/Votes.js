@@ -25,7 +25,6 @@ voteRouter.get("/:id", async (req, res, next) => {
 });
 
 // create a vote
-// routes/Votes.js
 voteRouter.post("/", async (req, res, next) => {
   try {
     const { optionId } = req.body;

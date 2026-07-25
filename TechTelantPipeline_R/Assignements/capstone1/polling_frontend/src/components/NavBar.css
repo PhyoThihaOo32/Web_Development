@@ -1,0 +1,42 @@
+/* CRISMAR IS WORKING ON THIS FILE
+
+.sidebar{
+    width:220px;
+    height:100vh;
+    background-color: rgb(59, 6, 59);
+    padding: 24px;
+}
+
+.sidebar-logo{
+    margin: 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color:black;
+}
+
+.sidebar-links{
+    display: flex;
+    flex-direction:column;
+    text-align:left;
+    list-style:none;
+}
+
+
+.sidebar-links a{
+    display:block;
+    font-size:15px;
+    color: rgb(234, 225, 234);
+    border-radius: 4px;
+    text-decoration:none;
+}
+
+.sidebar-links a.active{
+    font-weight:500;
+    color: var(--text-primary, rgb(92, 0, 128));
+    background-color: #e7cef3;
+
+}
+
+.sidebar-links a:hover{
+    background-color: rgb(30, 26, 30)
+} */

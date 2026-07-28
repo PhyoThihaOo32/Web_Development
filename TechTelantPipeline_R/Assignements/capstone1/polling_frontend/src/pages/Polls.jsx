@@ -25,7 +25,6 @@ function Polls() {
 
   return (
     <>
-      <h1>Polls Here</h1>
       {polls.map((poll) => (
         <PollCard key={poll.id} poll={poll}></PollCard>
       ))}

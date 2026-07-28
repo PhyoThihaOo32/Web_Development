@@ -37,7 +37,6 @@ function Results() {
 
   return (
     <div>
-      <h1>Results Page</h1>
       <h2>Poll Title: {poll.title}</h2>
       <p>Poll Description: {poll.description}</p>
       <h3>Here are the Options and Votes</h3>

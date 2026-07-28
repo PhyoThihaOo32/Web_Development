@@ -50,7 +50,6 @@ function PollDetails() {
 
   return (
     <div>
-      <h1>Poll Details</h1>
       <div>
         {options.map((option) => (
           <OptionCard

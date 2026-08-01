@@ -14,6 +14,7 @@ import UpdateStateArray from "./UpdateStateArray.jsx";
 import UpdateStateArrObject from "./UpdateStateArrObject.jsx";
 import UseEffect from "./useEffect.jsx";
 import UseEffect_CleanUp from "./useEffect_cleanUp.jsx";
+import UseReducer from "./UseReducer.jsx";
 
 function App() {
   //   const fruits = [
@@ -40,7 +41,7 @@ function App() {
   //       )}
   //     </>
   //   );
-  return <UseEffect_CleanUp></UseEffect_CleanUp>;
+  return <UseReducer></UseReducer>;
 }
 
 export default App;

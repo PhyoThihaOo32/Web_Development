@@ -1,0 +1,24 @@
+const mongoose = require("mongoose");
+
+const Schema = mongoose.Schema;
+
+// schema define the structure of the db - like a blueprint
+const workoutScheme = new Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    reps: {
+      type: Number,
+      required: true,
+    },
+    load: {
+      type: Number,
+      required: true,
+    },
+  },
+  { timestamps: true },
+);
+
+module.exports = mongoose.model("Workout", workoutScheme);

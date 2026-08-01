@@ -15,6 +15,7 @@ import UpdateStateArrObject from "./UpdateStateArrObject.jsx";
 import UseEffect from "./useEffect.jsx";
 import UseEffect_CleanUp from "./useEffect_cleanUp.jsx";
 import UseReducer from "./UseReducer.jsx";
+import ComponentA from "./ComponentA.jsx";
 
 function App() {
   //   const fruits = [
@@ -41,6 +42,7 @@ function App() {
   //       )}
   //     </>
   //   );
+
   return <UseReducer></UseReducer>;
 }
 
@@ -70,4 +72,9 @@ export default App;
  *
  * useState() = A React hook that allows the creation of a stateful variable AND a setter function to
  *            update its value in the Virtual DOM [name, setName]
+ */
+
+/**useContext() - is a react hook that allows you to share values
+ *                between multiple levels of components
+ *                without passing props through each level
  */
